@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import AddIcon from '../../../ui/Icons/AddIcon';
+import {AddIcon} from '../../../ui/Icons/AddIcon';
+import {colors} from '../../style/colors';
 
 const Container = styled.View`
   margin: 15px;
@@ -28,7 +29,7 @@ export const InputNewPrayer: React.FC = () => {
   return (
     <Container>
       <IconContainer>
-        <AddIcon />
+        <AddIcon color={colors.blue} />
       </IconContainer>
       <Input />
     </Container>

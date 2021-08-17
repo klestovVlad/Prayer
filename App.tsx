@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import {createStore} from '@reduxjs/toolkit';
 import rootReduser from './src/store/index';
 import {useState} from 'react';
+import {PrayerDetails} from './src/components/prayer-details/prayer-details';
 
 const store = createStore(rootReduser);
 
@@ -30,6 +31,13 @@ function App() {
             name="Task"
             component={Task}
             initialParams={{setheaderName, headerName}}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Prayer details"
+            component={PrayerDetails}
             options={{
               headerShown: false,
             }}

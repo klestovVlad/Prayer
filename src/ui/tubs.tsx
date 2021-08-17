@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {useState} from 'react';
 
 interface TubsItemProps {
   isActive: boolean;
@@ -39,18 +38,24 @@ const TubsContainet = styled.View`
 interface TubsProps {
   listOfTubs: Array<string>;
   visibility: boolean;
+  NumOfView?: number;
+  setNumOfView(arg0: number): void;
 }
 
-export const Tubs: React.FC<TubsProps> = ({listOfTubs, visibility}) => {
-  const [numOfTubs, setnumOfTubs] = useState(0);
+export const Tubs: React.FC<TubsProps> = ({
+  listOfTubs,
+  visibility,
+  NumOfView,
+  setNumOfView,
+}) => {
   return visibility ? (
     <TubsContainet>
       {listOfTubs.map((item, index) => (
         <TubsItem
-          onPress={() => setnumOfTubs(index)}
-          isActive={index === numOfTubs}
+          onPress={() => setNumOfView(index)}
+          isActive={index === NumOfView}
           key={index}>
-          <TubsText isActive={index === numOfTubs}>{item}</TubsText>
+          <TubsText isActive={index === NumOfView}>{item}</TubsText>
         </TubsItem>
       ))}
     </TubsContainet>

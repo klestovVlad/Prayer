@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {Alert} from 'react-native';
 import {Tubs} from '../../ui/tubs';
 import {AppButton} from '../../ui/AppButton';
 
@@ -40,12 +39,16 @@ interface AppHeaderProps {
 interface AppHeaderProps {
   headerText: string;
   tubsVisibility: boolean;
+  NumOfView: number;
+  setNumOfView(arg0: number): void;
   onPress(): void;
 }
 
 export const AppHeader: React.FC<AppHeaderProps> = ({
   headerText,
   tubsVisibility,
+  NumOfView,
+  setNumOfView,
   onPress,
 }) => {
   return (
@@ -57,6 +60,8 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
       <Tubs
         visibility={tubsVisibility}
         listOfTubs={['My prayers', 'subscribed']}
+        setNumOfView={setNumOfView}
+        NumOfView={NumOfView}
       />
     </Header>
   );
