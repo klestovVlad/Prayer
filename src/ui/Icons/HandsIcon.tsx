@@ -3,7 +3,7 @@ import Svg, {Path} from 'react-native-svg';
 
 interface HandsIconProps {
   color: string;
-};
+}
 
 export const HandsIcon: React.FC<HandsIconProps> = ({color}) => {
   return (

@@ -4,7 +4,7 @@ import {colors} from '../style/colors';
 import {AddIcon} from '../../ui/Icons/AddIcon';
 
 const Container = styled.View`
-  padding: 15px 20px;
+  padding: 15px 15px;
 `;
 
 const Header = styled.Text`
@@ -16,7 +16,7 @@ const Header = styled.Text`
 const MembersRow = styled.View`
   display: flex;
   flex-direction: row;
-  padding: 15px 15px 30px 0px;
+  padding: 15px 15px 15px 0px;
 `;
 
 const MemberPhoto = styled.View`
@@ -59,7 +59,7 @@ export const Members = () => {
           <Text>CD</Text>
         </MemberPhoto>
         <AddMemberButton>
-          <AddIcon color={colors.white}/>
+          <AddIcon color={colors.white} />
         </AddMemberButton>
       </MembersRow>
     </Container>

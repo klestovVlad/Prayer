@@ -24,11 +24,15 @@ const Text = styled.Text`
   line-height: 27px;
 `;
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  navigation: any;
+}
+
+export const Header: React.FC<HeaderProps> = ({navigation}) => {
   return (
     <Container>
       <IconRow>
-        <BackButton>
+        <BackButton onPress={() => navigation.goBack()}>
           <BackIcon />
         </BackButton>
         <HandsIcon color={colors.white} />
