@@ -1,6 +1,35 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
+interface TubsProps {
+  listOfTubs: Array<string>;
+  type: number;
+  NumOfView?: number;
+  setNumOfView(arg0: number): void;
+}
+
+export const Tubs: React.FC<TubsProps> = ({
+  listOfTubs,
+  type,
+  NumOfView,
+  setNumOfView,
+}) => {
+  return type === 1 ? (
+    <TubsContainet>
+      {listOfTubs.map((item, index) => (
+        <TubsItem
+          onPress={() => setNumOfView(index)}
+          isActive={index === NumOfView}
+          key={index}>
+          <TubsText isActive={index === NumOfView}>{item}</TubsText>
+        </TubsItem>
+      ))}
+    </TubsContainet>
+  ) : (
+    <></>
+  );
+};
+
 interface TubsItemProps {
   isActive: boolean;
 }
@@ -34,32 +63,3 @@ const TubsContainet = styled.View`
   justify-content: space-around;
   width: 100%;
 `;
-
-interface TubsProps {
-  listOfTubs: Array<string>;
-  type: number;
-  NumOfView?: number;
-  setNumOfView(arg0: number): void;
-}
-
-export const Tubs: React.FC<TubsProps> = ({
-  listOfTubs,
-  type,
-  NumOfView,
-  setNumOfView,
-}) => {
-  return type === 1 ? (
-    <TubsContainet>
-      {listOfTubs.map((item, index) => (
-        <TubsItem
-          onPress={() => setNumOfView(index)}
-          isActive={index === NumOfView}
-          key={index}>
-          <TubsText isActive={index === NumOfView}>{item}</TubsText>
-        </TubsItem>
-      ))}
-    </TubsContainet>
-  ) : (
-    <></>
-  );
-};

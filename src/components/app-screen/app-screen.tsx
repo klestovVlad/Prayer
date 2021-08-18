@@ -5,7 +5,7 @@ import {Desk} from './desk/index';
 import {Task} from './task/task';
 import {Provider} from 'react-redux';
 import {createStore} from '@reduxjs/toolkit';
-import rootReduser from '../../../src/store/index';
+import rootReduser from '../../store/index';
 import {useState} from 'react';
 import {PrayerDetails} from './prayer-details/prayer-details';
 

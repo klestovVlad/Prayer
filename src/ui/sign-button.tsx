@@ -2,6 +2,18 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {colors} from '../style/colors';
 
+interface SignButtonProps {
+  text: string;
+}
+
+export const SignButton: React.FC<SignButtonProps> = ({text}) => {
+  return (
+    <Button>
+      <Text>{text}</Text>
+    </Button>
+  );
+};
+
 const Button = styled.TouchableOpacity`
   padding: 8px 60px;
   background-color: ${colors.blue};
@@ -14,15 +26,3 @@ const Text = styled.Text`
   font-size: 17px;
   color: ${colors.white};
 `;
-
-interface SignButtonProps {
-  text: string;
-}
-
-export const SignButton: React.FC<SignButtonProps> = ({text}) => {
-  return (
-    <Button>
-      <Text>{text}</Text>
-    </Button>
-  );
-};

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import {CheckBox} from '../../../../ui/checkBox';
+import {CheckBox} from '../../../../ui/check-box';
 import {UserIcon} from '../../../../ui/Icons/UserIcon';
 import {HandsIcon} from '../../../../ui/Icons/HandsIcon';
 import {colors} from '../../../../style/colors';

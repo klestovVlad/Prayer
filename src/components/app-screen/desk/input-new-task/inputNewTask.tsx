@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppButton} from '../../../../ui/AppButton';
+import {AppButton} from '../../../../ui/app-button';
 import {Container, Button, Input} from './styles';
 
 interface InputNewTaskProps {

@@ -3,7 +3,7 @@ import {Field, Form} from 'react-final-form';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {colors} from '../../../style/colors';
-import {SignButton} from '../../../ui/SignButton';
+import {SignButton} from '../../../ui/sign-button';
 
 const Container = styled.View`
   background-color: ${colors.white};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {AppScreen} from './src/components/app-screen/appScreen';
+import {AppScreen} from './src/components/app-screen/app-screen';
 import {AutorizationScreen} from './src/components/authorization-screen/autorization-screen';
 
 function App() {
