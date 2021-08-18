@@ -37,18 +37,18 @@ const TubsContainet = styled.View`
 
 interface TubsProps {
   listOfTubs: Array<string>;
-  visibility: boolean;
+  type: number;
   NumOfView?: number;
   setNumOfView(arg0: number): void;
 }
 
 export const Tubs: React.FC<TubsProps> = ({
   listOfTubs,
-  visibility,
+  type,
   NumOfView,
   setNumOfView,
 }) => {
-  return visibility ? (
+  return type === 1 ? (
     <TubsContainet>
       {listOfTubs.map((item, index) => (
         <TubsItem

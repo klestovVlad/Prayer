@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {SettingIcon} from './Icons/SettingIcon';
 
 const Button = styled.TouchableOpacity``;
 
@@ -10,11 +11,17 @@ const ButtonText = styled.Text`
 
 interface AppButton {
   onPress?(): void;
-  title: string;
+  type: number;
 }
 
-export const AppButton: React.FC<AppButton> = ({onPress, title}) => (
-  <Button onPress={onPress}>
-    <ButtonText>{title}</ButtonText>
-  </Button>
-);
+export const AppButton: React.FC<AppButton> = ({onPress, type}) => {
+  return type === 0 ? (
+    <Button onPress={onPress}>
+      <ButtonText>+</ButtonText>
+    </Button>
+  ) : (
+    <Button onPress={onPress}>
+      <SettingIcon />
+    </Button>
+  );
+};
