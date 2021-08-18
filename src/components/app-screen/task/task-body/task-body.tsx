@@ -4,16 +4,15 @@ import {Subscribed} from '../subcribed/subscribed';
 
 interface TaskBodyProps {
   NumOfView: number;
-  navigation: any;
 }
 
-export const TaskBody: React.FC<TaskBodyProps> = ({NumOfView, navigation}) => {
+export const TaskBody: React.FC<TaskBodyProps> = ({NumOfView}) => {
   switch (NumOfView) {
     case 0:
-      return <MyPrayers navigation={navigation} />;
+      return <MyPrayers />;
     case 1:
       return <Subscribed />;
     default:
-      return <MyPrayers navigation={navigation} />;
+      return <MyPrayers />;
   }
 };

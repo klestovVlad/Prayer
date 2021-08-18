@@ -15,7 +15,7 @@ export const Task: React.FC<any> = ({navigation}) => {
         NumOfView={NumOfView}
         onPress={() => null}
       />
-      <TaskBody NumOfView={NumOfView} navigation={navigation} />
+      <TaskBody NumOfView={NumOfView} />
     </Container>
   );
 };

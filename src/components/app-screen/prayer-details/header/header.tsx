@@ -3,12 +3,10 @@ import {BackIcon} from '../../../../ui/Icons/BackIcon';
 import {HandsIcon} from '../../../../ui/Icons/HandsIcon';
 import {colors} from '../../../../style/colors';
 import {Container, IconRow, BackButton, Text} from './styles';
+import {useNavigation} from '@react-navigation/native';
 
-interface HeaderProps {
-  navigation: any;
-}
-
-export const Header: React.FC<HeaderProps> = ({navigation}) => {
+export const Header: React.FC = () => {
+  const navigation = useNavigation();
   return (
     <Container>
       <IconRow>

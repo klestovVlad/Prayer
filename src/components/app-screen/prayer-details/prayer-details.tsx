@@ -12,14 +12,10 @@ const Container = styled.View`
   height: 100%;
 `;
 
-interface PrayerDetailsProps {
-  navigation: any;
-}
-
-export const PrayerDetails: React.FC<PrayerDetailsProps> = ({navigation}) => {
+export const PrayerDetails: React.FC = () => {
   return (
     <Container>
-      <Header navigation={navigation} />
+      <Header />
       <ScrollView>
         <LastPrayed />
         <TableInfo />

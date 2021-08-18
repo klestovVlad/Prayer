@@ -7,7 +7,7 @@ import {InputNewTask} from './input-new-task/inputNewTask';
 import {useState} from 'react';
 import {Container} from './styles';
 
-export const Desk: React.FC<any> = ({navigation}) => {
+export const Desk: React.FC<any> = () => {
   const data = useSelector((state: Board) => state);
   const [showInput, setshowInput] = useState(false);
   return (
@@ -21,11 +21,7 @@ export const Desk: React.FC<any> = ({navigation}) => {
       />
       <InputNewTask showInput={showInput} setshowInput={setshowInput} />
       {Object.keys(data).map(item => (
-        <TaskRow
-          key={data[item].id}
-          name={data[item].columnName}
-          navigation={navigation}
-        />
+        <TaskRow key={data[item].id} name={data[item].columnName} />
       ))}
     </Container>
   );

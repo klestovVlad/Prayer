@@ -7,13 +7,21 @@ import {colors} from '../../../../style/colors';
 import {Container, VerticalLine, Text, IconsContainer, Number} from './styles';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {Animated} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
-interface PrayerRowProps {
-  navigation: any;
-}
+type RootStackParamList = {
+  'Prayer details': undefined;
+};
 
-export const PrayerRow: React.FC<PrayerRowProps> = ({navigation}) => {
+type ProfileScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Prayer details'
+>;
+
+export const PrayerRow: React.FC = () => {
   const [answered, setanswered] = useState(false);
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
 
   const renderRightActions = (
     proggres: Animated.AnimatedInterpolation,
