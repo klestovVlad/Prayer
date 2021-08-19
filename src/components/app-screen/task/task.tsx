@@ -4,7 +4,7 @@ import {AppHeader} from '../header/app-header';
 import {TaskBody} from './task-body/task-body';
 import {Container} from './styles';
 
-export const Task: React.FC<any> = ({navigation}) => {
+export const Task: React.FC<any> = () => {
   const [NumOfView, setNumOfView] = useState(0);
   return (
     <Container>

@@ -9,6 +9,7 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {Animated} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
 
 type RootStackParamList = {
   'Prayer details': undefined;
@@ -33,7 +34,7 @@ export const PrayerRow: React.FC = () => {
     });
     return (
       <Animated.View style={{transform: [{translateX: trans}]}}>
-        <Text answered={answered}>Prayer text</Text>
+        <SwipebleDeliteButton />
       </Animated.View>
     );
   };

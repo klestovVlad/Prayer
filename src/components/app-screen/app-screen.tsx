@@ -5,11 +5,11 @@ import {Desk} from './desk/index';
 import {Task} from './task/task';
 import {Provider} from 'react-redux';
 import {createStore} from '@reduxjs/toolkit';
-import rootReduser from '../../store/index';
+import {rootReducer} from '../../store/root-reducer';
 import {useState} from 'react';
 import {PrayerDetails} from './prayer-details/prayer-details';
 
-const store = createStore(rootReduser);
+const store = createStore(rootReducer);
 
 const Stack = createNativeStackNavigator();
 
