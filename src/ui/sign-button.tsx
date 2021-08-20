@@ -4,11 +4,12 @@ import {colors} from '../style/colors';
 
 interface SignButtonProps {
   text: string;
+  onPress(): void;
 }
 
-export const SignButton: React.FC<SignButtonProps> = ({text}) => {
+export const SignButton: React.FC<SignButtonProps> = ({text, onPress}) => {
   return (
-    <Button>
+    <Button onPress={onPress}>
       <Text>{text}</Text>
     </Button>
   );

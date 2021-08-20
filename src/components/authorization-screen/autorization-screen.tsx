@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SingIn} from './sign-in/sign-in';
 import {SingUp} from './sign-up/sign-up';
 import styled from 'styled-components/native';
