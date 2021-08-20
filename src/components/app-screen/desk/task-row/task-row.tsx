@@ -4,7 +4,9 @@ import {TaskContent, TaskText} from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 type RootStackParamList = {
-  Task: undefined;
+  Task: {
+    name: string;
+  };
 };
 
 type ProfileScreenNavigationProp = StackNavigationProp<
@@ -19,7 +21,7 @@ type TaskProps = {
 export const TaskRow: React.FC<TaskProps> = ({name}) => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   return (
-    <TaskContent onPress={() => navigation.navigate('Task')}>
+    <TaskContent onPress={() => navigation.navigate('Task', {name: name})}>
       <TaskText>{name}</TaskText>
     </TaskContent>
   );

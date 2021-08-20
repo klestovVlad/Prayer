@@ -7,8 +7,11 @@ const stateSlice = createSlice({
   name: 'boardSlice',
   initialState: state,
   reducers: {
-    loadData(state, action: PayloadAction<LoadData>) {
-      action.payload.loadData;
+    columnRequest() {
+      console.log('columns');
+    },
+    getColumns(data, {payload}: any) {
+      return payload;
     },
   },
 });

@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {TaskRow} from './task-row/task-row';
 import {useDispatch, useSelector} from 'react-redux';
-import {Board} from '../../../store/data/state';
 import {AppHeader} from '../header/app-header';
 import {InputNewTask} from './input-new-task/inputNewTask';
 import {useState} from 'react';
 import {Container} from './styles';
+import {stateAction} from '../../../store/data/slice';
 
 export const Desk: React.FC<any> = () => {
-  const data = useSelector((state: Board) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(stateAction.columnRequest());
+  }, []);
+
+  const data = useSelector((state) => state.DataReducer);
+  console.log('data desk: ', data);
+
   const [showInput, setshowInput] = useState(false);
+
   return (
     <Container>
       <AppHeader
@@ -21,7 +29,7 @@ export const Desk: React.FC<any> = () => {
       />
       <InputNewTask showInput={showInput} setshowInput={setshowInput} />
       {Object.keys(data).map(item => (
-        <TaskRow key={data[item].id} name={data[item].columnName} />
+        <TaskRow key={data[item].id} name={data[item].title} />
       ))}
     </Container>
   );

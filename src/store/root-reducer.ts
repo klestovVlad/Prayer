@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
 import UserReduser from './user/slice';
-import DataReduser from './data/slice';
+import DataReducer from './data/slice';
 import createSagaMiddleware from '@redux-saga/core';
 import {userWatcher} from './user/saga';
+import {dataWatcher} from './data/saga';
 import {configureStore} from '@reduxjs/toolkit';
+import {all} from 'redux-saga/effects';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -11,7 +13,7 @@ export type RootState = ReturnType<typeof rootReducer>;
 
 export const rootReducer = combineReducers({
   UserReduser: UserReduser,
-  DataReduser: DataReduser,
+  DataReducer: DataReducer,
 });
 
 export const store = configureStore({
@@ -19,4 +21,8 @@ export const store = configureStore({
   middleware: [sagaMiddleware],
 });
 
-sagaMiddleware.run(userWatcher);
+function* rootWatcher() {
+  yield all([userWatcher(), dataWatcher()]);
+}
+
+sagaMiddleware.run(rootWatcher);

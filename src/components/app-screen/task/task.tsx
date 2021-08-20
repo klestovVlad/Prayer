@@ -3,13 +3,25 @@ import {useState} from 'react';
 import {AppHeader} from '../header/app-header';
 import {TaskBody} from './task-body/task-body';
 import {Container} from './styles';
+import {RouteProp} from '@react-navigation/native';
 
-export const Task: React.FC<any> = () => {
+type RootStackParamList = {
+  Task: {nameHeader: string; name: string};
+};
+
+type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Task'>;
+
+type TaskProps = {
+  route: ProfileScreenRouteProp;
+};
+
+export const Task: React.FC<TaskProps> = ({route}) => {
+  console.log('task name: ', route.params.name);
   const [NumOfView, setNumOfView] = useState(0);
   return (
     <Container>
       <AppHeader
-        headerText="To do"
+        headerText={route.params.name}
         type={1}
         setNumOfView={setNumOfView}
         NumOfView={NumOfView}
