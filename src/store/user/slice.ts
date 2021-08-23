@@ -7,6 +7,7 @@ interface SignIn {
   id: number;
   name: string;
   token: string;
+  loading: boolean;
 }
 
 interface SignError {
@@ -17,12 +18,14 @@ const UserSlice = createSlice({
   name: 'UserSlice',
   initialState,
   reducers: {
-    singInRequest() {
+    singInRequest(state) {
       console.log('singInRequest');
+      state.loading = true;
+      return state;
     },
     signIn(data, {payload}: PayloadAction<SignIn>) {
       console.log('data: ', payload);
-      return payload;
+      return {...payload, loading: false};
     },
     singUpRequest() {
       console.log('singInRequest');

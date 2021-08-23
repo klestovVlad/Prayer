@@ -5,6 +5,8 @@ import {SingUp} from './sign-up/sign-up';
 import styled from 'styled-components/native';
 import {colors} from '../../style/colors';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {LoadIcon} from '../../ui/Icons/loading';
+import {useSelector} from 'react-redux';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -27,7 +29,13 @@ const Header = styled.Text`
 `;
 
 export const AutorizationScreen = () => {
-  return (
+  const {loading} = useSelector((state: any) => state.UserReduser);
+  return loading ? (
+    <Container>
+      <Header>PRAYER</Header>
+      <LoadIcon />
+    </Container>
+  ) : (
     <Container>
       <Block>
         <Header>PRAYER</Header>

@@ -3,6 +3,7 @@ export interface UserData {
   id: number;
   name: string;
   token: string;
+  loading: boolean;
 }
 
 export const initialState: UserData = {
@@ -10,4 +11,5 @@ export const initialState: UserData = {
   id: 0,
   name: '',
   token: '',
+  loading: false,
 };
