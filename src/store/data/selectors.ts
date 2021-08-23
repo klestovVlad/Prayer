@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect';
-import {Board} from './state';
+import {RootState} from '../root-reducer';
 
-const selectData = (state: Board) => state;
+const selectData = (state: RootState) => state.DataReducer;
 
 export const selectStoreData = createSelector(selectData, data => data);

@@ -9,3 +9,11 @@ export const columnsQuery = (token: string) => {
     },
   });
 };
+
+export const prayersQuery = (token: string) => {
+  return axios.get(baseUrl + 'prayers', {
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  });
+};

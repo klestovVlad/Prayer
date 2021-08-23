@@ -8,7 +8,11 @@ type UserData = {
 };
 
 export const signInQuery = (UserData: UserData) => {
-  return axios.post(baseUrl + 'auth/sign-in', UserData);
+  return axios.post(baseUrl + 'auth/sign-in', UserData).catch(function (error) {
+    if (!error.status) {
+      console.log('error', error);
+    }
+  });
 };
 
 export const signUpQuery = (UserData: UserData) => {

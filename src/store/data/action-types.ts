@@ -1,5 +1,5 @@
-import {Board} from './state';
+import {Columns} from './state';
 
 export interface LoadData {
-  loadData: Board;
+  loadData: Columns;
 }

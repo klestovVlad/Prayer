@@ -1,17 +1,27 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
-import {LoadData} from './action-types';
-import {state} from './state';
+import {initialState} from './state';
 
 const stateSlice = createSlice({
   name: 'boardSlice',
-  initialState: state,
+  initialState,
   reducers: {
-    columnRequest() {
-      console.log('columns');
+    columnRequest() {},
+    getColumns(state, action) {
+      console.log('getColumns');
+      console.log(state);
+      state = {...action.payload, prayers: [1, 2, 3]};
+      return state;
     },
-    getColumns(data, {payload}: any) {
-      return payload;
+    prayersRequest() {},
+    getPrayers(state, {payload}: any) {
+      state = payload.data.map(column => {
+        payload.state.map(pray => {
+          column.id === pray.columnId ? column.prayers.push(pray) : null;
+        });
+      });
+      console.log('getPra state:', state);
+      return state;
     },
   },
 });

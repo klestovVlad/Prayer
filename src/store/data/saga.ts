@@ -1,16 +1,21 @@
-import {columnsQuery} from './axios';
-import {put, takeLatest, call} from 'redux-saga/effects';
+import {columnsQuery, prayersQuery} from './axios';
+import {put, takeLatest, call, select} from 'redux-saga/effects';
 import {stateAction} from './slice';
-
-const token =
-  'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3';
+import {selectStoreData} from './selectors';
+import {Columns} from './state';
 
 function* getColumns(action: any) {
-  const {data} = yield call(() => columnsQuery(token));
+  const {data} = yield call(() => columnsQuery(action.payload));
   yield put(stateAction.getColumns(data));
-  console.log(data);
+}
+
+function* getPrayers(action: any) {
+  const state: Columns[] = yield select(selectStoreData);
+  const {data} = yield call(() => prayersQuery(action.payload));
+  yield put(stateAction.getPrayers({data, state}));
 }
 
 export function* dataWatcher() {
   yield takeLatest(stateAction.columnRequest.type, getColumns);
+  yield takeLatest(stateAction.prayersRequest.type, getPrayers);
 }

@@ -1,12 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Alert} from 'react-native';
-
-const userState = {
-  email: '',
-  id: 0,
-  name: '',
-  token: '',
-};
+import {initialState} from './state';
 
 interface SignIn {
   email: string;
@@ -21,7 +15,7 @@ interface SignError {
 
 const UserSlice = createSlice({
   name: 'UserSlice',
-  initialState: userState,
+  initialState,
   reducers: {
     singInRequest() {
       console.log('singInRequest');
