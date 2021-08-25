@@ -22,6 +22,7 @@ export const MyPrayers: React.FC<MyPrayersProps> = ({prayers, columnId}) => {
       )}
       <ShowAnsweredButton
         setshowAnswered={() => setshowAnswered(!showAnswered)}
+        showAnswered = {showAnswered}
       />
       {prayers.map(item =>
         item.checked && showAnswered ? (
