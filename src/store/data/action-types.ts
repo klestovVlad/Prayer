@@ -24,3 +24,25 @@ export interface ChangePraуerRequest {
   title: string;
   checked: boolean;
 }
+
+export interface AddNewPrayerRequest {
+  title: string;
+  columnId: number;
+}
+
+export interface AddNewPrayer {
+  data: {
+    checked: boolean;
+    column: {
+      id: number;
+      title: string;
+      description: null | string;
+      userId: number;
+    };
+    columnId: number;
+    description: null | string;
+    id: number;
+    title: string;
+  };
+  store: Columns[];
+}

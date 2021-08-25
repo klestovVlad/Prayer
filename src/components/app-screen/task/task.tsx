@@ -7,7 +7,7 @@ import {RouteProp} from '@react-navigation/native';
 import {Pray} from '../../../store/data/state';
 
 type RootStackParamList = {
-  Task: {nameHeader: string; name: string; prayers: Pray[]};
+  Task: {nameHeader: string; name: string; prayers: Pray[]; columnId: number};
 };
 
 type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Task'>;
@@ -27,7 +27,11 @@ export const Task: React.FC<TaskProps> = ({route}) => {
         NumOfView={NumOfView}
         onPress={() => null}
       />
-      <TaskBody numOfView={NumOfView} prayers={route.params.prayers} />
+      <TaskBody
+        numOfView={NumOfView}
+        prayers={route.params.prayers}
+        columnId={route.params.columnId}
+      />
     </Container>
   );
 };

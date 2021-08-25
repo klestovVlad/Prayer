@@ -8,6 +8,7 @@ type RootStackParamList = {
   Task: {
     name: string;
     prayers: Pray[];
+    columnId: number;
   };
 };
 
@@ -19,14 +20,19 @@ type ProfileScreenNavigationProp = StackNavigationProp<
 type TaskProps = {
   name: string;
   prayers: Pray[];
+  columnId: number;
 };
 
-export const TaskRow: React.FC<TaskProps> = ({name, prayers}) => {
+export const TaskRow: React.FC<TaskProps> = ({name, prayers, columnId}) => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   return (
     <TaskContent
       onPress={() =>
-        navigation.navigate('Task', {name: name, prayers: prayers})
+        navigation.navigate('Task', {
+          name: name,
+          prayers: prayers,
+          columnId: columnId,
+        })
       }>
       <TaskText>{name}</TaskText>
     </TaskContent>

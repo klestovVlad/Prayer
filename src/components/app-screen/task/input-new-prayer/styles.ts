@@ -13,7 +13,7 @@ const Input = styled.TextInput`
   padding: 0;
 `;
 
-const IconContainer = styled.View`
+const IconContainer = styled.TouchableOpacity`
   position: absolute;
   display: flex;
   justify-content: center;

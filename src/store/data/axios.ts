@@ -8,7 +8,19 @@ export const prayersQuery = () => {
   return Api.get('prayers');
 };
 
-export const prayerPost = (id: number, title: string, checked: boolean) => {
-  console.log('send data:', {id, title, description: '', checked});
-  return Api.put(`prayers/${id}`, {title, description: '', checked});
+export const prayerPost = (id: number, title: string) => {
+  return Api.put(`prayers/${id}`, {title, description: ''});
+};
+
+export const newPrayerPost = (ColumnId: number, title: string) => {
+  console.log('newPrayerPost: ', ColumnId, {
+    title,
+    description: '',
+    checked: false,
+  });
+  return Api.post(`/columns/${ColumnId}/prayers`, {
+    title,
+    description: '',
+    checked: false,
+  });
 };

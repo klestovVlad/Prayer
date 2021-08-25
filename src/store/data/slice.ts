@@ -1,5 +1,11 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {GetPrayers, ChangePraуerRequest, GetSinglePrayer} from './action-types';
+import {
+  GetPrayers,
+  ChangePraуerRequest,
+  GetSinglePrayer,
+  AddNewPrayerRequest,
+  AddNewPrayer,
+} from './action-types';
 import {initialState, Columns, Pray} from './state';
 
 const stateSlice = createSlice({
@@ -30,7 +36,7 @@ const stateSlice = createSlice({
       });
     },
     changePraуerRequest(state, action: PayloadAction<ChangePraуerRequest>) {
-      console.log(action);
+      console.log('changePraуerRequest', action);
     },
     getSinglePrayer(state, action: PayloadAction<GetSinglePrayer>) {
       const {store, data} = action.payload;
@@ -51,30 +57,30 @@ const stateSlice = createSlice({
         }
       });
     },
+    addNewPrayerRequest(state, action: PayloadAction<AddNewPrayerRequest>) {
+      console.log(action);
+    },
+    addNewPrayer(state, action: PayloadAction<AddNewPrayer>) {
+      const {data, store} = action.payload;
+      console.log(data);
+      const pray: Pray = {
+        id: data.id,
+        title: data.title,
+        description: '',
+        checked: false,
+        columnId: data.columnId,
+        commentsIds: [],
+      };
+      return store.map(columns => {
+        if (columns.id === data.columnId) {
+          return {...columns, prayers: columns.prayers.concat(pray)};
+        } else {
+          return columns;
+        }
+      });
+    },
   },
 });
 
 export default stateSlice.reducer;
 export const stateAction = stateSlice.actions;
-
-// toglePrayChek(state, action: PayloadAction<ToglePrayChek>) {
-//   const {data, pray} = action.payload;
-//   return data.map(column => {
-//     if (pray.columnId === column.id) {
-//       return {
-//         ...column,
-//         prayers: column.prayers.map(columnPray => {
-//           if (columnPray.id === pray.id) {
-//             const newState = {...columnPray, checked: !columnPray.checked};
-//             console.log('columnPray', newState);
-//             return newState;
-//           } else {
-//             return columnPray;
-//           }
-//         }),
-//       };
-//     } else {
-//       return column;
-//     }
-//   });
-// },

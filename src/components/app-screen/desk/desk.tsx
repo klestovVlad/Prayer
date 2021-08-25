@@ -32,7 +32,12 @@ export const Desk: React.FC<any> = () => {
       <ScrollView contentContainerStyle={{paddingBottom: 15}}>
         <InputNewTask showInput={showInput} setshowInput={setshowInput} />
         {data.map(item => (
-          <TaskRow key={item.id} name={item.title} prayers={item.prayers} />
+          <TaskRow
+            key={item.id}
+            name={item.title}
+            prayers={item.prayers}
+            columnId={item.id}
+          />
         ))}
       </ScrollView>
     </Container>
