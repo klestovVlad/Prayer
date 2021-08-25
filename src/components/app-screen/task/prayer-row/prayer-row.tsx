@@ -73,5 +73,3 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({pray}) => {
     </Swipeable>
   );
 };
-
-// navigation.navigate('Prayer details')

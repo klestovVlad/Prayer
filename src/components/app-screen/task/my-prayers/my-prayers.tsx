@@ -13,6 +13,7 @@ interface MyPrayersProps {
 
 export const MyPrayers: React.FC<MyPrayersProps> = ({prayers, columnId}) => {
   const [showAnswered, setshowAnswered] = useState(true);
+  console.log('MyPrayers prosp: ', {prayers, columnId});
   return (
     <ScrollView>
       <InputNewPrayer columnId={columnId} />

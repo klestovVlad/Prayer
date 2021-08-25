@@ -22,12 +22,13 @@ const UserSlice = createSlice({
       state.loading = true;
       return state;
     },
-    signIn(data, {payload}: PayloadAction<SignIn>) {
+    signIn(state, {payload}: PayloadAction<SignIn>) {
       return {...payload, loading: false};
     },
     singUpRequest() {},
-    signUp(data, {payload}: PayloadAction<SignError>) {},
-    signError(data, {payload}: PayloadAction<SignError>) {
+    signUp(state, {payload}: PayloadAction<SignError>) {},
+    signError(state, {payload}: PayloadAction<SignError>) {
+      state.loading = false;
       if (
         payload.toString().substr(0, 41) ===
         'Could not find any entity of type "Users"'

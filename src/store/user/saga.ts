@@ -9,6 +9,7 @@ const UserData = {
 
 function* signIn(action: any) {
   const {data} = yield call(() => signInQuery(action.payload));
+  console.log('dataSignIn', data);
   if (data.hasOwnProperty('message')) {
     yield put(UserAction.signError(data.message));
   } else {
