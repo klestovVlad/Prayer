@@ -1,21 +1,36 @@
-import {columnsQuery, prayersQuery} from './axios';
+import {columnsQuery, prayersQuery, prayerPost} from './axios';
 import {put, takeLatest, call, select} from 'redux-saga/effects';
 import {stateAction} from './slice';
 import {selectStoreData} from './selectors';
-import {Columns} from './state';
+import {Columns, Pray} from './state';
+import {PayloadAction} from '@reduxjs/toolkit';
+
 
 function* getColumns(action: any) {
-  const {data} = yield call(() => columnsQuery(action.payload));
+  const {data} = yield call(() => columnsQuery());
   yield put(stateAction.getColumns(data));
+  const prayers = yield call(() => prayersQuery());
+  const prayersData = prayers.data;
+  yield put(stateAction.getPrayers({data, prayersData}));
 }
 
 function* getPrayers(action: any) {
-  const state: Columns[] = yield select(selectStoreData);
-  const {data} = yield call(() => prayersQuery(action.payload));
-  yield put(stateAction.getPrayers({data, state}));
+  const store: Columns[] = yield select(selectStoreData);
+  const {data} = yield call(() => prayersQuery());
+  yield put(stateAction.getPrayers({data, store}));
 }
 
+function* PutPrayerChagne(action: PayloadAction<Pray>) {
+  console.log('action', action);
+  const {id, title, checked} = action.payload;
+  console.log('checked', checked);
+  const {data} = yield call(() => prayerPost(id, title, checked));
+  const store: Columns[] = yield select(selectStoreData);
+  yield put(stateAction.getSinglePrayer({data, store}));
+  console.log('PutPrayerChagne', data);
+}
 export function* dataWatcher() {
   yield takeLatest(stateAction.columnRequest.type, getColumns);
   yield takeLatest(stateAction.prayersRequest.type, getPrayers);
+  yield takeLatest(stateAction.changePraуerRequest.type, PutPrayerChagne);
 }

@@ -20,7 +20,6 @@ export const LoginForm: React.FC = () => {
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: SignInValues) => {
-    console.log(values);
     dispatch(UserAction.singInRequest(values));
   };
 

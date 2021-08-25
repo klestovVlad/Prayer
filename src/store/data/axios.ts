@@ -1,19 +1,14 @@
-import axios from 'axios';
+import Api from '../../api/servise';
 
-const baseUrl = 'https://prayer.herokuapp.com/';
-
-export const columnsQuery = (token: string) => {
-  return axios.get(baseUrl + 'columns', {
-    headers: {
-      Authorization: 'Bearer ' + token,
-    },
-  });
+export const columnsQuery = () => {
+  return Api.get('columns');
 };
 
-export const prayersQuery = (token: string) => {
-  return axios.get(baseUrl + 'prayers', {
-    headers: {
-      Authorization: 'Bearer ' + token,
-    },
-  });
+export const prayersQuery = () => {
+  return Api.get('prayers');
+};
+
+export const prayerPost = (id: number, title: string, checked: boolean) => {
+  console.log('send data:', {id, title, description: '', checked});
+  return Api.put(`prayers/${id}`, {title, description: '', checked});
 };

@@ -19,7 +19,6 @@ export const Desk: React.FC<any> = () => {
 
   const data = useSelector(selectStoreData);
   const [showInput, setshowInput] = useState(false);
-  console.log(data);
 
   return (
     <Container>
@@ -32,8 +31,8 @@ export const Desk: React.FC<any> = () => {
       />
       <ScrollView contentContainerStyle={{paddingBottom: 15}}>
         <InputNewTask showInput={showInput} setshowInput={setshowInput} />
-        {Object.keys(data).map(item => (
-          <TaskRow key={data[item].id} name={data[item].title} />
+        {data.map(item => (
+          <TaskRow key={item.id} name={item.title} prayers={item.prayers} />
         ))}
       </ScrollView>
     </Container>

@@ -3,10 +3,10 @@ export interface Columns {
   title: string;
   description: string;
   userId: number;
-  prayers: pray[];
+  prayers: Pray[];
 }
 
-interface pray {
+export interface Pray {
   id: number;
   title: string;
   description: string;

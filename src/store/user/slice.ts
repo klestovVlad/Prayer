@@ -19,22 +19,15 @@ const UserSlice = createSlice({
   initialState,
   reducers: {
     singInRequest(state) {
-      console.log('singInRequest');
       state.loading = true;
       return state;
     },
     signIn(data, {payload}: PayloadAction<SignIn>) {
-      console.log('data: ', payload);
       return {...payload, loading: false};
     },
-    singUpRequest() {
-      console.log('singInRequest');
-    },
-    signUp(data, {payload}: PayloadAction<SignError>) {
-      console.log('data: ', payload);
-    },
+    singUpRequest() {},
+    signUp(data, {payload}: PayloadAction<SignError>) {},
     signError(data, {payload}: PayloadAction<SignError>) {
-      console.log(payload);
       if (
         payload.toString().substr(0, 41) ===
         'Could not find any entity of type "Users"'

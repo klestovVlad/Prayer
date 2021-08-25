@@ -4,9 +4,10 @@ import {AppHeader} from '../header/app-header';
 import {TaskBody} from './task-body/task-body';
 import {Container} from './styles';
 import {RouteProp} from '@react-navigation/native';
+import {Pray} from '../../../store/data/state';
 
 type RootStackParamList = {
-  Task: {nameHeader: string; name: string};
+  Task: {nameHeader: string; name: string; prayers: Pray[]};
 };
 
 type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Task'>;
@@ -16,7 +17,6 @@ type TaskProps = {
 };
 
 export const Task: React.FC<TaskProps> = ({route}) => {
-  console.log('task name: ', route.params.name);
   const [NumOfView, setNumOfView] = useState(0);
   return (
     <Container>
@@ -27,7 +27,7 @@ export const Task: React.FC<TaskProps> = ({route}) => {
         NumOfView={NumOfView}
         onPress={() => null}
       />
-      <TaskBody NumOfView={NumOfView} />
+      <TaskBody numOfView={NumOfView} prayers={route.params.prayers} />
     </Container>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import {CheckBox} from '../../../../ui/check-box';
 import {UserIcon} from '../../../../ui/Icons/UserIcon';
 import {HandsIcon} from '../../../../ui/Icons/HandsIcon';
@@ -10,6 +9,9 @@ import {Animated} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
+import {Pray} from '../../../../store/data/state';
+import {useDispatch} from 'react-redux';
+import {stateAction} from '../../../../store/data/index';
 
 type RootStackParamList = {
   'Prayer details': undefined;
@@ -20,8 +22,12 @@ type ProfileScreenNavigationProp = StackNavigationProp<
   'Prayer details'
 >;
 
-export const PrayerRow: React.FC = () => {
-  const [answered, setanswered] = useState(false);
+interface PrayerRowProsp {
+  pray: Pray;
+}
+
+export const PrayerRow: React.FC<PrayerRowProsp> = ({pray}) => {
+  const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
 
   const renderRightActions = (
@@ -41,11 +47,22 @@ export const PrayerRow: React.FC = () => {
   return (
     <Swipeable renderRightActions={renderRightActions} overshootRight={false}>
       <Container
-        answered={answered}
+        answered={pray.checked}
         onPress={() => navigation.navigate('Prayer details')}>
         <VerticalLine />
-        <CheckBox Cheked={answered} ChangeState={setanswered} />
-        <Text answered={answered}>Prayer text</Text>
+        <CheckBox
+          checked={pray.checked}
+          ChangeState={() =>
+            dispatch(
+              stateAction.changePraуerRequest({
+                id: pray.id,
+                title: pray.title,
+                checked: !pray.checked,
+              }),
+            )
+          }
+        />
+        <Text answered={pray.checked}>{pray.title}</Text>
         <IconsContainer>
           <UserIcon />
           <Number>12</Number>
@@ -56,3 +73,5 @@ export const PrayerRow: React.FC = () => {
     </Swipeable>
   );
 };
+
+// navigation.navigate('Prayer details')

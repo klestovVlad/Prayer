@@ -1,10 +1,16 @@
 import React from 'react';
 import {Container, Button, Text} from './styles';
 
-export const ShowAnsweredButton: React.FC = () => {
+interface ShowAnsweredButtonProps {
+  setshowAnswered(state: boolean): void;
+}
+
+export const ShowAnsweredButton: React.FC<ShowAnsweredButtonProps> = ({
+  setshowAnswered,
+}) => {
   return (
     <Container>
-      <Button>
+      <Button onPress={() => setshowAnswered(false)}>
         <Text>Show Answered Prayers</Text>
       </Button>
     </Container>

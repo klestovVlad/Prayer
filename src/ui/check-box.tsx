@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {ChekedIcon} from './Icons/chekedIcon';
+import {CheckedIcon} from './Icons/checkedIcon';
 
 interface CheckBoxProps {
-  Cheked: boolean;
+  checked: boolean;
   ChangeState(arg0: boolean): void;
 }
 
-export const CheckBox: React.FC<CheckBoxProps> = ({Cheked, ChangeState}) => {
+export const CheckBox: React.FC<CheckBoxProps> = ({checked, ChangeState}) => {
   const toggleState = () => {
-    Cheked ? ChangeState(false) : ChangeState(true);
+    checked ? ChangeState(false) : ChangeState(true);
   };
-  return Cheked ? (
+  return checked ? (
     <CheckContainer onPress={toggleState}>
-      <ChekedIcon />
+      <CheckedIcon />
     </CheckContainer>
   ) : (
     <CheckContainer onPress={toggleState} />
