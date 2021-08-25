@@ -10,23 +10,31 @@ import {UserAction} from '../../../store/user/slice';
 
 type SignInValues = {
   email: string;
+  name: string;
   password: string;
 };
 
-export const LoginForm: React.FC = () => {
+export const RegistrateForm: React.FC = () => {
   const [emailError, setemailError] = useState(false);
   const [passwordError, setpasswordError] = useState(false);
+  const [nameError, setNameError] = useState(false);
 
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: SignInValues) => {
-    dispatch(UserAction.singInRequest(values));
+    console.log(values);
+    dispatch(UserAction.singUpRequest(values));
   };
 
   const validate = (value: SignInValues) => {
-    if (value.email === undefined || value.password === undefined) {
+    if (
+      value.email === undefined ||
+      value.password === undefined ||
+      value.name === undefined
+    ) {
       setemailError(value.email === undefined);
       setpasswordError(value.password === undefined);
+      setNameError(value.name === undefined);
     } else {
       setemailError(false);
       setpasswordError(false);
@@ -56,6 +64,21 @@ export const LoginForm: React.FC = () => {
                 }}
               />
               <Field
+                name="name"
+                render={({input}) => {
+                  return (
+                    <View>
+                      <EmailInput
+                        placeholder="Write your name..."
+                        onChangeText={input.onChange}
+                        value={input.value}
+                        validateError={nameError}
+                      />
+                    </View>
+                  );
+                }}
+              />
+              <Field
                 name="password"
                 render={({input}) => {
                   return (
@@ -69,7 +92,7 @@ export const LoginForm: React.FC = () => {
                   );
                 }}
               />
-              <SignButton text="sing in" onPress={() => validate(values)} />
+              <SignButton text="sing up" onPress={() => validate(values)} />
             </View>
           );
         }}

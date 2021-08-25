@@ -9,12 +9,7 @@ const Container = styled.View`
   background-color: ${colors.white};
 `;
 
-interface SingInProps {
-  navigation: any;
-  route: any;
-}
-
-export const SingIn: React.FC<SingInProps> = () => {
+export const SingIn: React.FC = () => {
   return (
     <Container>
       <LoginForm />

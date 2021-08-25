@@ -1,32 +1,25 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Alert} from 'react-native';
 import {initialState} from './state';
-
-interface SignIn {
-  email: string;
-  id: number;
-  name: string;
-  token: string;
-  loading: boolean;
-}
-
-interface SignError {
-  message: string;
-}
+import {SignIn, SignError, SignInRequest} from './state';
 
 const UserSlice = createSlice({
   name: 'UserSlice',
   initialState,
   reducers: {
-    singInRequest(state) {
+    singInRequest(state, action: PayloadAction<SignInRequest>) {
       state.loading = true;
       return state;
     },
     signIn(state, {payload}: PayloadAction<SignIn>) {
       return {...payload, loading: false};
     },
-    singUpRequest() {},
-    signUp(state, {payload}: PayloadAction<SignError>) {},
+    singUpRequest(state, action: PayloadAction<SignInRequest>) {
+      console.log('singUpRequest', action);
+    },
+    signUp(state, {payload}: PayloadAction<SignIn>) {
+      return {...payload, loading: false};
+    },
     signError(state, {payload}: PayloadAction<SignError>) {
       state.loading = false;
       if (

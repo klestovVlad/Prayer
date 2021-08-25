@@ -13,3 +13,20 @@ export const initialState: UserData = {
   token: '',
   loading: false,
 };
+
+export interface SignIn {
+  email: string;
+  id: number;
+  name: string;
+  token: string;
+  loading: boolean;
+}
+
+export interface SignError {
+  message: string;
+}
+
+export interface SignInRequest {
+  email: string;
+  password: string;
+}

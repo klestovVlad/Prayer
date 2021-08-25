@@ -2,11 +2,6 @@ import {signInQuery, signUpQuery} from './axios';
 import {put, takeLatest, call} from 'redux-saga/effects';
 import {UserAction} from './slice';
 
-const UserData = {
-  email: 'strqwing',
-  password: 'strinasdg',
-};
-
 function* signIn(action: any) {
   const {data} = yield call(() => signInQuery(action.payload));
   console.log('dataSignIn', data);
@@ -17,8 +12,9 @@ function* signIn(action: any) {
   }
 }
 
-function* signUp() {
-  const {data} = yield call(() => signUpQuery(UserData));
+function* signUp(action: any) {
+  console.log('signUP', action);
+  const {data} = yield call(() => signUpQuery(action.payload));
   if (data.hasOwnProperty('message')) {
     yield put(UserAction.signError(data.message));
   }
