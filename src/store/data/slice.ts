@@ -40,12 +40,14 @@ const stateSlice = createSlice({
     },
     getSinglePrayer(state, action: PayloadAction<GetSinglePrayer>) {
       const {store, data} = action.payload;
+      console.log('det single Prayer', data);
       return store.map(columns => {
         if (columns.id === data.columnId) {
           return {
             ...columns,
             prayers: columns.prayers.map(prayer => {
               if (prayer.id === data.id) {
+                console.log('ret', data);
                 return data;
               } else {
                 return prayer;

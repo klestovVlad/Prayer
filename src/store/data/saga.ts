@@ -22,7 +22,8 @@ function* getPrayers(action: any) {
 
 function* putPrayerChagne(action: PayloadAction<Pray>) {
   const {id, title, checked} = action.payload;
-  const {data} = yield call(() => prayerPost(id, title));
+  console.log('asdasd', action.payload);
+  const {data} = yield call(() => prayerPost(id, title, checked));
   const store: Columns[] = yield select(selectStoreData);
   yield put(stateAction.getSinglePrayer({data, store}));
 }
