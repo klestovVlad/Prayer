@@ -12,7 +12,13 @@ export interface Pray {
   description: string;
   checked: boolean;
   columnId: number;
-  commentsIds: [];
+  comments: Comment[];
+}
+export interface Comment {
+  body: string;
+  created: string;
+  id: number;
+  prayerId: number;
 }
 
 export const initialState: Columns[] = [];

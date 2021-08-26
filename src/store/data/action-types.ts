@@ -1,21 +1,18 @@
-import {Columns, Pray} from './state';
+import {Columns, Pray, Comment} from './state';
 
 export interface LoadData {
   loadData: Columns;
 }
 
 export interface GetPrayers {
-  data: Columns[];
   prayersData: Pray[];
 }
 
 export interface ToglePrayChek {
-  data: Columns[];
   pray: Pray;
 }
 
 export interface GetSinglePrayer {
-  store: Columns[];
   data: Pray;
 }
 
@@ -28,6 +25,10 @@ export interface ChangePraуerRequest {
 export interface AddNewPrayerRequest {
   title: string;
   columnId: number;
+}
+
+export interface GetComments {
+  commentsData: Comment[];
 }
 
 export interface AddNewPrayer {
@@ -44,5 +45,4 @@ export interface AddNewPrayer {
     id: number;
     title: string;
   };
-  store: Columns[];
 }

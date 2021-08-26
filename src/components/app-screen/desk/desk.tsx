@@ -13,12 +13,15 @@ export const Desk: React.FC<any> = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserData);
 
+  console.log('User: ', user);
+
   useEffect(() => {
     dispatch(stateAction.columnRequest(user.token));
   }, [dispatch, user.token]);
 
   const data = useSelector(selectStoreData);
   const [showInput, setshowInput] = useState(false);
+  console.log('data', data);
 
   return (
     <Container>
@@ -28,6 +31,7 @@ export const Desk: React.FC<any> = () => {
         onPress={() => setshowInput(true)}
         NumOfView={0}
         setNumOfView={() => null}
+        subscribiedNum={0}
       />
       <ScrollView contentContainerStyle={{paddingBottom: 15}}>
         <InputNewTask showInput={showInput} setshowInput={setshowInput} />

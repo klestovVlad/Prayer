@@ -1,6 +1,6 @@
 import axios, {AxiosInstance} from 'axios';
 const baseUrl = 'https://prayer.herokuapp.com/';
-import {store} from '../store/root-reducer';
+import store from '../store/root-reducer';
 
 class Api {
   private api: AxiosInstance;
@@ -14,7 +14,7 @@ class Api {
     });
 
     this.api.interceptors.request.use(config => {
-      const token = store.getState().UserReduser.token;
+      const token = store.store.getState().UserReduser.token;
       if (token !== null) {
         config.headers.Authorization = `Bearer ${token}`;
       }

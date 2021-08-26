@@ -5,6 +5,7 @@ import {
   GetSinglePrayer,
   AddNewPrayerRequest,
   AddNewPrayer,
+  GetComments,
 } from './action-types';
 import {initialState, Columns, Pray} from './state';
 
@@ -12,18 +13,20 @@ const stateSlice = createSlice({
   name: 'boardSlice',
   initialState,
   reducers: {
-    columnRequest() {},
+    columnRequest() {
+      console.log('column request');
+    },
     getColumns(state, action: PayloadAction<Columns[]>) {
+      console.log('Action get columns', action);
       action.payload.map(column => {
         column.prayers = [];
       });
-      state = action.payload;
-      return state;
+      return action.payload;
     },
     prayersRequest() {},
     getPrayers(state, action: PayloadAction<GetPrayers>) {
-      const {data, prayersData} = action.payload;
-      return data.map(column => {
+      const {prayersData} = action.payload;
+      return state.map(column => {
         const foundPrays: Pray[] = [];
         prayersData.forEach(pray => {
           pray.columnId === column.id ? foundPrays.push(pray) : null;
@@ -35,13 +38,17 @@ const stateSlice = createSlice({
         }
       });
     },
+    getComments(state, action: PayloadAction<GetComments>) {
+      const {commentsData} = action.payload;
+      console.log(commentsData);
+    },
     changePraуerRequest(state, action: PayloadAction<ChangePraуerRequest>) {
       console.log('changePraуerRequest', action);
     },
     getSinglePrayer(state, action: PayloadAction<GetSinglePrayer>) {
-      const {store, data} = action.payload;
+      const {data} = action.payload;
       console.log('det single Prayer', data);
-      return store.map(columns => {
+      return state.map(columns => {
         if (columns.id === data.columnId) {
           return {
             ...columns,
@@ -63,7 +70,7 @@ const stateSlice = createSlice({
       console.log(action);
     },
     addNewPrayer(state, action: PayloadAction<AddNewPrayer>) {
-      const {data, store} = action.payload;
+      const {data} = action.payload;
       console.log(data);
       const pray: Pray = {
         id: data.id,
@@ -71,9 +78,9 @@ const stateSlice = createSlice({
         description: '',
         checked: false,
         columnId: data.columnId,
-        commentsIds: [],
+        comments: [],
       };
-      return store.map(columns => {
+      return state.map(columns => {
         if (columns.id === data.columnId) {
           return {...columns, prayers: columns.prayers.concat(pray)};
         } else {

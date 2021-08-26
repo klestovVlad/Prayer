@@ -1,45 +1,47 @@
-import {columnsQuery, prayersQuery, prayerPost, newPrayerPost} from './axios';
+import {
+  columnsQuery,
+  prayersQuery,
+  prayerPost,
+  newPrayerPost,
+  commentsQuery,
+} from './axios';
 import {put, takeLatest, call, select} from 'redux-saga/effects';
 import {stateAction} from './slice';
-import {selectStoreData} from './selectors';
-import {Columns, Pray} from './state';
+import {Pray} from './state';
 import {PayloadAction} from '@reduxjs/toolkit';
 import {AddNewPrayerRequest} from './action-types';
 
-function* getColumns(action: any) {
+function* getColumns() {
+  console.log('getColumnst');
   const {data} = yield call(() => columnsQuery());
+  console.log('getColumnst data', data);
   yield put(stateAction.getColumns(data));
+
   const prayers = yield call(() => prayersQuery());
   const prayersData = prayers.data;
-  yield put(stateAction.getPrayers({data, prayersData}));
-}
+  yield put(stateAction.getPrayers({prayersData}));
 
-function* getPrayers(action: any) {
-  const store: Columns[] = yield select(selectStoreData);
-  const {data} = yield call(() => prayersQuery());
-  yield put(stateAction.getPrayers({data, store}));
+  const comments = yield call(() => commentsQuery());
+  const commentsData = comments.data;
+  yield put(stateAction.getComments({commentsData}));
 }
 
 function* putPrayerChagne(action: PayloadAction<Pray>) {
   const {id, title, checked} = action.payload;
-  console.log('asdasd', action.payload);
   const {data} = yield call(() => prayerPost(id, title, checked));
-  const store: Columns[] = yield select(selectStoreData);
-  yield put(stateAction.getSinglePrayer({data, store}));
+  yield put(stateAction.getSinglePrayer({data}));
 }
 
 function* addNewPrayer(action: PayloadAction<AddNewPrayerRequest>) {
   const {title, columnId} = action.payload;
   console.log('addNewPrayer', action);
   const {data} = yield call(() => newPrayerPost(columnId, title));
-  const store: Columns[] = yield select(selectStoreData);
-  yield put(stateAction.addNewPrayer({data, store}));
+  yield put(stateAction.addNewPrayer({data}));
   console.log(data);
 }
 
 export function* dataWatcher() {
   yield takeLatest(stateAction.columnRequest.type, getColumns);
-  yield takeLatest(stateAction.prayersRequest.type, getPrayers);
   yield takeLatest(stateAction.changePraуerRequest.type, putPrayerChagne);
   yield takeLatest(stateAction.addNewPrayerRequest.type, addNewPrayer);
 }
