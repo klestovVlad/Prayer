@@ -16,8 +16,12 @@ export const prayerPost = (id: number, title: string, checked: boolean) => {
   return Api.put(`prayers/${id}`, {title, description: '', checked});
 };
 
+export const deleteColumnPost = (columnId: number) => {
+  return Api.delete(`columns/${columnId}`);
+};
+
 export const newPrayerPost = (ColumnId: number, title: string) => {
-  return Api.post(`/columns/${ColumnId}/prayers`, {
+  return Api.post(`columns/${ColumnId}/prayers`, {
     title,
     description: '',
     checked: false,

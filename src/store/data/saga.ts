@@ -4,12 +4,13 @@ import {
   prayerPost,
   newPrayerPost,
   commentsQuery,
+  deleteColumnPost,
 } from './axios';
 import {put, takeLatest, call, select} from 'redux-saga/effects';
 import {stateAction} from './slice';
 import {Pray} from './state';
 import {PayloadAction} from '@reduxjs/toolkit';
-import {AddNewPrayerRequest} from './action-types';
+import {AddNewPrayerRequest, DeleteColumn} from './action-types';
 
 function* getColumns() {
   const {data} = yield call(() => columnsQuery());
@@ -36,8 +37,15 @@ function* addNewPrayer(action: PayloadAction<AddNewPrayerRequest>) {
   yield put(stateAction.addNewPrayer({data}));
 }
 
+function* deleteColumn(action: PayloadAction<number>) {
+  const columnId = action.payload;
+  const {data} = yield call(() => deleteColumnPost(columnId));
+  yield put(stateAction.deleteColumn(columnId));
+}
+
 export function* dataWatcher() {
   yield takeLatest(stateAction.columnRequest.type, getColumns);
   yield takeLatest(stateAction.changePraуerRequest.type, putPrayerChagne);
   yield takeLatest(stateAction.addNewPrayerRequest.type, addNewPrayer);
+  yield takeLatest(stateAction.deleteColumnRequest.type, deleteColumn);
 }

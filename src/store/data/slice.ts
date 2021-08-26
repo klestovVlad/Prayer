@@ -6,6 +6,7 @@ import {
   AddNewPrayerRequest,
   AddNewPrayer,
   GetComments,
+  DeleteColumn,
 } from './action-types';
 import {initialState, Columns, Pray} from './state';
 
@@ -65,6 +66,19 @@ const stateSlice = createSlice({
       for (let key in state) {
         if (state[key].id === data.columnId) {
           state[key].prayers = state[key].prayers.concat(pray);
+        }
+      }
+    },
+    addNewColumnRequser() {},
+    addNewColumn() {},
+    deleteColumnRequest(state, action: PayloadAction<number>) {
+      console.log('deleteTaskRequest', action);
+    },
+    deleteColumn(state, action) {
+      const columnId = action.payload;
+      for (let key in state) {
+        if (state[key].id === columnId) {
+          delete state[+key];
         }
       }
     },

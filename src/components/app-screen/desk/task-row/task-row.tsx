@@ -3,6 +3,8 @@ import React from 'react';
 import {TaskContent, TaskText} from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {Pray} from '../../../../store/data/state';
+import {useState} from 'react';
+import {TaskRowButtons} from './task-row-buttons/task-row-buttons';
 
 type RootStackParamList = {
   Task: {
@@ -25,6 +27,7 @@ type TaskProps = {
 
 export const TaskRow: React.FC<TaskProps> = ({name, prayers, columnId}) => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
+  const [wrappedUp, setwrappedUp] = useState(false);
   return (
     <TaskContent
       onPress={() =>
@@ -33,8 +36,14 @@ export const TaskRow: React.FC<TaskProps> = ({name, prayers, columnId}) => {
           prayers: prayers,
           columnId: columnId,
         })
-      }>
+      }
+      onLongPress={() => setwrappedUp(!wrappedUp)}>
       <TaskText>{name}</TaskText>
+      <TaskRowButtons
+        setwrappedUp={() => setwrappedUp(!wrappedUp)}
+        visible={wrappedUp}
+        columnId={columnId}
+      />
     </TaskContent>
   );
 };

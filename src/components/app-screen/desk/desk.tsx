@@ -5,7 +5,7 @@ import {AppHeader} from '../header/app-header';
 import {InputNewTask} from './input-new-task/inputNewTask';
 import {useState} from 'react';
 import {Container, ScrollView} from './styles';
-import {stateAction} from '../../../store/data/slice';
+import {stateAction} from '../../../store/data/index';
 import {selectUserData} from '../../../store/user/selectors';
 import {selectStoreData} from '../../../store/data/selectors';
 
@@ -19,7 +19,7 @@ export const Desk: React.FC<any> = () => {
 
   const data = useSelector(selectStoreData);
   const [showInput, setshowInput] = useState(false);
-
+  console.log(data);
   return (
     <Container>
       <AppHeader
