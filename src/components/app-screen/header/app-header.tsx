@@ -10,6 +10,7 @@ interface AppHeaderProps {
   NumOfView: number;
   setNumOfView(arg0: number): void;
   onPress(): void;
+  subscribiedNum: number;
 }
 
 export const AppHeader: React.FC<AppHeaderProps> = ({
@@ -18,6 +19,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   NumOfView,
   setNumOfView,
   onPress,
+  subscribiedNum,
 }) => {
   return (
     <Header>
@@ -30,6 +32,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
         listOfTubs={['My prayers', 'subscribed']}
         setNumOfView={setNumOfView}
         NumOfView={NumOfView}
+        subscribiedNum={subscribiedNum}
       />
     </Header>
   );

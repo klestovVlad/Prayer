@@ -32,7 +32,11 @@ export const InputNewPrayer: React.FC<InputNewPrayerProps> = ({columnId}) => {
             name="title"
             render={({input}) => {
               return (
-                <Input onChangeText={input.onChange} value={input.value} />
+                <Input
+                  onChangeText={input.onChange}
+                  value={input.value}
+                  onSubmitEditing={() => onSubmitForm(values)}
+                />
               );
             }}
           />

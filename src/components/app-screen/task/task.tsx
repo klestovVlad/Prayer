@@ -26,6 +26,7 @@ export const Task: React.FC<TaskProps> = ({route}) => {
         setNumOfView={setNumOfView}
         NumOfView={NumOfView}
         onPress={() => null}
+        subscribiedNum={route.params.prayers.length}
       />
       <TaskBody
         numOfView={NumOfView}

@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {SubscribiedCounter} from './SubscribiedCounter';
 
 interface TubsProps {
   listOfTubs: Array<string>;
   type: number;
   NumOfView?: number;
   setNumOfView(arg0: number): void;
+  subscribiedNum: number;
 }
 
 export const Tubs: React.FC<TubsProps> = ({
@@ -13,7 +15,9 @@ export const Tubs: React.FC<TubsProps> = ({
   type,
   NumOfView,
   setNumOfView,
+  subscribiedNum,
 }) => {
+  console.log(listOfTubs);
   return type === 1 ? (
     <TubsContainet>
       {listOfTubs.map((item, index) => (
@@ -22,6 +26,10 @@ export const Tubs: React.FC<TubsProps> = ({
           isActive={index === NumOfView}
           key={index}>
           <TubsText isActive={index === NumOfView}>{item}</TubsText>
+          <SubscribiedCounter
+            visible={item === 'subscribed'}
+            subscribiedNum={subscribiedNum}
+          />
         </TubsItem>
       ))}
     </TubsContainet>

@@ -13,7 +13,6 @@ interface MyPrayersProps {
 
 export const MyPrayers: React.FC<MyPrayersProps> = ({prayers, columnId}) => {
   const [showAnswered, setshowAnswered] = useState(true);
-  console.log('MyPrayers prosp: ', {prayers, columnId});
   return (
     <ScrollView>
       <InputNewPrayer columnId={columnId} />
@@ -22,7 +21,7 @@ export const MyPrayers: React.FC<MyPrayersProps> = ({prayers, columnId}) => {
       )}
       <ShowAnsweredButton
         setshowAnswered={() => setshowAnswered(!showAnswered)}
-        showAnswered = {showAnswered}
+        showAnswered={showAnswered}
       />
       {prayers.map(item =>
         item.checked && showAnswered ? (
