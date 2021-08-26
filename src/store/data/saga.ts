@@ -12,9 +12,7 @@ import {PayloadAction} from '@reduxjs/toolkit';
 import {AddNewPrayerRequest} from './action-types';
 
 function* getColumns() {
-  console.log('getColumnst');
   const {data} = yield call(() => columnsQuery());
-  console.log('getColumnst data', data);
   yield put(stateAction.getColumns(data));
 
   const prayers = yield call(() => prayersQuery());
@@ -34,10 +32,8 @@ function* putPrayerChagne(action: PayloadAction<Pray>) {
 
 function* addNewPrayer(action: PayloadAction<AddNewPrayerRequest>) {
   const {title, columnId} = action.payload;
-  console.log('addNewPrayer', action);
   const {data} = yield call(() => newPrayerPost(columnId, title));
   yield put(stateAction.addNewPrayer({data}));
-  console.log(data);
 }
 
 export function* dataWatcher() {

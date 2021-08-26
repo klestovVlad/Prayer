@@ -13,65 +13,47 @@ const stateSlice = createSlice({
   name: 'boardSlice',
   initialState,
   reducers: {
-    columnRequest() {
-      console.log('column request');
-    },
+    columnRequest() {},
     getColumns(state, action: PayloadAction<Columns[]>) {
-      console.log('Action get columns', action);
       action.payload.map(column => {
         column.prayers = [];
       });
-      return action.payload;
+      console.log({...action.payload});
+      return {...action.payload};
     },
     prayersRequest() {},
     getPrayers(state, action: PayloadAction<GetPrayers>) {
       const {prayersData} = action.payload;
-      return state.map(column => {
+      for (let key in state) {
         const foundPrays: Pray[] = [];
         prayersData.forEach(pray => {
-          pray.columnId === column.id ? foundPrays.push(pray) : null;
+          pray.columnId === state[key].id ? foundPrays.push(pray) : null;
         });
-        if (foundPrays.length > 0) {
-          return {...column, prayers: column.prayers.concat(foundPrays)};
-        } else {
-          return column;
-        }
-      });
+        state[key].prayers = state[key].prayers.concat(foundPrays);
+      }
     },
     getComments(state, action: PayloadAction<GetComments>) {
       const {commentsData} = action.payload;
       console.log(commentsData);
     },
-    changePraуerRequest(state, action: PayloadAction<ChangePraуerRequest>) {
-      console.log('changePraуerRequest', action);
-    },
+    changePraуerRequest(state, action: PayloadAction<ChangePraуerRequest>) {},
     getSinglePrayer(state, action: PayloadAction<GetSinglePrayer>) {
       const {data} = action.payload;
-      console.log('det single Prayer', data);
-      return state.map(columns => {
-        if (columns.id === data.columnId) {
-          return {
-            ...columns,
-            prayers: columns.prayers.map(prayer => {
-              if (prayer.id === data.id) {
-                console.log('ret', data);
-                return data;
-              } else {
-                return prayer;
-              }
-            }),
-          };
-        } else {
-          return columns;
+      for (let key in state) {
+        if (state[key].id === data.columnId) {
+          state[key].prayers = state[key].prayers.map(prayer => {
+            if (prayer.id === data.id) {
+              return data;
+            } else {
+              return prayer;
+            }
+          });
         }
-      });
+      }
     },
-    addNewPrayerRequest(state, action: PayloadAction<AddNewPrayerRequest>) {
-      console.log(action);
-    },
+    addNewPrayerRequest(state, action: PayloadAction<AddNewPrayerRequest>) {},
     addNewPrayer(state, action: PayloadAction<AddNewPrayer>) {
       const {data} = action.payload;
-      console.log(data);
       const pray: Pray = {
         id: data.id,
         title: data.title,
@@ -80,13 +62,11 @@ const stateSlice = createSlice({
         columnId: data.columnId,
         comments: [],
       };
-      return state.map(columns => {
-        if (columns.id === data.columnId) {
-          return {...columns, prayers: columns.prayers.concat(pray)};
-        } else {
-          return columns;
+      for (let key in state) {
+        if (state[key].id === data.columnId) {
+          state[key].prayers = state[key].prayers.concat(pray);
         }
-      });
+      }
     },
   },
 });

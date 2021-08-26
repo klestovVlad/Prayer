@@ -6,7 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function App() {
   const data = useSelector((state: any) => state.UserReduser);
-  console.log('Token: ', data.token);
   return data.token !== '' ? <AppScreen /> : <AutorizationScreen />;
 }
 

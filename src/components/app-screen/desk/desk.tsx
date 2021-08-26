@@ -13,15 +13,12 @@ export const Desk: React.FC<any> = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserData);
 
-  console.log('User: ', user);
-
   useEffect(() => {
     dispatch(stateAction.columnRequest(user.token));
   }, [dispatch, user.token]);
 
   const data = useSelector(selectStoreData);
   const [showInput, setshowInput] = useState(false);
-  console.log('data', data);
 
   return (
     <Container>
@@ -35,12 +32,12 @@ export const Desk: React.FC<any> = () => {
       />
       <ScrollView contentContainerStyle={{paddingBottom: 15}}>
         <InputNewTask showInput={showInput} setshowInput={setshowInput} />
-        {data.map(item => (
+        {Object.keys(data).map((item, index) => (
           <TaskRow
-            key={item.id}
-            name={item.title}
-            prayers={item.prayers}
-            columnId={item.id}
+            key={data[index].id}
+            name={data[index].title}
+            prayers={data[index].prayers}
+            columnId={data[index].id}
           />
         ))}
       </ScrollView>

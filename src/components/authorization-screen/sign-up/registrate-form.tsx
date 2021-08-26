@@ -22,7 +22,6 @@ export const RegistrateForm: React.FC = () => {
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: SignInValues) => {
-    console.log(values);
     dispatch(UserAction.singUpRequest(values));
   };
 

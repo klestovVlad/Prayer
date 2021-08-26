@@ -14,9 +14,7 @@ const UserSlice = createSlice({
     signIn(state, {payload}: PayloadAction<SignIn>) {
       return {...payload, loading: false};
     },
-    singUpRequest(state, action: PayloadAction<SignInRequest>) {
-      console.log('singUpRequest', action);
-    },
+    singUpRequest(state, action: PayloadAction<SignInRequest>) {},
     signUp(state, {payload}: PayloadAction<SignIn>) {
       return {...payload, loading: false};
     },

@@ -17,7 +17,6 @@ export const Tubs: React.FC<TubsProps> = ({
   setNumOfView,
   subscribiedNum,
 }) => {
-  console.log(listOfTubs);
   return type === 1 ? (
     <TubsContainet>
       {listOfTubs.map((item, index) => (

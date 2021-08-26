@@ -17,11 +17,6 @@ export const prayerPost = (id: number, title: string, checked: boolean) => {
 };
 
 export const newPrayerPost = (ColumnId: number, title: string) => {
-  console.log('newPrayerPost: ', ColumnId, {
-    title,
-    description: '',
-    checked: false,
-  });
   return Api.post(`/columns/${ColumnId}/prayers`, {
     title,
     description: '',
