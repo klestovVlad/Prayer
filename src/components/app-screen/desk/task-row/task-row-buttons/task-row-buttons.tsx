@@ -19,7 +19,6 @@ export const TaskRowButtons: React.FC<TaskRowButtonsProps> = ({
   setwrappedUp,
   columnId,
 }) => {
-  console.log('TaskRowButtons', columnId);
   const dispatch = useDispatch();
   return (
     <ButtonContainer visible={visible}>

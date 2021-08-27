@@ -47,6 +47,6 @@ export interface AddNewPrayer {
   };
 }
 
-export interface DeleteColumn {
-  columnId: number;
+export interface AddNewColumn {
+  title: string;
 }

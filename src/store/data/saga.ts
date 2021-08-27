@@ -5,12 +5,13 @@ import {
   newPrayerPost,
   commentsQuery,
   deleteColumnPost,
+  AddNewColumnPost,
 } from './axios';
-import {put, takeLatest, call, select} from 'redux-saga/effects';
+import {put, takeLatest, call} from 'redux-saga/effects';
 import {stateAction} from './slice';
 import {Pray} from './state';
 import {PayloadAction} from '@reduxjs/toolkit';
-import {AddNewPrayerRequest, DeleteColumn} from './action-types';
+import {AddNewPrayerRequest, AddNewColumn} from './action-types';
 
 function* getColumns() {
   const {data} = yield call(() => columnsQuery());
@@ -39,8 +40,14 @@ function* addNewPrayer(action: PayloadAction<AddNewPrayerRequest>) {
 
 function* deleteColumn(action: PayloadAction<number>) {
   const columnId = action.payload;
-  const {data} = yield call(() => deleteColumnPost(columnId));
+  yield call(() => deleteColumnPost(columnId));
   yield put(stateAction.deleteColumn(columnId));
+}
+
+function* addNewColumn(action: PayloadAction<AddNewColumn>) {
+  const {title} = action.payload;
+  const {data} = yield call(() => AddNewColumnPost(title));
+  yield put(stateAction.addNewColumn(data));
 }
 
 export function* dataWatcher() {
@@ -48,4 +55,5 @@ export function* dataWatcher() {
   yield takeLatest(stateAction.changePraуerRequest.type, putPrayerChagne);
   yield takeLatest(stateAction.addNewPrayerRequest.type, addNewPrayer);
   yield takeLatest(stateAction.deleteColumnRequest.type, deleteColumn);
+  yield takeLatest(stateAction.addNewColumnRequser.type, addNewColumn);
 }

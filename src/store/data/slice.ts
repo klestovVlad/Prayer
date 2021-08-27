@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {compose, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {
   GetPrayers,
   ChangePraуerRequest,
@@ -6,7 +6,7 @@ import {
   AddNewPrayerRequest,
   AddNewPrayer,
   GetComments,
-  DeleteColumn,
+  AddNewColumn,
 } from './action-types';
 import {initialState, Columns, Pray} from './state';
 
@@ -14,12 +14,11 @@ const stateSlice = createSlice({
   name: 'boardSlice',
   initialState,
   reducers: {
-    columnRequest() {},
+    columnRequest(state, action: PayloadAction<string>) {},
     getColumns(state, action: PayloadAction<Columns[]>) {
       action.payload.map(column => {
         column.prayers = [];
       });
-      console.log({...action.payload});
       return {...action.payload};
     },
     prayersRequest() {},
@@ -35,7 +34,6 @@ const stateSlice = createSlice({
     },
     getComments(state, action: PayloadAction<GetComments>) {
       const {commentsData} = action.payload;
-      console.log(commentsData);
     },
     changePraуerRequest(state, action: PayloadAction<ChangePraуerRequest>) {},
     getSinglePrayer(state, action: PayloadAction<GetSinglePrayer>) {
@@ -69,11 +67,16 @@ const stateSlice = createSlice({
         }
       }
     },
-    addNewColumnRequser() {},
-    addNewColumn() {},
-    deleteColumnRequest(state, action: PayloadAction<number>) {
-      console.log('deleteTaskRequest', action);
+    addNewColumnRequser(state, action: PayloadAction<AddNewColumn>) {
+      console.log('addNewColumnRequser', action);
     },
+    addNewColumn(state, action: PayloadAction<Columns>) {
+      const column = action.payload;
+      column.prayers = [];
+      state[Object.keys(state).length] = column;
+      return state;
+    },
+    deleteColumnRequest(state, action: PayloadAction<number>) {},
     deleteColumn(state, action) {
       const columnId = action.payload;
       for (let key in state) {

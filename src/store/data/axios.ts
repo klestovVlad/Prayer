@@ -20,6 +20,10 @@ export const deleteColumnPost = (columnId: number) => {
   return Api.delete(`columns/${columnId}`);
 };
 
+export const AddNewColumnPost = (title: string) => {
+  return Api.post('columns', {title, description: ''});
+};
+
 export const newPrayerPost = (ColumnId: number, title: string) => {
   return Api.post(`columns/${ColumnId}/prayers`, {
     title,

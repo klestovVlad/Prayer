@@ -7,12 +7,6 @@ const Container = styled.View`
   padding: 15px 15px 15px 52px;
 `;
 
-const Input = styled.TextInput`
-  font-size: 17px;
-  color: #9c9c9c;
-  padding: 0;
-`;
-
 const IconContainer = styled.TouchableOpacity`
   position: absolute;
   display: flex;
@@ -22,4 +16,4 @@ const IconContainer = styled.TouchableOpacity`
   transform: translateY(3px);
 `;
 
-export {Container, Input, IconContainer};
+export {Container, IconContainer};

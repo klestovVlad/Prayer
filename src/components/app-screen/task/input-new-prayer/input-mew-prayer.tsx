@@ -2,43 +2,37 @@ import React from 'react';
 
 import {AddIcon} from '../../../../ui/Icons/AddIcon';
 import {colors} from '../../../../style/colors';
-import {Container, Input, IconContainer} from './styles';
-import {Field, Form} from 'react-final-form';
+import {Container, IconContainer} from './styles';
+import {FormApi} from 'final-form';
+import {Field, Form, FormProps} from 'react-final-form';
 import {useDispatch} from 'react-redux';
 import {stateAction} from '../../../../store/data';
+import {NewPrayerInput} from './new-pray-input/new-column-input';
 
 interface InputNewPrayerProps {
   columnId: number;
 }
 
-type FormType = {
-  title: string;
-};
-
 export const InputNewPrayer: React.FC<InputNewPrayerProps> = ({columnId}) => {
   const dispatch = useDispatch();
-  const onSubmitForm = (values: FormType) => {
-    dispatch(stateAction.addNewPrayerRequest({...values, columnId}));
+  const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {
+    dispatch(stateAction.addNewPrayerRequest({title: values.title, columnId}));
+    form.reset();
   };
   return (
     <Form
       onSubmit={onSubmitForm}
-      render={({values}) => (
+      render={({values, handleSubmit}) => (
         <Container>
-          <IconContainer onPress={() => onSubmitForm(values)}>
+          <IconContainer onPress={handleSubmit}>
             <AddIcon color={colors.blue} />
           </IconContainer>
           <Field
             name="title"
-            render={({input}) => {
-              return (
-                <Input
-                  onChangeText={input.onChange}
-                  value={input.value}
-                  onSubmitEditing={() => onSubmitForm(values)}
-                />
-              );
-            }}
+            placeholder="Add a prayer..."
+            value={values}
+            component={NewPrayerInput}
+            onSubmitEditing={handleSubmit}
           />
         </Container>
       )}
