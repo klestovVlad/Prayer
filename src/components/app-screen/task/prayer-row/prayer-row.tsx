@@ -9,7 +9,7 @@ import {Animated} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
-import {Pray} from '../../../../store/data/state';
+import {Prayer} from '../../../../store/data/state';
 import {useDispatch} from 'react-redux';
 import {stateAction} from '../../../../store/data/index';
 
@@ -23,10 +23,10 @@ type ProfileScreenNavigationProp = StackNavigationProp<
 >;
 
 interface PrayerRowProsp {
-  pray: Pray;
+  prayer: Prayer;
 }
 
-export const PrayerRow: React.FC<PrayerRowProsp> = ({pray}) => {
+export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
 
@@ -40,29 +40,31 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({pray}) => {
     });
     return (
       <Animated.View style={{transform: [{translateX: trans}]}}>
-        <SwipebleDeliteButton />
+        <SwipebleDeliteButton
+          onPress={() => dispatch(stateAction.deletePrayerRequest(prayer.id))}
+        />
       </Animated.View>
     );
   };
   return (
     <Swipeable renderRightActions={renderRightActions} overshootRight={false}>
       <Container
-        answered={pray.checked}
+        answered={prayer.checked}
         onPress={() => navigation.navigate('Prayer details')}>
         <VerticalLine />
         <CheckBox
-          checked={pray.checked}
+          checked={prayer.checked}
           ChangeState={() =>
             dispatch(
               stateAction.changePraуerRequest({
-                id: pray.id,
-                title: pray.title,
-                checked: !pray.checked,
+                id: prayer.id,
+                title: prayer.title,
+                checked: !prayer.checked,
               }),
             )
           }
         />
-        <Text answered={pray.checked}>{pray.title}</Text>
+        <Text answered={prayer.checked}>{prayer.title}</Text>
         <IconsContainer>
           <UserIcon />
           <Number>12</Number>

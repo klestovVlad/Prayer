@@ -1,4 +1,4 @@
-import {compose, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {
   GetPrayers,
   ChangePraуerRequest,
@@ -8,7 +8,7 @@ import {
   GetComments,
   AddNewColumn,
 } from './action-types';
-import {initialState, Columns, Pray} from './state';
+import {initialState, Columns, Prayer} from './state';
 
 const stateSlice = createSlice({
   name: 'boardSlice',
@@ -25,15 +25,16 @@ const stateSlice = createSlice({
     getPrayers(state, action: PayloadAction<GetPrayers>) {
       const {prayersData} = action.payload;
       for (let key in state) {
-        const foundPrays: Pray[] = [];
-        prayersData.forEach(pray => {
-          pray.columnId === state[key].id ? foundPrays.push(pray) : null;
+        const foundPrays: Prayer[] = [];
+        prayersData.forEach(prayer => {
+          prayer.columnId === state[key].id ? foundPrays.push(prayer) : null;
         });
         state[key].prayers = state[key].prayers.concat(foundPrays);
       }
     },
     getComments(state, action: PayloadAction<GetComments>) {
       const {commentsData} = action.payload;
+      console.log(commentsData);
     },
     changePraуerRequest(state, action: PayloadAction<ChangePraуerRequest>) {},
     getSinglePrayer(state, action: PayloadAction<GetSinglePrayer>) {
@@ -53,7 +54,7 @@ const stateSlice = createSlice({
     addNewPrayerRequest(state, action: PayloadAction<AddNewPrayerRequest>) {},
     addNewPrayer(state, action: PayloadAction<AddNewPrayer>) {
       const {data} = action.payload;
-      const pray: Pray = {
+      const prayer: Prayer = {
         id: data.id,
         title: data.title,
         description: '',
@@ -63,12 +64,12 @@ const stateSlice = createSlice({
       };
       for (let key in state) {
         if (state[key].id === data.columnId) {
-          state[key].prayers = state[key].prayers.concat(pray);
+          state[key].prayers = state[key].prayers.concat(prayer);
         }
       }
     },
-    addNewColumnRequser(state, action: PayloadAction<AddNewColumn>) {
-      console.log('addNewColumnRequser', action);
+    addNewColumnRequser(state, {payload}: PayloadAction<AddNewColumn>) {
+      console.log('addNewColumnRequser', payload);
     },
     addNewColumn(state, action: PayloadAction<Columns>) {
       const column = action.payload;
@@ -83,6 +84,20 @@ const stateSlice = createSlice({
         if (state[key].id === columnId) {
           delete state[+key];
         }
+      }
+    },
+    deletePrayerRequest(state, {payload}: PayloadAction<number>) {
+      console.log('deletePrayerRequest', payload);
+    },
+    deletePrayer(state, {payload}: PayloadAction<number>) {
+      console.log('deletePrayer id№', payload);
+      const deletePrayerId = payload;
+      for (let key in state) {
+        state[key].prayers.forEach((item, i) => {
+          if (item.id === deletePrayerId) {
+            state[key].prayers.splice(i, 1);
+          }
+        });
       }
     },
   },

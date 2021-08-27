@@ -1,19 +1,19 @@
-import {Columns, Pray, Comment} from './state';
+import {Columns, Prayer, Comment} from './state';
 
 export interface LoadData {
   loadData: Columns;
 }
 
 export interface GetPrayers {
-  prayersData: Pray[];
+  prayersData: Prayer[];
 }
 
 export interface ToglePrayChek {
-  pray: Pray;
+  prayer: Prayer;
 }
 
 export interface GetSinglePrayer {
-  data: Pray;
+  data: Prayer;
 }
 
 export interface ChangePraуerRequest {

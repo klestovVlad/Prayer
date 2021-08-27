@@ -4,10 +4,10 @@ import {AppHeader} from '../header/app-header';
 import {TaskBody} from './task-body/task-body';
 import {Container} from './styles';
 import {RouteProp} from '@react-navigation/native';
-import {Pray} from '../../../store/data/state';
+import {Prayer} from '../../../store/data/state';
 
 type RootStackParamList = {
-  Task: {nameHeader: string; name: string; prayers: Pray[]; columnId: number};
+  Task: {nameHeader: string; name: string; prayers: Prayer[]; columnId: number};
 };
 
 type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Task'>;

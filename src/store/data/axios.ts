@@ -20,14 +20,18 @@ export const deleteColumnPost = (columnId: number) => {
   return Api.delete(`columns/${columnId}`);
 };
 
-export const AddNewColumnPost = (title: string) => {
+export const addNewColumnPost = (title: string) => {
   return Api.post('columns', {title, description: ''});
 };
 
-export const newPrayerPost = (ColumnId: number, title: string) => {
-  return Api.post(`columns/${ColumnId}/prayers`, {
+export const newPrayerPost = (columnId: number, title: string) => {
+  return Api.post(`columns/${columnId}/prayers`, {
     title,
     description: '',
     checked: false,
   });
+};
+
+export const deletePrayerPost = (prayerId: number) => {
+  return Api.delete(`prayers/${prayerId}`);
 };

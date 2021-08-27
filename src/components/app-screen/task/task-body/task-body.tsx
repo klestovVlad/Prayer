@@ -1,11 +1,11 @@
 import React from 'react';
 import {MyPrayers} from '../my-prayers/my-prayers';
 import {Subscribed} from '../subcribed/subscribed';
-import {Pray} from '../../../../store/data/state';
+import {Prayer} from '../../../../store/data/state';
 
 interface TaskBodyProps {
   numOfView: number;
-  prayers: Pray[];
+  prayers: Prayer[];
   columnId: number;
 }
 

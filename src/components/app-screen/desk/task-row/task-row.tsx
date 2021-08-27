@@ -2,14 +2,14 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {TaskContent, TaskText} from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {Pray} from '../../../../store/data/state';
+import {Prayer} from '../../../../store/data/state';
 import {useState} from 'react';
 import {TaskRowButtons} from './task-row-buttons/task-row-buttons';
 
 type RootStackParamList = {
   Task: {
     name: string;
-    prayers: Pray[];
+    prayers: Prayer[];
     columnId: number;
   };
 };
@@ -21,7 +21,7 @@ type ProfileScreenNavigationProp = StackNavigationProp<
 
 type TaskProps = {
   name: string;
-  prayers: Pray[];
+  prayers: Prayer[];
   columnId: number;
 };
 

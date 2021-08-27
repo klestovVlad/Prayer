@@ -2,12 +2,12 @@ import React from 'react';
 import {InputNewPrayer} from '../input-new-prayer/input-mew-prayer';
 import {PrayerRow} from '../prayer-row/prayer-row';
 import {ShowAnsweredButton} from '../show-anwered-button/show-anwered-button';
-import {Pray} from '../../../../store/data/state';
+import {Prayer} from '../../../../store/data/state';
 import {useState} from 'react';
 import {ScrollView} from 'react-native';
 
 interface MyPrayersProps {
-  prayers: Pray[];
+  prayers: Prayer[];
   columnId: number;
 }
 
@@ -17,7 +17,7 @@ export const MyPrayers: React.FC<MyPrayersProps> = ({prayers, columnId}) => {
     <ScrollView>
       <InputNewPrayer columnId={columnId} />
       {prayers.map(item =>
-        !item.checked ? <PrayerRow pray={item} key={item.id} /> : null,
+        !item.checked ? <PrayerRow prayer={item} key={item.id} /> : null,
       )}
       <ShowAnsweredButton
         setshowAnswered={() => setshowAnswered(!showAnswered)}
@@ -25,7 +25,7 @@ export const MyPrayers: React.FC<MyPrayersProps> = ({prayers, columnId}) => {
       />
       {prayers.map(item =>
         item.checked && showAnswered ? (
-          <PrayerRow pray={item} key={item.id} />
+          <PrayerRow prayer={item} key={item.id} />
         ) : null,
       )}
     </ScrollView>

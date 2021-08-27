@@ -2,9 +2,15 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {colors} from '../style/colors';
 
-export const SwipebleDeliteButton: React.FC = () => {
+interface SwipebleDeliteButtonProps {
+  onPress(): void;
+}
+
+export const SwipebleDeliteButton: React.FC<SwipebleDeliteButtonProps> = ({
+  onPress,
+}) => {
   return (
-    <Button>
+    <Button onPress={onPress}>
       <Text>Delete</Text>
     </Button>
   );
