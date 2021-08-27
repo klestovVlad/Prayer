@@ -12,9 +12,13 @@ import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
 import {Prayer} from '../../../../store/data/state';
 import {useDispatch} from 'react-redux';
 import {stateAction} from '../../../../store/data/index';
+import {Comment} from '../../../../store/data/state';
 
 type RootStackParamList = {
-  'Prayer details': undefined;
+  'Prayer details': {
+    title: string;
+    comments: Comment[];
+  };
 };
 
 type ProfileScreenNavigationProp = StackNavigationProp<
@@ -29,7 +33,7 @@ interface PrayerRowProsp {
 export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
-
+  console.log('Prayer row', prayer.comments);
   const renderRightActions = (
     proggres: Animated.AnimatedInterpolation,
     dragX: Animated.AnimatedInterpolation,
@@ -50,7 +54,12 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
     <Swipeable renderRightActions={renderRightActions} overshootRight={false}>
       <Container
         answered={prayer.checked}
-        onPress={() => navigation.navigate('Prayer details')}>
+        onPress={() =>
+          navigation.navigate('Prayer details', {
+            title: prayer.title,
+            comments: prayer.comments,
+          })
+        }>
         <VerticalLine />
         <CheckBox
           checked={prayer.checked}

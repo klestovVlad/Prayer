@@ -19,13 +19,13 @@ type ProfileScreenNavigationProp = StackNavigationProp<
   'Task'
 >;
 
-type TaskProps = {
+type TaskRowProps = {
   name: string;
   prayers: Prayer[];
   columnId: number;
 };
 
-export const TaskRow: React.FC<TaskProps> = ({name, prayers, columnId}) => {
+export const TaskRow: React.FC<TaskRowProps> = ({name, prayers, columnId}) => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   const [wrappedUp, setwrappedUp] = useState(false);
   return (

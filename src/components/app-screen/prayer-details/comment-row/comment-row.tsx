@@ -9,19 +9,27 @@ import {
   Date,
   Comment,
 } from './styles';
+import {timeFromNow} from '../../../../ui/functions/time-from-now';
+import {twoLetterFromName} from '../../../../ui/functions/two-letter-from-name';
 
-export const CommentRow: React.FC = () => {
+interface CommentRowProps {
+  text: string;
+  createdTime: string;
+}
+
+export const CommentRow: React.FC<CommentRowProps> = ({text, createdTime}) => {
+  console.log('CommentRow', text, createdTime);
   return (
     <Container>
       <UserPhoto>
-        <UserInitials>AB</UserInitials>
+        <UserInitials>{twoLetterFromName('unnamed user')}</UserInitials>
       </UserPhoto>
       <TextContainer>
         <TextRow>
-          <Name>Anna Barber</Name>
-          <Date>2 days ago</Date>
+          <Name>unnamed user</Name>
+          <Date>{timeFromNow(createdTime)}</Date>
         </TextRow>
-        <Comment>Hey, Hey!</Comment>
+        <Comment>{text}</Comment>
       </TextContainer>
     </Container>
   );

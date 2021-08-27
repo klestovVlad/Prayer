@@ -1,17 +1,21 @@
 import React from 'react';
 import {CommentRow} from '../comment-row/comment-row';
 import {Container, Header} from './styles';
+import {Comment} from '../../../../store/data/state';
 
-export const Comments: React.FC = () => {
+interface CommetsProp {
+  comments: Comment[];
+}
+
+export const Comments: React.FC<CommetsProp> = ({comments}) => {
+  console.log('all cooment: ', comments);
+  console.log(comments.length);
   return (
     <Container>
       <Header>COMMENTS</Header>
-      <CommentRow />
-      <CommentRow />
-      <CommentRow />
-      <CommentRow />
-      <CommentRow />
-      <CommentRow />
+      {comments.map(item => (
+        <CommentRow text={item.body} key={item.id} createdTime={item.created} />
+      ))}
     </Container>
   );
 };

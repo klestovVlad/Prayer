@@ -7,20 +7,32 @@ import {TableInfo} from './table-info/table-Info';
 import {Members} from './members/members';
 import {Comments} from './comments/comments';
 import {AddNewComment} from './add-new-comment/add-new-comment';
+import {RouteProp} from '@react-navigation/native';
+import {Comment} from '../../../store/data/state';
+
+type RootStackParamList = {
+  PrayerDetails: {title: string; comments: Comment[]};
+};
+
+type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'PrayerDetails'>;
+
+type PrayerDetailsProps = {
+  route: ProfileScreenRouteProp;
+};
 
 const Container = styled.View`
   height: 100%;
 `;
 
-export const PrayerDetails: React.FC = () => {
+export const PrayerDetails: React.FC<PrayerDetailsProps> = ({route}) => {
   return (
     <Container>
-      <Header />
+      <Header title={route.params.title} />
       <ScrollView>
         <LastPrayed />
         <TableInfo />
         <Members />
-        <Comments />
+        <Comments comments={route.params.comments} />
       </ScrollView>
       <AddNewComment />
     </Container>
