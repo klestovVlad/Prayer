@@ -27,6 +27,7 @@ const stateSlice = createSlice({
       for (let key in state) {
         const foundPrays: Prayer[] = [];
         prayersData.forEach(prayer => {
+          prayer.comments = [];
           prayer.columnId === state[key].id ? foundPrays.push(prayer) : null;
         });
         state[key].prayers = state[key].prayers.concat(foundPrays);
@@ -35,6 +36,16 @@ const stateSlice = createSlice({
     getComments(state, action: PayloadAction<GetComments>) {
       const {commentsData} = action.payload;
       console.log(commentsData);
+      commentsData.forEach(comment => {
+        for (let key in state) {
+          state[key].prayers.forEach((prayer, i) => {
+            if (comment.prayerId === prayer.id) {
+              state[key].prayers[i].comments =
+                state[key].prayers[i].comments.concat(comment);
+            }
+          });
+        }
+      });
     },
     changePraуerRequest(state, action: PayloadAction<ChangePraуerRequest>) {},
     getSinglePrayer(state, action: PayloadAction<GetSinglePrayer>) {
