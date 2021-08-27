@@ -13,6 +13,7 @@ import {Prayer} from '../../../../store/data/state';
 import {useDispatch} from 'react-redux';
 import {stateAction} from '../../../../store/data/index';
 import {Comment} from '../../../../store/data/state';
+import {trimTextIfItIsLong} from '../../../../ui/functions/trim-text-if-it-is-long';
 
 type RootStackParamList = {
   'Prayer details': {
@@ -73,7 +74,9 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
             )
           }
         />
-        <Text answered={prayer.checked}>{prayer.title}</Text>
+        <Text answered={prayer.checked}>
+          {trimTextIfItIsLong(prayer.title)}
+        </Text>
         <IconsContainer>
           <UserIcon />
           <Number>12</Number>
