@@ -10,15 +10,14 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
 import {Prayer} from '../../../../store/prayers/state';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {prayerAction} from '../../../../store/prayers/slice';
-import {Comment} from '../../../../store/prayers/state';
 import {trimTextIfItIsLong} from '../../../../ui/functions/trim-text-if-it-is-long';
+import {getCommentsByPrayerId} from '../../../../store/comments/selectors';
 
 type RootStackParamList = {
   'Prayer details': {
     title: string;
-    comments: Comment[];
     prayerId: number;
     columnId: number;
   };
@@ -36,7 +35,10 @@ interface PrayerRowProsp {
 export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
-  console.log('Prayer row', prayer);
+
+  const comments = useSelector(getCommentsByPrayerId(prayer.id));
+  console.log(comments);
+
   const renderRightActions = (
     proggres: Animated.AnimatedInterpolation,
     dragX: Animated.AnimatedInterpolation,
@@ -60,7 +62,6 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
         onPress={() =>
           navigation.navigate('Prayer details', {
             title: prayer.title,
-            comments: prayer.comments,
             prayerId: prayer.id,
             columnId: prayer.columnId,
           })
@@ -83,9 +84,9 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
         </Text>
         <IconsContainer>
           <UserIcon />
-          <Number>12</Number>
+          <Number>{comments.length}</Number>
           <HandsIcon color={colors.blue} />
-          <Number>12</Number>
+          <Number>0</Number>
         </IconsContainer>
       </Container>
     </Swipeable>

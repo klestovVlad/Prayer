@@ -9,7 +9,6 @@ interface CommetsProp {
 
 export const Comments: React.FC<CommetsProp> = ({comments}) => {
   console.log('all cooment: ', comments);
-  console.log(comments.length);
   return (
     <Container>
       <Header>COMMENTS</Header>

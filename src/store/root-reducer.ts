@@ -1,15 +1,19 @@
 import {combineReducers} from 'redux';
-import userReducer from './user/slice';
-import columnsReducer from './columns/slice';
-import prayersReducer from './prayers/slice';
 import createSagaMiddleware from '@redux-saga/core';
-import {userWatcher} from './user/saga';
-import {columnsWatcher} from './columns/saga';
-import {prayersWatcher} from './prayers/saga';
 import {configureStore} from '@reduxjs/toolkit';
 import {all} from 'redux-saga/effects';
 import {persistStore, persistReducer} from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import userReducer from './user/slice';
+import columnsReducer from './columns/slice';
+import prayersReducer from './prayers/slice';
+import commentsReducer from './comments/slice';
+
+import {userWatcher} from './user/saga';
+import {columnsWatcher} from './columns/saga';
+import {prayersWatcher} from './prayers/saga';
+import {commentsWatcher} from './comments/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,6 +23,7 @@ export const rootReducer = combineReducers({
   userReducer: userReducer,
   columnsReducer: columnsReducer,
   prayersReducer: prayersReducer,
+  commentsReducer: commentsReducer,
 });
 
 const persistConfig = {
@@ -36,7 +41,12 @@ const store = configureStore({
 const persistor = persistStore(store);
 
 function* rootWatcher() {
-  yield all([userWatcher(), columnsWatcher(), prayersWatcher()]);
+  yield all([
+    userWatcher(),
+    columnsWatcher(),
+    prayersWatcher(),
+    commentsWatcher(),
+  ]);
 }
 
 sagaMiddleware.run(rootWatcher);

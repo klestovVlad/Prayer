@@ -8,12 +8,12 @@ import {Members} from './members/members';
 import {Comments} from './comments/comments';
 import {AddNewComment} from './add-new-comment/add-new-comment';
 import {RouteProp} from '@react-navigation/native';
-import {Comment} from '../../../store/data/state';
+import {useSelector} from 'react-redux';
+import {getCommentsByPrayerId} from '../../../store/comments/selectors';
 
 type RootStackParamList = {
   PrayerDetails: {
     title: string;
-    comments: Comment[];
     prayerId: number;
     columnId: number;
   };
@@ -30,7 +30,7 @@ const Container = styled.View`
 `;
 
 export const PrayerDetails: React.FC<PrayerDetailsProps> = ({route}) => {
-  console.log('Prayer details: ', route.params);
+  const comments = useSelector(getCommentsByPrayerId(route.params.prayerId));
   return (
     <Container>
       <Header title={route.params.title} />
@@ -38,7 +38,7 @@ export const PrayerDetails: React.FC<PrayerDetailsProps> = ({route}) => {
         <LastPrayed />
         <TableInfo />
         <Members />
-        <Comments comments={route.params.comments} />
+        <Comments comments={comments} />
       </ScrollView>
       <AddNewComment
         columnId={route.params.columnId}

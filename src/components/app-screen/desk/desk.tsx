@@ -1,12 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {TaskRow} from './task-row/task-row';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppHeader} from '../header/app-header';
 import {InputNewTask} from './input-new-task/inputNewTask';
-import {useState} from 'react';
 import {Container, ScrollView} from './styles';
+
 import {columnAction} from '../../../store/columns/slice';
 import {prayerAction} from '../../../store/prayers/slice';
+import {commentsAction} from '../../../store/comments/slice';
+
 import {selectUserData} from '../../../store/user/selectors';
 import {selectColumnData} from '../../../store/columns/selectors';
 
@@ -17,6 +19,7 @@ export const Desk: React.FC<any> = () => {
   useEffect(() => {
     dispatch(columnAction.columnRequest(user.token));
     dispatch(prayerAction.prayersRequest(user.token));
+    dispatch(commentsAction.commentRequest(user.token));
   }, [dispatch, user.token]);
 
   const data = useSelector(selectColumnData);
