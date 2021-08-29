@@ -5,19 +5,19 @@ import {AppHeader} from '../header/app-header';
 import {InputNewTask} from './input-new-task/inputNewTask';
 import {useState} from 'react';
 import {Container, ScrollView} from './styles';
-import {stateAction} from '../../../store/data/index';
+import {columnAction} from '../../../store/columns/slice';
 import {selectUserData} from '../../../store/user/selectors';
-import {selectStoreData} from '../../../store/data/selectors';
+import {selectColumnData} from '../../../store/columns/selectors';
 
 export const Desk: React.FC<any> = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserData);
 
   useEffect(() => {
-    dispatch(stateAction.columnRequest(user.token));
+    dispatch(columnAction.columnRequest(user.token));
   }, [dispatch, user.token]);
 
-  const data = useSelector(selectStoreData);
+  const data = useSelector(selectColumnData);
   const [showInput, setshowInput] = useState(false);
   console.log(data);
 

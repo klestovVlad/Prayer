@@ -9,16 +9,18 @@ import {Animated} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
-import {Prayer} from '../../../../store/data/state';
+import {Prayer} from '../../../../store/prayers/state';
 import {useDispatch} from 'react-redux';
-import {stateAction} from '../../../../store/data/index';
-import {Comment} from '../../../../store/data/state';
+import {prayerAction} from '../../../../store/prayers/slice';
+import {Comment} from '../../../../store/prayers/state';
 import {trimTextIfItIsLong} from '../../../../ui/functions/trim-text-if-it-is-long';
 
 type RootStackParamList = {
   'Prayer details': {
     title: string;
     comments: Comment[];
+    prayerId: number;
+    columnId: number;
   };
 };
 
@@ -34,7 +36,7 @@ interface PrayerRowProsp {
 export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
-  console.log('Prayer row', prayer.comments);
+  console.log('Prayer row', prayer);
   const renderRightActions = (
     proggres: Animated.AnimatedInterpolation,
     dragX: Animated.AnimatedInterpolation,
@@ -46,7 +48,7 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
     return (
       <Animated.View style={{transform: [{translateX: trans}]}}>
         <SwipebleDeliteButton
-          onPress={() => dispatch(stateAction.deletePrayerRequest(prayer.id))}
+          onPress={() => dispatch(prayerAction.deletePrayerRequest(prayer.id))}
         />
       </Animated.View>
     );
@@ -59,6 +61,8 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
           navigation.navigate('Prayer details', {
             title: prayer.title,
             comments: prayer.comments,
+            prayerId: prayer.id,
+            columnId: prayer.columnId,
           })
         }>
         <VerticalLine />
@@ -66,7 +70,7 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
           checked={prayer.checked}
           ChangeState={() =>
             dispatch(
-              stateAction.changePraуerRequest({
+              prayerAction.changePraуerRequest({
                 id: prayer.id,
                 title: prayer.title,
                 checked: !prayer.checked,

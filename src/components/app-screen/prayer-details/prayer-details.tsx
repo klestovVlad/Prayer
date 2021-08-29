@@ -11,7 +11,12 @@ import {RouteProp} from '@react-navigation/native';
 import {Comment} from '../../../store/data/state';
 
 type RootStackParamList = {
-  PrayerDetails: {title: string; comments: Comment[]};
+  PrayerDetails: {
+    title: string;
+    comments: Comment[];
+    prayerId: number;
+    columnId: number;
+  };
 };
 
 type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'PrayerDetails'>;
@@ -25,6 +30,7 @@ const Container = styled.View`
 `;
 
 export const PrayerDetails: React.FC<PrayerDetailsProps> = ({route}) => {
+  console.log('Prayer details: ', route.params);
   return (
     <Container>
       <Header title={route.params.title} />
@@ -34,7 +40,10 @@ export const PrayerDetails: React.FC<PrayerDetailsProps> = ({route}) => {
         <Members />
         <Comments comments={route.params.comments} />
       </ScrollView>
-      <AddNewComment />
+      <AddNewComment
+        columnId={route.params.columnId}
+        prayerId={route.params.prayerId}
+      />
     </Container>
   );
 };

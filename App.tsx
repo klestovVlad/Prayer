@@ -4,7 +4,7 @@ import {AppScreen} from './src/components/app-screen/app-screen';
 import {AutorizationScreen} from './src/components/authorization-screen/autorization-screen';
 
 function App() {
-  const data = useSelector((state: any) => state.UserReduser);
+  const data = useSelector((state: any) => state.userReducer);
   return data.token !== '' ? <AppScreen /> : <AutorizationScreen />;
 }
 

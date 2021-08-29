@@ -10,10 +10,4 @@ const Container = styled.View`
   border-color: ${colors.grey};
 `;
 
-const CommentInput = styled.TextInput`
-  font-size: 17px;
-  line-height: 20px;
-  margin-left: 12px;
-`;
-
-export {Container, CommentInput};
+export {Container};

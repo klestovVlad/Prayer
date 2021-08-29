@@ -4,7 +4,7 @@ import {Container, Button} from './styles';
 import {Field, Form, FormProps} from 'react-final-form';
 import {NewColumnInput} from './new-column-input/new-column-input';
 import {useDispatch} from 'react-redux';
-import {stateAction} from '../../../../store/data/index';
+import {columnAction} from '../../../../store/columns/slice';
 interface InputNewTaskProps {
   showInput: boolean;
   setshowInput(arg0: boolean): void;
@@ -17,7 +17,7 @@ export const InputNewTask: React.FC<InputNewTaskProps> = ({
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: FormProps) => {
-    dispatch(stateAction.addNewColumnRequser({title: values.title}));
+    dispatch(columnAction.addNewColumnRequser({title: values.title}));
     setshowInput(false);
   };
   return showInput ? (

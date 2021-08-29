@@ -6,8 +6,8 @@ import {Container, IconContainer} from './styles';
 import {FormApi} from 'final-form';
 import {Field, Form, FormProps} from 'react-final-form';
 import {useDispatch} from 'react-redux';
-import {stateAction} from '../../../../store/data';
-import {NewPrayerInput} from './new-pray-input/new-column-input';
+import {prayerAction} from '../../../../store/prayers/slice';
+import {NewPrayerInput} from './input-form/input-form';
 
 interface InputNewPrayerProps {
   columnId: number;
@@ -16,7 +16,7 @@ interface InputNewPrayerProps {
 export const InputNewPrayer: React.FC<InputNewPrayerProps> = ({columnId}) => {
   const dispatch = useDispatch();
   const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {
-    dispatch(stateAction.addNewPrayerRequest({title: values.title, columnId}));
+    dispatch(prayerAction.addNewPrayerRequest({title: values.title, columnId}));
     form.reset();
   };
   return (

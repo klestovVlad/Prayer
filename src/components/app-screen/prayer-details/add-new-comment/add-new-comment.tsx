@@ -1,12 +1,47 @@
 import React from 'react';
 import {CommentIcon} from '../../../../ui/Icons/CommentIcon';
-import {Container, CommentInput} from './styles';
+import {FormApi} from 'final-form';
+import {Container} from './styles';
+import {Field, Form, FormProps} from 'react-final-form';
+import {CommentInput} from './input-form/input-form';
+import {useDispatch} from 'react-redux';
+import {columnAction} from '../../../../store/columns/slice';
+interface AddNewCommentProps {
+  columnId: number;
+  prayerId: number;
+}
 
-export const AddNewComment: React.FC = () => {
+export const AddNewComment: React.FC<AddNewCommentProps> = ({
+  columnId,
+  prayerId,
+}) => {
+  const dispatch = useDispatch();
+  const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {
+    console.log(values, columnId, prayerId);
+    dispatch(
+      columnAction.addNewCommentRequest({
+        title: values.title,
+        columnId,
+        prayerId,
+      }),
+    );
+    form.reset();
+  };
   return (
-    <Container>
-      <CommentIcon />
-      <CommentInput placeholder="Add a comment..." />
-    </Container>
+    <Form
+      onSubmit={onSubmitForm}
+      render={({values, handleSubmit}) => (
+        <Container>
+          <CommentIcon />
+          <Field
+            name="title"
+            placeholder="Add a comment..."
+            value={values}
+            component={CommentInput}
+            onSubmitEditing={handleSubmit}
+          />
+        </Container>
+      )}
+    />
   );
 };

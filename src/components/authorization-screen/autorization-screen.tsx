@@ -10,7 +10,7 @@ import {Container, Block, Header} from './styles';
 const Tab = createMaterialTopTabNavigator();
 
 export const AutorizationScreen = () => {
-  const {loading} = useSelector((state: any) => state.UserReduser);
+  const {loading} = useSelector((state: any) => state.userReducer);
   return loading ? (
     <Container>
       <Header>PRAYER</Header>

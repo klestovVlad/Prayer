@@ -5,7 +5,7 @@ import {
   CancelButton,
   ButtonText,
 } from './styled';
-import {stateAction} from '../../../../../store/data/index';
+import {columnAction} from '../../../../../store/columns/slice';
 import {useDispatch} from 'react-redux';
 
 interface TaskRowButtonsProps {
@@ -23,7 +23,7 @@ export const TaskRowButtons: React.FC<TaskRowButtonsProps> = ({
   return (
     <ButtonContainer visible={visible}>
       <DeleteButton
-        onPress={() => dispatch(stateAction.deleteColumnRequest(columnId))}>
+        onPress={() => dispatch(columnAction.deleteColumnRequest(columnId))}>
         <ButtonText>delete</ButtonText>
       </DeleteButton>
       <CancelButton onPress={setwrappedUp}>
