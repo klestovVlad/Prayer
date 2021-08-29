@@ -1,28 +1,32 @@
 import React from 'react';
 import {PrayerRow} from '../prayer-row/prayer-row';
 import {ShowAnsweredButton} from '../show-anwered-button/show-anwered-button';
-import {Prayer} from '../../../../store/data/state';
 import {useState} from 'react';
 import {ScrollView} from 'react-native';
+import {useSelector} from 'react-redux';
+import {getPrayersByColumnId} from '../../../../store/prayers/selectors';
 
 interface MyPrayersProps {
-  prayers: Prayer[];
+  columnId: number;
 }
 
-export const Subscribed: React.FC<MyPrayersProps> = ({prayers}) => {
+export const Subscribed: React.FC<MyPrayersProps> = ({columnId}) => {
   const [showAnswered, setshowAnswered] = useState(true);
+  const prayers = useSelector(getPrayersByColumnId(columnId));
   return (
     <ScrollView>
-      {prayers.map(item =>
-        !item.checked ? <PrayerRow prayer={item} key={item.id} /> : null,
+      {Object.keys(prayers).map(prayerId =>
+        !prayers[prayerId].checked ? (
+          <PrayerRow prayer={prayers[prayerId]} key={prayers[prayerId].id} />
+        ) : null,
       )}
       <ShowAnsweredButton
         setshowAnswered={() => setshowAnswered(!showAnswered)}
         showAnswered={showAnswered}
       />
-      {prayers.map(item =>
-        item.checked && showAnswered ? (
-          <PrayerRow prayer={item} key={item.id} />
+      {Object.keys(prayers).map(prayerId =>
+        prayers[prayerId].checked && showAnswered ? (
+          <PrayerRow prayer={prayers[prayerId]} key={prayers[prayerId].id} />
         ) : null,
       )}
     </ScrollView>

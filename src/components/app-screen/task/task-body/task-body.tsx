@@ -5,21 +5,16 @@ import {Prayer} from '../../../../store/data/state';
 
 interface TaskBodyProps {
   numOfView: number;
-  prayers: Prayer[];
   columnId: number;
 }
 
-export const TaskBody: React.FC<TaskBodyProps> = ({
-  numOfView,
-  prayers,
-  columnId,
-}) => {
+export const TaskBody: React.FC<TaskBodyProps> = ({numOfView, columnId}) => {
   switch (numOfView) {
     case 0:
-      return <MyPrayers prayers={prayers} columnId={columnId} />;
+      return <MyPrayers columnId={columnId} />;
     case 1:
-      return <Subscribed prayers={prayers} />;
+      return <Subscribed columnId={columnId}/>;
     default:
-      return <MyPrayers prayers={prayers} columnId={columnId} />;
+      return <MyPrayers columnId={columnId} />;
   }
 };

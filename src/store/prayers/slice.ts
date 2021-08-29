@@ -11,7 +11,9 @@ const stateSlice = createSlice({
   name: 'boardSlice',
   initialState,
   reducers: {
-    prayersRequest() {},
+    prayersRequest(state, {payload}: PayloadAction<string>) {
+      console.log(payload);
+    },
     getPrayers(state, {payload}: PayloadAction<Prayer[]>) {
       return payload.reduce((accum: Record<string, Prayer>, prayer) => {
         accum[prayer.id] = prayer;

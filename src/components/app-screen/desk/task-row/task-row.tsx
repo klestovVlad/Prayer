@@ -2,14 +2,12 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {TaskContent, TaskText} from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {Prayer} from '../../../../store/data/state';
 import {useState} from 'react';
 import {TaskRowButtons} from './task-row-buttons/task-row-buttons';
 
 type RootStackParamList = {
   Task: {
     name: string;
-    prayers: Prayer[];
     columnId: number;
   };
 };
@@ -21,11 +19,10 @@ type ProfileScreenNavigationProp = StackNavigationProp<
 
 type TaskRowProps = {
   name: string;
-  prayers: Prayer[];
   columnId: number;
 };
 
-export const TaskRow: React.FC<TaskRowProps> = ({name, prayers, columnId}) => {
+export const TaskRow: React.FC<TaskRowProps> = ({name, columnId}) => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   const [wrappedUp, setwrappedUp] = useState(false);
   return (
@@ -33,7 +30,6 @@ export const TaskRow: React.FC<TaskRowProps> = ({name, prayers, columnId}) => {
       onPress={() =>
         navigation.navigate('Task', {
           name: name,
-          prayers: prayers,
           columnId: columnId,
         })
       }

@@ -6,8 +6,8 @@ const stateSlice = createSlice({
   name: 'boardSlice',
   initialState,
   reducers: {
-    columnRequest(state, action: PayloadAction<string>) {
-      console.log('columnRequest', action);
+    columnRequest(state, {payload}: PayloadAction<string>) {
+      console.log('columnRequest', payload);
     },
     getColumns(state, action: PayloadAction<Columns[]>) {
       return action.payload.reduce((accum: Record<string, Columns>, column) => {
@@ -26,11 +26,11 @@ const stateSlice = createSlice({
       state[column.id].prayers = [];
     },
 
-    deleteColumnRequest(state, action: PayloadAction<number>) {
-      console.log('deleteColumnRequest', action);
+    deleteColumnRequest(state, {payload}: PayloadAction<number>) {
+      console.log('deleteColumnRequest', payload);
     },
-    deleteColumn(state, action) {
-      delete state[action.payload];
+    deleteColumn(state, {payload}) {
+      delete state[payload];
     },
   },
 });
