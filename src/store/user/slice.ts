@@ -7,14 +7,17 @@ const UserSlice = createSlice({
   name: 'UserSlice',
   initialState,
   reducers: {
-    singInRequest(state, action: PayloadAction<SignInRequest>) {
+    singInRequest(state, {payload}: PayloadAction<SignInRequest>) {
+      console.log(payload);
       state.loading = true;
       return state;
     },
     signIn(state, {payload}: PayloadAction<SignIn>) {
       return {...payload, loading: false};
     },
-    singUpRequest(state, action: PayloadAction<SignInRequest>) {},
+    singUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
+      console.log(payload);
+    },
     signUp(state, {payload}: PayloadAction<SignIn>) {
       console.log('signUp', payload);
       return {...payload, loading: false};

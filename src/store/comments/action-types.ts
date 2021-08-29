@@ -18,3 +18,8 @@ export interface AddNewComment {
     token: string;
   };
 }
+
+export interface addNewCommentRequest {
+  title: string;
+  prayerId: number;
+}
