@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import {useState} from 'react';
-import {Field, Form} from 'react-final-form';
+import {Field, Form, FormProps} from 'react-final-form';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import styled from 'styled-components/native';
 import {colors} from '../../../style/colors';
 import {SignButton} from '../../../ui/sign-button';
 import {UserAction} from '../../../store/user/slice';
+import {InputField} from './InputField';
 
 type SignInValues = {
   email: string;
@@ -19,18 +20,24 @@ export const LoginForm: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmitForm = (values: SignInValues) => {
-    dispatch(UserAction.singInRequest(values));
+  const onSubmitForm = (values: FormProps) => {
+    dispatch(
+      UserAction.singInRequest({
+        email: values.email,
+        password: values.password,
+      }),
+    );
   };
 
-  const validate = (value: SignInValues) => {
-    if (value.email === undefined || value.password === undefined) {
-      setemailError(value.email === undefined);
-      setpasswordError(value.password === undefined);
+  const validate = (values: FormProps) => {
+    console.log(values);
+    if (values.email === undefined || values.password === undefined) {
+      setemailError(values.email === undefined);
+      setpasswordError(values.password === undefined);
     } else {
       setemailError(false);
       setpasswordError(false);
-      onSubmitForm(value);
+      onSubmitForm(values);
     }
   };
   return (
@@ -42,32 +49,18 @@ export const LoginForm: React.FC = () => {
             <View>
               <Field
                 name="email"
-                render={({input}) => {
-                  return (
-                    <View>
-                      <EmailInput
-                        placeholder="Write your email..."
-                        onChangeText={input.onChange}
-                        value={input.value}
-                        validateError={emailError}
-                      />
-                    </View>
-                  );
-                }}
+                placeholder="Write your email..."
+                value={values}
+                validateError={emailError}
+                component={InputField}
               />
               <Field
                 name="password"
-                render={({input}) => {
-                  return (
-                    <PasswordInput
-                      secureTextEntry={true}
-                      placeholder="Write your password..."
-                      onChangeText={input.onChange}
-                      value={input.value}
-                      validateError={passwordError}
-                    />
-                  );
-                }}
+                secureTextEntry={true}
+                placeholder="Write your password..."
+                value={values}
+                validateError={passwordError}
+                component={InputField}
               />
               <SignButton text="sing in" onPress={() => validate(values)} />
             </View>

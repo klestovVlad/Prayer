@@ -13,7 +13,6 @@ const UserSlice = createSlice({
       return state;
     },
     signIn(state, {payload}: PayloadAction<SignIn>) {
-      state.loading = false;
       return {...payload, loading: false};
     },
     singUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
