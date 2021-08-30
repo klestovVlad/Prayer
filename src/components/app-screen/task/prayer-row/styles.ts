@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {colors} from '../../../../style/colors';
 
 interface ContainerProps {
   answered: boolean;
@@ -12,7 +11,7 @@ const Container = styled.TouchableOpacity<ContainerProps>`
   border-style: solid;
   border-bottom-width: ${props => (props.answered ? 0 : 2)}px;
   border-top-width: ${props => (props.answered ? 2 : 0)}px;
-  border-color: ${colors.grey};
+  border-color: ${props => props.theme.colors.grey};
   display: flex;
   flex-direction: row;
 `;
@@ -21,7 +20,7 @@ const VerticalLine = styled.View`
   margin-right: 15px;
   width: 3px;
   height: 22px;
-  background-color: ${colors.red};
+  background-color: ${props => props.theme.colors.red};
   border-radius: 3px;
 `;
 
@@ -31,7 +30,7 @@ interface TextProps {
 
 const Text = styled.Text<TextProps>`
   font-size: 17px;
-  color: ${colors.dark};
+  color: ${props => props.theme.colors.dark};
   padding: 0;
   transform: translateY(-3px);
   margin-left: 15px;
@@ -50,7 +49,7 @@ const IconsContainer = styled.View`
 
 const Number = styled.Text`
   font-size: 12px;
-  color: ${colors.dark};
+  color: ${props => props.theme.colors.dark};
   margin: 0 5px;
   min-width: 15px;
 `;

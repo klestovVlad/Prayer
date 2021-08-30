@@ -6,6 +6,7 @@ import {Container} from './styles';
 import {RouteProp} from '@react-navigation/native';
 import {getPrayersByColumnId} from '../../../store/prayers/selectors';
 import {useSelector} from 'react-redux';
+import {LogoutPopup} from './logout-popup/logout-popup';
 
 type RootStackParamList = {
   Task: {nameHeader: string; name: string; columnId: number};
@@ -22,6 +23,7 @@ export const Task: React.FC<TaskProps> = ({route}) => {
   console.log('prayers', prayers, route.params.columnId);
 
   const [NumOfView, setNumOfView] = useState(0);
+  const [stateLogoutPopup, setstateLogoutPopup] = useState(false);
   return (
     <Container>
       <AppHeader
@@ -29,10 +31,14 @@ export const Task: React.FC<TaskProps> = ({route}) => {
         type={1}
         setNumOfView={setNumOfView}
         NumOfView={NumOfView}
-        onPress={() => null}
+        onPress={() => setstateLogoutPopup(true)}
         subscribiedNum={Object.keys(prayers).length}
       />
       <TaskBody numOfView={NumOfView} columnId={route.params.columnId} />
+      <LogoutPopup
+        isShown={stateLogoutPopup}
+        setstateLogoutPopup={setstateLogoutPopup}
+      />
     </Container>
   );
 };

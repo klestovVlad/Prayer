@@ -1,9 +1,8 @@
 import styled from 'styled-components/native';
-import {colors} from '../../../../style/colors';
 
 const Container = styled.View`
   border-top-width: 1px;
-  border-color: ${colors.grey};
+  border-color: ${props => props.theme.colors.grey};
   padding: 17px 0;
   display: flex;
   flex-direction: row;
@@ -12,7 +11,7 @@ const Container = styled.View`
 const UserPhoto = styled.View`
   height: 46px;
   width: 46px;
-  background-color: ${colors.blue};
+  background-color: ${props => props.theme.colors.blue};
   border-radius: 23px;
   margin-right: 8px;
   display: flex;
@@ -23,7 +22,7 @@ const UserPhoto = styled.View`
 const UserInitials = styled.Text`
   text-align: center;
   font-size: 17px;
-  color: ${colors.white};
+  color: ${props => props.theme.colors.white};
 `;
 
 const TextContainer = styled.View``;
@@ -37,20 +36,20 @@ const TextRow = styled.View`
 const Name = styled.Text`
   font-size: 17px;
   line-height: 20px;
-  color: ${colors.dark};
+  color: ${props => props.theme.colors.dark};
 `;
 
 const Date = styled.Text`
   font-size: 13px;
   line-height: 16px;
   margin-left: 6px;
-  color: ${colors.darkGrey};
+  color: ${props => props.theme.colors.darkGrey};
 `;
 
 const Comment = styled.Text`
   font-size: 17px;
   line-height: 20px;
-  color: ${colors.dark};
+  color: ${props => props.theme.colors.dark};
   margin-top: 2px;
 `;
 

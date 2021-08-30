@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {colors} from '../../../../style/colors';
 
 const Container = styled.View`
   padding: 15px 15px;
@@ -8,7 +7,7 @@ const Container = styled.View`
 const Header = styled.Text`
   font-size: 13px;
   line-height: 15px;
-  color: ${colors.blue};
+  color: ${props => props.theme.colors.blue};
 `;
 
 const MembersRow = styled.View`
@@ -20,7 +19,7 @@ const MembersRow = styled.View`
 const MemberPhoto = styled.View`
   height: 32px;
   width: 32px;
-  background-color: ${colors.blue};
+  background-color: ${props => props.theme.colors.blue};
   border-radius: 16px;
   margin-right: 8px;
   display: flex;
@@ -31,7 +30,7 @@ const MemberPhoto = styled.View`
 const AddMemberButton = styled.TouchableOpacity`
   height: 32px;
   width: 32px;
-  background-color: ${colors.brown};
+  background-color: ${props => props.theme.colors.brown};
   border-radius: 16px;
   display: flex;
   flex-direction: row;
@@ -42,7 +41,7 @@ const AddMemberButton = styled.TouchableOpacity`
 const Text = styled.Text`
   text-align: center;
   font-size: 17px;
-  color: ${colors.white};
+  color: ${props => props.theme.colors.white};
 `;
 
 export {Container, Header, MembersRow, MemberPhoto, AddMemberButton, Text};

@@ -22,6 +22,6 @@ function* signUp(action: any) {
 }
 
 export function* userWatcher() {
-  yield takeLatest(UserAction.singInRequest.type, signIn);
+  yield takeLatest(UserAction.signInRequest.type, signIn);
   yield takeLatest(UserAction.singUpRequest.type, signUp);
 }

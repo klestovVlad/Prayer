@@ -1,8 +1,8 @@
 import React from 'react';
+
 import {CheckBox} from '../../../../ui/check-box';
 import {UserIcon} from '../../../../ui/Icons/UserIcon';
-import {HandsIcon} from '../../../../ui/Icons/HandsIcon';
-import {colors} from '../../../../style/colors';
+import {HandsIcon} from '../../../../ui/Icons/hands-Icon';
 import {Container, VerticalLine, Text, IconsContainer, Number} from './styles';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {Animated} from 'react-native';
@@ -14,6 +14,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {prayerAction} from '../../../../store/prayers/slice';
 import {trimTextIfItIsLong} from '../../../../ui/functions/trim-text-if-it-is-long';
 import {getCommentsByPrayerId} from '../../../../store/comments/selectors';
+
+import {useContext} from 'react';
+import {ThemeContext} from 'styled-components';
 
 type RootStackParamList = {
   'Prayer details': {
@@ -37,7 +40,7 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
 
   const comments = useSelector(getCommentsByPrayerId(prayer.id));
-  console.log(comments);
+  const themeContext = useContext(ThemeContext);
 
   const renderRightActions = (
     proggres: Animated.AnimatedInterpolation,
@@ -85,7 +88,7 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
         <IconsContainer>
           <UserIcon />
           <Number>{comments.length}</Number>
-          <HandsIcon color={colors.blue} />
+          <HandsIcon color={themeContext.colors.blue} />
           <Number>0</Number>
         </IconsContainer>
       </Container>

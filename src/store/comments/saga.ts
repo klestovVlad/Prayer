@@ -6,7 +6,7 @@ import {PayloadAction} from '@reduxjs/toolkit';
 
 function* getComments() {
   const {data} = yield call(() => commentsQuery());
-  yield put(commentsAction.getComments(data));
+  yield put(commentsAction.setComments(data));
 }
 
 function* addNewComment(action: PayloadAction<addNewCommentRequest>) {

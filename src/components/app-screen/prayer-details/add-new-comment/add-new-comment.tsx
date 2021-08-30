@@ -1,5 +1,5 @@
 import React from 'react';
-import {CommentIcon} from '../../../../ui/Icons/CommentIcon';
+import {CommentIcon} from '../../../../ui/Icons/comment-Icon';
 import {FormApi} from 'final-form';
 import {Container} from './styles';
 import {Field, Form, FormProps} from 'react-final-form';

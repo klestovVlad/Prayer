@@ -3,13 +3,13 @@ import {initialState, Comment} from './state';
 import {AddNewComment, addNewCommentRequest} from './action-types';
 
 const stateSlice = createSlice({
-  name: 'boardSlice',
+  name: 'commentsSlice',
   initialState,
   reducers: {
     commentRequest(state, {payload}: PayloadAction<string>) {
       console.log(payload);
     },
-    getComments(state, {payload}: PayloadAction<Comment[]>) {
+    setComments(state, {payload}: PayloadAction<Comment[]>) {
       return payload.reduce((accum: Record<string, Comment>, prayer) => {
         accum[prayer.id] = prayer;
         return accum;

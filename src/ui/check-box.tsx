@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {CheckedIcon} from './Icons/checkedIcon';
+import {CheckedIcon} from './Icons/checked-Icon';
 
 interface CheckBoxProps {
   checked: boolean;

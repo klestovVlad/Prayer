@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {SubscribiedCounter} from './SubscribiedCounter';
+import {SubscribiedCounter} from './subscribied-counter';
 
 interface TubsProps {
   listOfTubs: Array<string>;
@@ -32,9 +32,7 @@ export const Tubs: React.FC<TubsProps> = ({
         </TubsItem>
       ))}
     </TubsContainet>
-  ) : (
-    <></>
-  );
+  ) : null;
 };
 
 interface TubsItemProps {

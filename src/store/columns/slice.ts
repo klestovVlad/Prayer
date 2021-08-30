@@ -3,13 +3,13 @@ import {AddNewColumn} from './action-types';
 import {initialState, Columns} from './state';
 
 const stateSlice = createSlice({
-  name: 'boardSlice',
+  name: 'columnSlice',
   initialState,
   reducers: {
     columnRequest(state, {payload}: PayloadAction<string>) {
       console.log('columnRequest', payload);
     },
-    getColumns(state, action: PayloadAction<Columns[]>) {
+    setColumns(state, action: PayloadAction<Columns[]>) {
       return action.payload.reduce((accum: Record<string, Columns>, column) => {
         accum[column.id] = column;
         accum[column.id].prayers = [];

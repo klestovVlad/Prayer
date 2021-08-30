@@ -13,7 +13,7 @@ import {Prayer} from './state';
 
 function* getPrayers() {
   const {data} = yield call(() => prayersQuery());
-  yield put(prayerAction.getPrayers(data));
+  yield put(prayerAction.setPrayers(data));
 }
 
 function* putPrayerChagne(action: PayloadAction<Prayer>) {

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {colors} from '../style/colors';
 
 interface SubscribiedCounterProps {
   subscribiedNum: number;
@@ -11,20 +10,18 @@ export const SubscribiedCounter: React.FC<SubscribiedCounterProps> = ({
   subscribiedNum,
   visible,
 }) => {
-  const count = subscribiedNum > 99 ? 99 : subscribiedNum;
+  const count = Math.min(subscribiedNum, 99);
   return visible ? (
     <SubscribiedContainer>
       <NumOfSubscribied>{count}</NumOfSubscribied>
     </SubscribiedContainer>
-  ) : (
-    <></>
-  );
+  ) : null;
 };
 
 const SubscribiedContainer = styled.View`
   width: 16px;
   height: 16px;
-  background-color: ${colors.red};
+  background-color: ${props => props.theme.colors.red};
   border-radius: 8px;
   align-items: center;
   justify-content: center;
@@ -33,7 +30,7 @@ const SubscribiedContainer = styled.View`
   right: 30px;
 `;
 const NumOfSubscribied = styled.Text`
-  color: ${colors.white};
+  color: ${props => props.theme.colors.white};
   text-align: center;
   font-size: 10px;
   line-height: 10px;

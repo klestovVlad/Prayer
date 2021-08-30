@@ -7,7 +7,7 @@ const UserSlice = createSlice({
   name: 'UserSlice',
   initialState,
   reducers: {
-    singInRequest(state, {payload}: PayloadAction<SignInRequest>) {
+    signInRequest(state, {payload}: PayloadAction<SignInRequest>) {
       console.log(payload);
       state.loading = true;
       return state;
@@ -25,8 +25,7 @@ const UserSlice = createSlice({
     signError(state, {payload}: PayloadAction<SignError>) {
       state.loading = false;
       if (
-        payload.toString().substr(0, 41) ===
-        'Could not find any entity of type "Users"'
+        payload.toString().includes('Could not find any entity of type "Users"')
       ) {
         Alert.alert(
           'The username or password that you have entered is invalid.',

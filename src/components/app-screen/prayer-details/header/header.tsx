@@ -1,15 +1,17 @@
 import React from 'react';
-import {BackIcon} from '../../../../ui/Icons/BackIcon';
-import {HandsIcon} from '../../../../ui/Icons/HandsIcon';
-import {colors} from '../../../../style/colors';
+import {BackIcon} from '../../../../ui/Icons/back-Icon';
+import {HandsIcon} from '../../../../ui/Icons/hands-Icon';
 import {Container, IconRow, BackButton, Text} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {useContext} from 'react';
+import {ThemeContext} from 'styled-components';
 
 interface HeaderProps {
   title: string;
 }
 
 export const Header: React.FC<HeaderProps> = ({title}) => {
+  const themeContext = useContext(ThemeContext);
   const navigation = useNavigation();
   return (
     <Container>
@@ -17,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({title}) => {
         <BackButton onPress={() => navigation.goBack()}>
           <BackIcon />
         </BackButton>
-        <HandsIcon color={colors.white} />
+        <HandsIcon color={themeContext.colors.white} />
       </IconRow>
       <Text>{title}</Text>
     </Container>

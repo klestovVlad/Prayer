@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {SingIn} from './sign-in/sign-in';
+import {signIn} from './sign-in/sign-in';
 import {SingUp} from './sign-up/sign-up';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {LoadIcon} from '../../ui/Icons/loading';
@@ -22,7 +22,7 @@ export const AutorizationScreen = () => {
         <Header>PRAYER</Header>
         <NavigationContainer>
           <Tab.Navigator>
-            <Tab.Screen name="Sign in" component={SingIn} />
+            <Tab.Screen name="Sign in" component={signIn} />
             <Tab.Screen name="Sign up" component={SingUp} />
           </Tab.Navigator>
         </NavigationContainer>

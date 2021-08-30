@@ -8,13 +8,13 @@ import {
 import {initialState, Prayer} from './state';
 
 const stateSlice = createSlice({
-  name: 'boardSlice',
+  name: 'prayerSlice',
   initialState,
   reducers: {
     prayersRequest(state, {payload}: PayloadAction<string>) {
       console.log(payload);
     },
-    getPrayers(state, {payload}: PayloadAction<Prayer[]>) {
+    setPrayers(state, {payload}: PayloadAction<Prayer[]>) {
       return payload.reduce((accum: Record<string, Prayer>, prayer) => {
         accum[prayer.id] = prayer;
         accum[prayer.id].comments = [];

@@ -7,10 +7,10 @@ import {AddNewColumn} from './action-types';
 export function* getColumns() {
   const {data} = yield call(() => columnsQuery());
   yield call([console, 'log'], 'columns:', data);
-  yield put(columnAction.getColumns(data));
+  yield put(columnAction.setColumns(data));
 }
 
-export function* deleteColumn(action: PayloadAction<number>) {
+export function* deleteColumn(action: PayloadAction<numberr>) {
   const columnId = action.payload;
   yield call(() => deleteColumnPost(columnId));
   yield put(columnAction.deleteColumn(columnId));

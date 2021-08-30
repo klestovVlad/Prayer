@@ -4,10 +4,10 @@ import {Field, Form, FormProps} from 'react-final-form';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import styled from 'styled-components/native';
-import {colors} from '../../../style/colors';
+
 import {SignButton} from '../../../ui/sign-button';
 import {UserAction} from '../../../store/user/slice';
-import {InputField} from './InputField';
+import {InputField} from './Input-field';
 
 type SignInValues = {
   email: string;
@@ -22,7 +22,7 @@ export const LoginForm: React.FC = () => {
 
   const onSubmitForm = (values: FormProps) => {
     dispatch(
-      UserAction.singInRequest({
+      UserAction.signInRequest({
         email: values.email,
         password: values.password,
       }),
@@ -72,7 +72,7 @@ export const LoginForm: React.FC = () => {
 };
 
 const Container = styled.View`
-  background-color: ${colors.white};
+  background-color: ${props => props.theme.colors.white};
 `;
 
 interface InputProps {
@@ -81,12 +81,14 @@ interface InputProps {
 
 const EmailInput = styled.TextInput<InputProps>`
   border-bottom-width: 3px;
-  border-color: ${props => (props.validateError ? colors.red : colors.grey)};
+  border-color: ${props =>
+    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
   padding: 15px;
-  color: ${colors.dark};
+  color: ${props => props.theme.colors.dark};
   margin: 0 15px 0 15px;
 `;
 
 const PasswordInput = styled(EmailInput)`
-  border-color: ${props => (props.validateError ? colors.red : colors.grey)};
+  border-color: ${props =>
+    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
 `;

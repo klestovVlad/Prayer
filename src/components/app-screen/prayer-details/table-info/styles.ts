@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {colors} from '../../../../style/colors';
 
 const Container = styled.View`
   display: flex;
@@ -12,7 +11,7 @@ const Row = styled.View`
   flex: 1;
   flex-direction: row;
   border-bottom-width: 1px;
-  border-color: ${colors.grey};
+  border-color: ${props => props.theme.colors.grey};
 `;
 
 const FirstRow = styled(Row)`
@@ -21,7 +20,7 @@ const FirstRow = styled(Row)`
 
 const Cell = styled.View`
   width: 50%;
-  border-color: ${colors.grey};
+  border-color: ${props => props.theme.colors.grey};
   height: 108px;
   padding: 26px 15px 15px 15px;
 `;
@@ -33,7 +32,7 @@ const CellLineRight = styled(Cell)`
 const HeaderText = styled.Text`
   font-size: 32px;
   line-height: 37px;
-  color: ${colors.brown};
+  color: ${props => props.theme.colors.brown};
 `;
 
 const HeaderText2 = styled(HeaderText)`
@@ -45,14 +44,14 @@ const HeaderText2 = styled(HeaderText)`
 const Text = styled.Text`
   font-size: 13px;
   line-height: 15px;
-  color: ${colors.dark};
+  color: ${props => props.theme.colors.dark};
   margin-top: 6px;
 `;
 
 const DateCaption = styled.Text`
   font-size: 13px;
   line-height: 15px;
-  color: ${colors.blue};
+  color: ${props => props.theme.colors.blue};
 `;
 
 export {

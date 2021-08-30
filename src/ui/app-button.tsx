@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {SettingIcon} from './Icons/SettingIcon';
+import {SettingIcon} from './Icons/setting-Icon';
 interface AppButton {
   onPress?(): void;
   type: number;

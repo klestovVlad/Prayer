@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import {colors} from '../../../../../style/colors';
 
 interface ButtonContainerProps {
   visible: boolean;
@@ -12,19 +11,19 @@ const ButtonContainer = styled.View<ButtonContainerProps>`
 `;
 
 const DeleteButton = styled.TouchableOpacity`
-  background-color: ${colors.red};
+  background-color: ${props => props.theme.colors.red};
   padding: 5px 20px;
   margin-top: 5px;
   border-radius: 5px;
 `;
 
 const CancelButton = styled(DeleteButton)`
-  background-color: ${colors.blue};
+  background-color: ${props => props.theme.colors.blue};
   margin-left: 15px;
 `;
 
 const ButtonText = styled.Text`
-  color: ${colors.white};
+  color: ${props => props.theme.colors.white};
   text-align: center;
   font-size: 14px;
 `;

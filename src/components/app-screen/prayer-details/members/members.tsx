@@ -1,6 +1,9 @@
 import React from 'react';
-import {colors} from '../../../../style/colors';
-import {AddIcon} from '../../../../ui/Icons/AddIcon';
+
+import {useContext} from 'react';
+import {ThemeContext} from 'styled-components';
+
+import {AddIcon} from '../../../../ui/Icons/add-Icon';
 import {
   Container,
   Header,
@@ -11,6 +14,7 @@ import {
 } from './styles';
 
 export const Members = () => {
+  const themeContext = useContext(ThemeContext);
   return (
     <Container>
       <Header>MEMBERS</Header>
@@ -22,7 +26,7 @@ export const Members = () => {
           <Text>CD</Text>
         </MemberPhoto>
         <AddMemberButton>
-          <AddIcon color={colors.white} />
+          <AddIcon color={themeContext.colors.white} />
         </AddMemberButton>
       </MembersRow>
     </Container>

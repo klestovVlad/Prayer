@@ -40,7 +40,5 @@ export const InputNewTask: React.FC<InputNewTaskProps> = ({
         );
       }}
     />
-  ) : (
-    <></>
-  );
+  ) : null;
 };

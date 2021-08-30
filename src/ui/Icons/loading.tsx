@@ -1,10 +1,9 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import {colors} from '../../style/colors';
 
 export const LoadIcon = () => (
   <View style={[styles.container, styles.horizontal]}>
-    <ActivityIndicator size="large" color={colors.blue} />
+    <ActivityIndicator size="large" color={'#72A8BC'} />
   </View>
 );
 
