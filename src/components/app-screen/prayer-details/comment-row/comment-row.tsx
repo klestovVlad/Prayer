@@ -16,13 +16,21 @@ import {timeFromNow} from '../../../../ui/functions/time-from-now';
 import {twoLetterFromName} from '../../../../ui/functions/two-letter-from-name';
 import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import {useDispatch} from 'react-redux';
+import {commentsAction} from '../../../../store/comments/slice';
 interface CommentRowProps {
   text: string;
   createdTime: string;
+  commmentId: number;
 }
 
-export const CommentRow: React.FC<CommentRowProps> = ({text, createdTime}) => {
-  console.log('CommentRow', text, createdTime);
+export const CommentRow: React.FC<CommentRowProps> = ({
+  text,
+  createdTime,
+  commmentId,
+}) => {
+  console.log('CommentRow', text, createdTime, commmentId);
+  const dispatch = useDispatch();
 
   const renderRightActions = (
     proggres: Animated.AnimatedInterpolation,
@@ -34,7 +42,11 @@ export const CommentRow: React.FC<CommentRowProps> = ({text, createdTime}) => {
     });
     return (
       <Animated.View style={{transform: [{translateX: trans}]}}>
-        <SwipebleDeliteButton onPress={() => null} />
+        <SwipebleDeliteButton
+          onPress={() =>
+            dispatch(commentsAction.deleteCommentRequest(commmentId))
+          }
+        />
       </Animated.View>
     );
   };

@@ -13,13 +13,14 @@ const UserSlice = createSlice({
       return state;
     },
     signIn(state, {payload}: PayloadAction<SignIn>) {
+      state.loading = false;
       return {...payload, loading: false};
     },
     singUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
-      console.log(payload);
+      state.loading = true;
+      return state;
     },
     signUp(state, {payload}: PayloadAction<SignIn>) {
-      console.log('signUp', payload);
       return {...payload, loading: false};
     },
     signError(state, {payload}: PayloadAction<SignError>) {

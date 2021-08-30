@@ -12,10 +12,12 @@ function* signIn(action: any) {
 }
 
 function* signUp(action: any) {
+  console.log('signUpSaga', action);
   const {data} = yield call(() => signUpQuery(action.payload));
   if (data.hasOwnProperty('message')) {
     yield put(UserAction.signError(data.message));
   }
+  console.log('pre-put', data);
   yield put(UserAction.signUp(data));
 }
 

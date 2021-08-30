@@ -34,6 +34,12 @@ const stateSlice = createSlice({
 
       state[payload.id] = newComment;
     },
+    deleteCommentRequest(state, {payload}: PayloadAction<number>) {
+      console.log(payload);
+    },
+    deleteComment(state, {payload}: PayloadAction<number>) {
+      delete state[payload];
+    },
   },
 });
 

@@ -1,4 +1,4 @@
-import {commentsQuery, newCommentPost} from './axios';
+import {commentsQuery, newCommentPost, deleteCommentPost} from './axios';
 import {put, takeLatest, call} from 'redux-saga/effects';
 import {commentsAction} from './slice';
 import {addNewCommentRequest} from './action-types';
@@ -16,7 +16,14 @@ function* addNewComment(action: PayloadAction<addNewCommentRequest>) {
   yield put(commentsAction.addNewComment(data));
 }
 
+function* deleteComment(action: PayloadAction<number>) {
+  const commentId = action.payload;
+  yield call(() => deleteCommentPost(commentId));
+  yield put(commentsAction.deleteComment(commentId));
+}
+
 export function* commentsWatcher() {
   yield takeLatest(commentsAction.commentRequest.type, getComments);
   yield takeLatest(commentsAction.addNewCommentRequest.type, addNewComment);
+  yield takeLatest(commentsAction.deleteCommentRequest.type, deleteComment);
 }

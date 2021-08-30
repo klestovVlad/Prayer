@@ -9,3 +9,7 @@ export const newCommentPost = (prayerId: number, title: string) => {
     body: title,
   });
 };
+
+export const deleteCommentPost = (commentId: number) => {
+  return Api.delete(`comments/${commentId}`);
+};
