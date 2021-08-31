@@ -20,7 +20,7 @@ export const InputField: React.FC<NewColumnInputProps> = props => {
 };
 
 interface InputProps {
-  validateError: boolean;
+  validateError: boolean | undefined;
 }
 
 const Input = styled.TextInput<InputProps>`

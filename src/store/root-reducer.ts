@@ -15,6 +15,8 @@ import {columnsWatcher} from './columns/saga';
 import {prayersWatcher} from './prayers/saga';
 import {commentsWatcher} from './comments/saga';
 
+import {usersApi} from './user/rtk-query';
+
 const sagaMiddleware = createSagaMiddleware();
 
 export type RootState = ReturnType<typeof rootReducer>;
@@ -24,6 +26,7 @@ export const rootReducer = combineReducers({
   columnsReducer: columnsReducer,
   prayersReducer: prayersReducer,
   commentsReducer: commentsReducer,
+  [usersApi.reducerPath]: usersApi.reducer,
 });
 
 const persistConfig = {
