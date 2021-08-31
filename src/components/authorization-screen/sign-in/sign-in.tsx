@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {LoginForm} from './login-form';
+import {LoginForm} from './sign-in-form';
 
 const Container = styled.View`
   margin-top: 0px;

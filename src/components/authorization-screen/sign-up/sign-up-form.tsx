@@ -8,6 +8,9 @@ import styled from 'styled-components/native';
 import {SignButton} from '../../../ui/sign-button';
 import {UserAction} from '../../../store/user/slice';
 
+import {InputField} from '../../../ui/form/Input-field';
+import {validateInput, validateEmail} from '../../../ui/functions/validation';
+
 type SignInValues = {
   email: string;
   name: string;
@@ -15,83 +18,43 @@ type SignInValues = {
 };
 
 export const RegistrateForm: React.FC = () => {
-  const [emailError, setemailError] = useState(false);
-  const [passwordError, setpasswordError] = useState(false);
-  const [nameError, setNameError] = useState(false);
-
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: SignInValues) => {
     dispatch(UserAction.singUpRequest(values));
   };
 
-  const validate = (value: SignInValues) => {
-    if (
-      value.email === undefined ||
-      value.password === undefined ||
-      value.name === undefined
-    ) {
-      setemailError(value.email === undefined);
-      setpasswordError(value.password === undefined);
-      setNameError(value.name === undefined);
-    } else {
-      setemailError(false);
-      setpasswordError(false);
-      onSubmitForm(value);
-    }
-  };
   return (
     <Container>
       <Form
         onSubmit={onSubmitForm}
-        render={({values}) => {
+        render={({values, handleSubmit}) => {
           return (
             <View>
               <Field
                 name="email"
-                render={({input}) => {
-                  return (
-                    <View>
-                      <EmailInput
-                        placeholder="Write your email..."
-                        onChangeText={input.onChange}
-                        value={input.value}
-                        validateError={emailError}
-                      />
-                    </View>
-                  );
-                }}
+                placeholder="Write your email..."
+                value={values}
+                validate={validateEmail}
+                component={InputField}
               />
               <Field
                 name="name"
-                render={({input}) => {
-                  return (
-                    <View>
-                      <EmailInput
-                        placeholder="Write your name..."
-                        onChangeText={input.onChange}
-                        value={input.value}
-                        validateError={nameError}
-                      />
-                    </View>
-                  );
-                }}
+                secureTextEntry={true}
+                placeholder="Write your name..."
+                value={values}
+                validate={validateInput}
+                component={InputField}
               />
               <Field
                 name="password"
-                render={({input}) => {
-                  return (
-                    <PasswordInput
-                      secureTextEntry={true}
-                      placeholder="Write your password..."
-                      onChangeText={input.onChange}
-                      value={input.value}
-                      validateError={passwordError}
-                    />
-                  );
-                }}
+                secureTextEntry={true}
+                placeholder="Write your password..."
+                value={values}
+                validate={validateInput}
+                component={InputField}
               />
-              <SignButton text="sing up" onPress={() => validate(values)} />
+              <SignButton text="sing up" onPress={() => handleSubmit(values)} />
             </View>
           );
         }}
@@ -110,12 +73,14 @@ interface InputProps {
 
 const EmailInput = styled.TextInput<InputProps>`
   border-bottom-width: 3px;
-  border-color: ${props => (props.validateError ? props.theme.colors.red : props.theme.colors.grey)};
+  border-color: ${props =>
+    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
   padding: 15px;
   color: ${props => props.theme.colors.dark};
   margin: 0 15px 0 15px;
 `;
 
 const PasswordInput = styled(EmailInput)`
-  border-color: ${props => (props.validateError ? props.theme.colors.red : props.theme.colors.grey)};
+  border-color: ${props =>
+    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
 `;

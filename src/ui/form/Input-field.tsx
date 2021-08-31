@@ -8,12 +8,13 @@ interface NewColumnInputProps extends FieldRenderProps<string> {
 }
 
 export const InputField: React.FC<NewColumnInputProps> = props => {
+  console.log(props.meta.error);
   return (
     <Input
       {...props}
       onChange={props.input.onChange}
       value={props.input.value}
-      validateError={props.meta.error !== undefined}
+      validateError={props.meta.error !== undefined && props.meta.touched}
     />
   );
 };
