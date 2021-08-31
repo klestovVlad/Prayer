@@ -31,22 +31,11 @@ export const LoginForm: React.FC = () => {
     );
   };
 
-  const validate = (values: FormProps) => {
-    console.log(values);
-    if (values.email === undefined || values.password === undefined) {
-      setemailError(values.email === undefined);
-      setpasswordError(values.password === undefined);
-    } else {
-      setemailError(false);
-      setpasswordError(false);
-      onSubmitForm(values);
-    }
-  };
   return (
     <Container>
       <Form
         onSubmit={onSubmitForm}
-        render={({values}) => {
+        render={({values, handleSubmit}) => {
           return (
             <View>
               <Field
@@ -64,7 +53,7 @@ export const LoginForm: React.FC = () => {
                 validate={validateInput}
                 component={InputField}
               />
-              <SignButton text="sing in" onPress={() => validate(values)} />
+              <SignButton text="sing in" onPress={handleSubmit} />
             </View>
           );
         }}
