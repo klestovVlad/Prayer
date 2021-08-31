@@ -17,7 +17,6 @@ const UserSlice = createSlice({
     },
     singUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
       state.loading = true;
-      return state;
     },
     signUp(state, {payload}: PayloadAction<SignIn>) {
       return {...payload, loading: false};
@@ -33,6 +32,9 @@ const UserSlice = createSlice({
       } else {
         Alert.alert(payload.toString());
       }
+    },
+    logout(state) {
+      state.token = '';
     },
   },
 });

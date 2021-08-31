@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   height: 100%;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${({theme: {colors}}) => colors.white};
 `;
 const ScrollView = styled.ScrollView`
   padding-bottom: 15px;

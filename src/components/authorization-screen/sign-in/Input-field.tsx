@@ -5,7 +5,6 @@ import styled from 'styled-components/native';
 
 interface NewColumnInputProps extends FieldRenderProps<string> {
   placeholder: string;
-  validateError: boolean;
 }
 
 export const InputField: React.FC<NewColumnInputProps> = props => {
@@ -14,7 +13,7 @@ export const InputField: React.FC<NewColumnInputProps> = props => {
       {...props}
       onChange={props.input.onChange}
       value={props.input.value}
-      validateError={props.validateError}
+      validateError={props.meta.error !== undefined}
     />
   );
 };

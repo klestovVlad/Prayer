@@ -9,6 +9,8 @@ import {SignButton} from '../../../ui/sign-button';
 import {UserAction} from '../../../store/user/slice';
 import {InputField} from './Input-field';
 
+import {validateInput, validateEmail} from '../../../ui/functions/validation';
+
 type SignInValues = {
   email: string;
   password: string;
@@ -51,7 +53,7 @@ export const LoginForm: React.FC = () => {
                 name="email"
                 placeholder="Write your email..."
                 value={values}
-                validateError={emailError}
+                validate={validateEmail}
                 component={InputField}
               />
               <Field
@@ -59,7 +61,7 @@ export const LoginForm: React.FC = () => {
                 secureTextEntry={true}
                 placeholder="Write your password..."
                 value={values}
-                validateError={passwordError}
+                validate={validateInput}
                 component={InputField}
               />
               <SignButton text="sing in" onPress={() => validate(values)} />
