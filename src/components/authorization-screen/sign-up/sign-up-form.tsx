@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import {useState} from 'react';
 import {Field, Form} from 'react-final-form';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
@@ -8,7 +7,7 @@ import styled from 'styled-components/native';
 import {SignButton} from '../../../ui/sign-button';
 import {UserAction} from '../../../store/user/slice';
 
-import {InputField} from '../../../ui/form/Input-field';
+import {InputField} from '../../../ui/form/input-field';
 import {validateInput, validateEmail} from '../../../ui/functions/validation';
 
 type SignInValues = {
@@ -34,7 +33,7 @@ export const RegistrateForm: React.FC = () => {
               <Field
                 name="email"
                 placeholder="Write your email..."
-                value={values}
+                value={values.email}
                 validate={validateEmail}
                 component={InputField}
               />

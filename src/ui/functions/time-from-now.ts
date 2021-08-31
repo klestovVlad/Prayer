@@ -1,6 +1,7 @@
-import moment from 'moment';
+import {formatRelative} from 'date-fns';
 
 export const timeFromNow = (date: string) => {
-  const parseDate = moment(date);
-  return parseDate.fromNow();
+  console.log(date);
+  console.log(Date.parse(date));
+  return formatRelative(Date.parse(date), new Date());
 };

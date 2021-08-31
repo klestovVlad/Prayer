@@ -14,7 +14,7 @@ export const InputField: React.FC<NewColumnInputProps> = props => {
       {...props}
       onChange={props.input.onChange}
       value={props.input.value}
-      validateError={props.meta.error !== undefined && props.meta.touched}
+      validateError={props.meta.error !== undefined && !!props.meta.touched}
     />
   );
 };

@@ -7,7 +7,7 @@ import styled from 'styled-components/native';
 
 import {SignButton} from '../../../ui/sign-button';
 import {UserAction} from '../../../store/user/slice';
-import {InputField} from '../../../ui/form/Input-field';
+import {InputField} from '../../../ui/form/input-field';
 
 import {validateInput, validateEmail} from '../../../ui/functions/validation';
 
