@@ -20,6 +20,8 @@
     "@types/styled-components-react-native": "^5.1.1",
     "axios": "^0.21.1",
     "date-fns": "^2.23.0",
+    "eslint-config-airbnb-typescript-prettier": "^4.2.0",
+    "eslint-config-prettier": "^8.3.0",
     "final-form": "^4.20.2",
     "react": "17.0.2",
     "react-final-form": "^6.5.3",
@@ -44,19 +46,22 @@
     "@types/react-native": "^0.64.5",
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^5.1.13",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
-    "eslint": "7.2.0",
-    "eslint-config-airbnb": "18.2.1",
-    "eslint-plugin-import": "2.22.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "2.3.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.0",
-    "prettier": "2.3.2",
+    "prettier": "^2.3.2",
     "react-native-codegen": "^0.0.7",
     "react-test-renderer": "17.0.2",
-    "typescript": "^3.8.3"
+    "typescript": "3.7.5"
   },
   "resolutions": {
     "@types/react": "^17"
@@ -71,5 +76,18 @@
       "json",
       "node"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klestovVlad/Prayer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klestovVlad/Prayer/issues"
+  },
+  "homepage": "https://github.com/klestovVlad/Prayer#readme",
+  "description": ""
 }

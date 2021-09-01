@@ -59,5 +59,7 @@
   },
   "exclude": [
     "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
-  ]
+  ],
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.js", "test/**/*.ts"],
 }
