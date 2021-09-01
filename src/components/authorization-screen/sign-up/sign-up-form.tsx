@@ -41,7 +41,7 @@ export const RegistrateForm: React.FC = () => {
                 name="name"
                 secureTextEntry={true}
                 placeholder="Write your name..."
-                value={values}
+                value={values.name}
                 validate={validateInput}
                 component={InputField}
               />
@@ -49,11 +49,11 @@ export const RegistrateForm: React.FC = () => {
                 name="password"
                 secureTextEntry={true}
                 placeholder="Write your password..."
-                value={values}
+                value={values.password}
                 validate={validateInput}
                 component={InputField}
               />
-              <SignButton text="sing up" onPress={() => handleSubmit(values)} />
+              <SignButton text="sing up" onPress={handleSubmit} />
             </View>
           );
         }}
@@ -69,17 +69,3 @@ const Container = styled.View`
 interface InputProps {
   validateError: boolean;
 }
-
-const EmailInput = styled.TextInput<InputProps>`
-  border-bottom-width: 3px;
-  border-color: ${props =>
-    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
-  padding: 15px;
-  color: ${props => props.theme.colors.dark};
-  margin: 0 15px 0 15px;
-`;
-
-const PasswordInput = styled(EmailInput)`
-  border-color: ${props =>
-    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
-`;

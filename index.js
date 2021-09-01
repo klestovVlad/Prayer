@@ -16,7 +16,9 @@ const Main = () => {
     <ThemeProvider theme={theme}>
       <Provider store={state.store}>
         <PersistGate loading={null} persistor={state.persistor}>
-          <App />
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
         </PersistGate>
       </Provider>
     </ThemeProvider>

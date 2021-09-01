@@ -1,8 +1,8 @@
 import {formatDistance} from 'date-fns';
 
 export const timeFromNow = (date: string) => {
-  const humanDate = formatDistance(0, +new Date() - Date.parse(date), {
+  return formatDistance(0, +new Date() - Date.parse(date), {
     includeSeconds: true,
+    addSuffix: true,
   });
-  return `${humanDate} ago`;
 };

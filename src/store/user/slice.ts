@@ -15,6 +15,7 @@ const UserSlice = createSlice({
     signIn(state, {payload}: PayloadAction<SignIn>) {
       return {...payload, loading: false};
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     singUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
       state.loading = true;
     },

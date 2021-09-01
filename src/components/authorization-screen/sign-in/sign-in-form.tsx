@@ -1,5 +1,4 @@
-import React, {FC} from 'react';
-import {useState} from 'react';
+import React from 'react';
 import {Field, Form, FormProps} from 'react-final-form';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
@@ -17,9 +16,6 @@ type SignInValues = {
 };
 
 export const LoginForm: React.FC = () => {
-  const [emailError, setemailError] = useState(false);
-  const [passwordError, setpasswordError] = useState(false);
-
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: FormProps) => {
@@ -41,7 +37,7 @@ export const LoginForm: React.FC = () => {
               <Field
                 name="email"
                 placeholder="Write your email..."
-                value={values}
+                value={values.email}
                 validate={validateEmail}
                 component={InputField}
               />
@@ -49,7 +45,7 @@ export const LoginForm: React.FC = () => {
                 name="password"
                 secureTextEntry={true}
                 placeholder="Write your password..."
-                value={values}
+                value={values.password}
                 validate={validateInput}
                 component={InputField}
               />
@@ -69,17 +65,3 @@ const Container = styled.View`
 interface InputProps {
   validateError: boolean;
 }
-
-const EmailInput = styled.TextInput<InputProps>`
-  border-bottom-width: 3px;
-  border-color: ${props =>
-    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
-  padding: 15px;
-  color: ${props => props.theme.colors.dark};
-  margin: 0 15px 0 15px;
-`;
-
-const PasswordInput = styled(EmailInput)`
-  border-color: ${props =>
-    props.validateError ? props.theme.colors.red : props.theme.colors.grey};
-`;
