@@ -15,7 +15,7 @@ const BackButton = styled.TouchableOpacity``;
 
 const Text = styled.Text`
   margin-top: 21px;
-  color: ${props => props.theme.colors.grey};
+  color: ${props => props.theme.colors.white};
   font-size: 17px;
   line-height: 27px;
 `;
