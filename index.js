@@ -10,15 +10,16 @@ import state from './src/store/root-reducer';
 import {PersistGate} from 'redux-persist/integration/react';
 import {ThemeProvider} from 'styled-components/native';
 import {theme} from './src/style/theme';
+import 'react-native-gesture-handler';
 
 const Main = () => {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={state.store}>
         <PersistGate loading={null} persistor={state.persistor}>
-          <React.StrictMode>
+          {/* <React.StrictMode> */}
             <App />
-          </React.StrictMode>
+          {/* </React.StrictMode> */}
         </PersistGate>
       </Provider>
     </ThemeProvider>
