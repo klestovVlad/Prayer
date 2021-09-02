@@ -1541,7 +1541,7 @@
 
 "@openapitools/openapi-generator-cli@^2.4.1":
   version "2.4.1"
-  resolved "https://registry.npmjs.org/@openapitools/openapi-generator-cli/-/openapi-generator-cli-2.4.1.tgz"
+  resolved "https://registry.yarnpkg.com/@openapitools/openapi-generator-cli/-/openapi-generator-cli-2.4.1.tgz#a47ce2b93c268f6b55b33ee3d8b6bad1bcec8917"
   integrity sha512-3AX0WyhEtFM/ZWImJ2u5SUWV0aCgDNde5P1sNso2oW1IbF7ylM86T9aL8RK560hymeiRQVuSpYtxLSB/N6vpOg==
   dependencies:
     "@nestjs/common" "7.6.18"
@@ -2897,7 +2897,7 @@ axe-core@^4.0.2:
 
 axios@0.21.1, axios@^0.21.1:
   version "0.21.1"
-  resolved "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
@@ -11822,7 +11822,7 @@ url-parse@^1.4.3, url-parse@^1.5.1:
 
 url@^0.11.0:
   version "0.11.0"
-  resolved "https://registry.npmjs.org/url/-/url-0.11.0.tgz"
+  resolved "https://registry.yarnpkg.com/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
   integrity sha1-ODjpfPxgUh63PFJajlW/3Z4uKPE=
   dependencies:
     punycode "1.3.2"

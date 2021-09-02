@@ -1,5 +1,5 @@
 import axios, {AxiosInstance} from 'axios';
-const baseUrl = 'https://prayer.herokuapp.com/';
+export const baseUrl = 'https://prayer.herokuapp.com/';
 import store from '../store/root-reducer';
 
 class Api {
@@ -21,6 +21,10 @@ class Api {
       return config;
     });
   }
+
+  get instanse(): AxiosInstance {
+    return this.api
+  } 
 
   async post(url: string, data?: any) {
     return this.api.post(url, data);
