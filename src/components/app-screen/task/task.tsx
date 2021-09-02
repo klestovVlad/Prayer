@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {AppHeader} from '../header/app-header';
 import {TaskBody} from './task-body/task-body';
 import {Container} from './styles';
@@ -18,7 +17,7 @@ type TaskProps = {
   route: ProfileScreenRouteProp;
 };
 
-export const Task: React.FC<TaskProps> = ({route}) => {
+export const Task: React.FC<TaskProps> = ({route}: TaskProps) => {
   const prayers = useSelector(getPrayersByColumnId(route.params.columnId));
   console.log('prayers', prayers, route.params.columnId);
 

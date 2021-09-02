@@ -3,17 +3,6 @@ import styled from 'styled-components/native';
 
 import {LoadIcon} from './Icons/loading';
 
-interface LoadingScreenProps {
-  isLoading: boolean;
-}
-
-export const LoadingScreen: React.FC<LoadingScreenProps> = ({isLoading}) => {
-  return isLoading ? (
-    <Content>
-      <LoadIcon />
-    </Content>
-  ) : null;
-};
 
 const Content = styled.View`
   background-color: white;
@@ -24,3 +13,16 @@ const Content = styled.View`
   z-index: 2;
   justify-content: center;
 `;
+
+interface LoadingScreenProps {
+  isLoading: boolean;
+}
+
+export const LoadingScreen: React.FC<LoadingScreenProps> = ({isLoading}: LoadingScreenProps) => {
+  return isLoading ? (
+    <Content>
+      <LoadIcon />
+    </Content>
+  ) : null;
+};
+

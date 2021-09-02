@@ -10,6 +10,14 @@ import {InputField} from '../../../ui/form/input-field';
 
 import {validateInput, validateEmail} from '../../../ui/functions/validation';
 
+const Container = styled.View`
+  background-color: ${props => props.theme.colors.white};
+`;
+
+interface InputProps {
+  validateError: boolean;
+}
+
 type SignInValues = {
   email: string;
   password: string;
@@ -58,10 +66,4 @@ export const LoginForm: React.FC = () => {
   );
 };
 
-const Container = styled.View`
-  background-color: ${props => props.theme.colors.white};
-`;
 
-interface InputProps {
-  validateError: boolean;
-}

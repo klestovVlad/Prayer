@@ -1,12 +1,6 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 
-export const LoadIcon = () => (
-  <View style={[styles.container, styles.horizontal]}>
-    <ActivityIndicator size="large" color={'#72A8BC'} />
-  </View>
-);
-
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
@@ -17,3 +11,10 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+
+
+export const LoadIcon = () => (
+  <View style={[styles.container, styles.horizontal]}>
+    <ActivityIndicator size="large" color={'#72A8BC'} />
+  </View>
+);

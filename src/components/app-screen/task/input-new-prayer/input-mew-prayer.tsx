@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext}  from 'react';
 
 import {AddIcon} from '../../../../ui/Icons/add-Icon';
 import {Container, IconContainer} from './styles';
@@ -8,14 +8,13 @@ import {useDispatch} from 'react-redux';
 import {prayerAction} from '../../../../store/prayers/slice';
 import {NewPrayerInput} from './input-form/input-form';
 
-import {useContext} from 'react';
 import {ThemeContext} from 'styled-components';
 
 interface InputNewPrayerProps {
   columnId: number;
 }
 
-export const InputNewPrayer: React.FC<InputNewPrayerProps> = ({columnId}) => {
+export const InputNewPrayer: React.FC<InputNewPrayerProps> = ({columnId}: InputNewPrayerProps) => {
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {

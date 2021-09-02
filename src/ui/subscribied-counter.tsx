@@ -6,18 +6,6 @@ interface SubscribiedCounterProps {
   visible: boolean;
 }
 
-export const SubscribiedCounter: React.FC<SubscribiedCounterProps> = ({
-  subscribiedNum,
-  visible,
-}) => {
-  const count = Math.min(subscribiedNum, 99);
-  return visible ? (
-    <SubscribiedContainer>
-      <NumOfSubscribied>{count}</NumOfSubscribied>
-    </SubscribiedContainer>
-  ) : null;
-};
-
 const SubscribiedContainer = styled.View`
   width: 16px;
   height: 16px;
@@ -35,3 +23,17 @@ const NumOfSubscribied = styled.Text`
   font-size: 10px;
   line-height: 10px;
 `;
+
+export const SubscribiedCounter: React.FC<SubscribiedCounterProps> = ({
+  subscribiedNum,
+  visible,
+}: SubscribiedCounterProps) => {
+  const count = Math.min(subscribiedNum, 99);
+  return visible ? (
+    <SubscribiedContainer>
+      <NumOfSubscribied>{count}</NumOfSubscribied>
+    </SubscribiedContainer>
+  ) : null;
+};
+
+

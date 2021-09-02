@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext} from 'react';
 
 import {CheckBox} from '../../../../ui/check-box';
 import {UserIcon} from '../../../../ui/Icons/UserIcon';
@@ -15,7 +15,6 @@ import {prayerAction} from '../../../../store/prayers/slice';
 import {trimTextIfItIsLong} from '../../../../ui/functions/trim-text-if-it-is-long';
 import {getCommentsByPrayerId} from '../../../../store/comments/selectors';
 
-import {useContext} from 'react';
 import {ThemeContext} from 'styled-components';
 
 type RootStackParamList = {
@@ -35,7 +34,7 @@ interface PrayerRowProsp {
   prayer: Prayer;
 }
 
-export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}) => {
+export const PrayerRow: React.FC<PrayerRowProsp> = ({prayer}: PrayerRowProsp) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
 

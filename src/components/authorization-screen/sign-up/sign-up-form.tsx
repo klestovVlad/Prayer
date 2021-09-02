@@ -10,6 +10,15 @@ import {UserAction} from '../../../store/user/slice';
 import {InputField} from '../../../ui/form/input-field';
 import {validateInput, validateEmail} from '../../../ui/functions/validation';
 
+const Container = styled.View`
+  background-color: ${props => props.theme.colors.white};
+`;
+
+interface InputProps {
+  validateError: boolean;
+}
+
+
 type SignInValues = {
   email: string;
   name: string;
@@ -62,10 +71,3 @@ export const RegistrateForm: React.FC = () => {
   );
 };
 
-const Container = styled.View`
-  background-color: ${props => props.theme.colors.white};
-`;
-
-interface InputProps {
-  validateError: boolean;
-}

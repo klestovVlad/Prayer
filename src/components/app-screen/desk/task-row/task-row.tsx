@@ -1,8 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {TaskContent, TaskText} from './styles';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {useState} from 'react';
 import {TaskRowButtons} from './task-row-buttons/task-row-buttons';
 
 type RootStackParamList = {
@@ -22,7 +21,7 @@ type TaskRowProps = {
   columnId: number;
 };
 
-export const TaskRow: React.FC<TaskRowProps> = ({name, columnId}) => {
+export const TaskRow: React.FC<TaskRowProps> = ({name, columnId}: TaskRowProps) => {
   console.log('hi!');
 
   const navigation = useNavigation<ProfileScreenNavigationProp>();

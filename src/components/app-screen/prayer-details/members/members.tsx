@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-import {useContext} from 'react';
 import {ThemeContext} from 'styled-components';
 
 import {AddIcon} from '../../../../ui/Icons/add-Icon';

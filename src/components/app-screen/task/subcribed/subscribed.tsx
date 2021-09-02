@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
+
 import {PrayerRow} from '../prayer-row/prayer-row';
 import {ShowAnsweredButton} from '../show-anwered-button/show-anwered-button';
-import {useState} from 'react';
 import {ScrollView} from 'react-native';
 import {useSelector} from 'react-redux';
 import {getPrayersByColumnId} from '../../../../store/prayers/selectors';
@@ -10,7 +10,7 @@ interface MyPrayersProps {
   columnId: number;
 }
 
-export const Subscribed: React.FC<MyPrayersProps> = ({columnId}) => {
+export const Subscribed: React.FC<MyPrayersProps> = ({columnId}: MyPrayersProps) => {
   const [showAnswered, setshowAnswered] = useState(true);
   const prayers = useSelector(getPrayersByColumnId(columnId));
   return (
