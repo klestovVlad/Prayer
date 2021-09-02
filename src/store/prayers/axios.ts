@@ -1,5 +1,5 @@
 import {ApiMap} from '../../api';
-import Api from '../../api/servise';
+import Api from '../../api/service';
 
 const {Prayers, Columns} = ApiMap;
 

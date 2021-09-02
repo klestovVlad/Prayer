@@ -77,4 +77,4 @@ class ApiWithoutToken {
 }
 
 export default new Api();
-export const ApuAuthorization = new ApiWithoutToken();
+export const ApiAuthorization = new ApiWithoutToken();
