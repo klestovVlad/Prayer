@@ -33,7 +33,7 @@ export const Desk: React.FC<any> = () => {
         onPress={() => setshowInput(true)}
         NumOfView={0}
         setNumOfView={() => null}
-        subscribiedNum={0}
+        subscribedNum={0}
       />
       <ScrollView contentContainerStyle={{paddingBottom: 15}}>
         <InputNewTask showInput={showInput} setshowInput={setshowInput} />

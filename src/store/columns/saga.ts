@@ -11,7 +11,7 @@ export function* getColumns() {
   yield put(columnAction.setColumns(data));
 }
 
-export function* deleteColumn(action: PayloadAction<numberr>) {
+export function* deleteColumn(action: PayloadAction<number>) {
   const columnId = action.payload;
   yield call(() => deleteColumnPost(columnId));
   yield put(columnAction.deleteColumn(columnId));
@@ -26,5 +26,5 @@ export function* addNewColumn(action: PayloadAction<AddNewColumn>) {
 export function* columnsWatcher() {
   yield takeLatest(columnAction.columnRequest.type, getColumns);
   yield takeLatest(columnAction.deleteColumnRequest.type, deleteColumn);
-  yield takeLatest(columnAction.addNewColumnRequser.type, addNewColumn);
+  yield takeLatest(columnAction.addNewColumnRequest.type, addNewColumn);
 }

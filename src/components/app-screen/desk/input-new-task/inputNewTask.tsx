@@ -18,7 +18,7 @@ export const InputNewTask: React.FC<InputNewTaskProps> = ({
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: FormProps) => {
-    dispatch(columnAction.addNewColumnRequser({title: values.title}));
+    dispatch(columnAction.addNewColumnRequest({title: values.title}));
     setshowInput(false);
   };
   return showInput ? (

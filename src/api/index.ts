@@ -8,9 +8,9 @@ export const ApiMap = {
   Authentication: new AuthenticationApi(
     undefined,
     baseUrl,
-    ApiAuthorization.instanse,
+    ApiAuthorization.instance,
   ),
-  Columns: new ColumnsApi(undefined, baseUrl, Api.instanse),
-  Comments: new CommentsApi(undefined, baseUrl, Api.instanse),
-  Prayers: new PrayersApi(undefined, baseUrl, Api.instanse),
+  Columns: new ColumnsApi(undefined, baseUrl, Api.instance),
+  Comments: new CommentsApi(undefined, baseUrl, Api.instance),
+  Prayers: new PrayersApi(undefined, baseUrl, Api.instance),
 };

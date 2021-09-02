@@ -31,7 +31,7 @@ export const Task: React.FC<TaskProps> = ({route}: TaskProps) => {
         setNumOfView={setNumOfView}
         NumOfView={NumOfView}
         onPress={() => setstateLogoutPopup(true)}
-        subscribiedNum={Object.keys(prayers).length}
+        subscribedNum={Object.keys(prayers).length}
       />
       <TaskBody numOfView={NumOfView} columnId={route.params.columnId} />
       <LogoutPopup

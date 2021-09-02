@@ -22,7 +22,7 @@ class Api {
     });
   }
 
-  get instanse(): AxiosInstance {
+  get instance(): AxiosInstance {
     return this.api;
   }
 
@@ -55,7 +55,7 @@ class ApiWithoutToken {
     });
   }
 
-  get instanse(): AxiosInstance {
+  get instance(): AxiosInstance {
     return this.api;
   }
 

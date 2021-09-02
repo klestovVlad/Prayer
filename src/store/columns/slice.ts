@@ -18,8 +18,8 @@ const stateSlice = createSlice({
       }, {});
     },
 
-    addNewColumnRequser(state, {payload}: PayloadAction<AddNewColumn>) {
-      console.log('addNewColumnRequser', payload);
+    addNewColumnRequest(state, {payload}: PayloadAction<AddNewColumn>) {
+      console.log('addNewColumnRequest', payload);
     },
     addNewColumn(state, action: PayloadAction<Columns>) {
       const column = action.payload;
