@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { SubscribiedCounter } from './subscribied-counter';
+
+import {SubscribiedCounter} from './subscribied-counter';
 
 interface TubsProps {
   listOfTubs: Array<string>;
@@ -19,7 +20,7 @@ const TubsItem = styled.TouchableOpacity<TubsItemProps>`
   flex: 1;
   border-style: solid;
   border-bottom-width: 2px;
-  border-color: ${(props) => (props.isActive ? '#72a8bc' : '#72a8bc00')};
+  border-color: ${props => (props.isActive ? '#72a8bc' : '#72a8bc00')};
 `;
 
 interface TubsTextProps {
@@ -27,7 +28,7 @@ interface TubsTextProps {
 }
 
 const TubsText = styled.Text<TubsTextProps>`
-  color: ${(props) => (props.isActive ? '#72a8bc' : '#c8c8c8')};
+  color: ${props => (props.isActive ? '#72a8bc' : '#c8c8c8')};
   font-size: 17px;
   display: flex;
   text-align: center;
@@ -50,22 +51,20 @@ export const Tubs: React.FC<TubsProps> = ({
   NumOfView,
   setNumOfView,
   subscribiedNum,
-}: TubsProps) => (type === 1 ? (
-  <TubsContainet>
-    {listOfTubs.map((item, index) => (
-      <TubsItem
-        onPress={() => setNumOfView(index)}
-        isActive={index === NumOfView}
-        key={index}
-      >
-        <TubsText isActive={index === NumOfView}>{item}</TubsText>
-        <SubscribiedCounter
-          visible={item === 'subscribed'}
-          subscribiedNum={subscribiedNum}
-        />
-      </TubsItem>
-    ))}
-  </TubsContainet>
-) : null);
-
-
+}: TubsProps) =>
+  type === 1 ? (
+    <TubsContainet>
+      {listOfTubs.map((item, index) => (
+        <TubsItem
+          onPress={() => setNumOfView(index)}
+          isActive={index === NumOfView}
+          key={index}>
+          <TubsText isActive={index === NumOfView}>{item}</TubsText>
+          <SubscribiedCounter
+            visible={item === 'subscribed'}
+            subscribiedNum={subscribiedNum}
+          />
+        </TubsItem>
+      ))}
+    </TubsContainet>
+  ) : null;

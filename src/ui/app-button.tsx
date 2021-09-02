@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+
 import {SettingIcon} from './Icons/setting-Icon';
 
 const Button = styled.TouchableOpacity``;
@@ -25,4 +26,3 @@ export const AppButton: React.FC<AppButton> = ({onPress, type}: AppButton) => {
     </Button>
   );
 };
-

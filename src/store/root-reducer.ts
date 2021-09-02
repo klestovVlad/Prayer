@@ -1,21 +1,19 @@
-import {combineReducers} from 'redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import createSagaMiddleware from '@redux-saga/core';
 import {configureStore} from '@reduxjs/toolkit';
+import {combineReducers} from 'redux';
+import {persistReducer, persistStore} from 'redux-persist';
 import {all} from 'redux-saga/effects';
-import {persistStore, persistReducer} from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import userReducer from './user/slice';
-import columnsReducer from './columns/slice';
-import prayersReducer from './prayers/slice';
-import commentsReducer from './comments/slice';
-
-import {userWatcher} from './user/saga';
 import {columnsWatcher} from './columns/saga';
-import {prayersWatcher} from './prayers/saga';
+import columnsReducer from './columns/slice';
 import {commentsWatcher} from './comments/saga';
-
+import commentsReducer from './comments/slice';
+import {prayersWatcher} from './prayers/saga';
+import prayersReducer from './prayers/slice';
 import {usersApi} from './user/rtk-query';
+import {userWatcher} from './user/saga';
+import userReducer from './user/slice';
 
 const sagaMiddleware = createSagaMiddleware();
 

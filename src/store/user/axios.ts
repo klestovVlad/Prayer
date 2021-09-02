@@ -1,6 +1,6 @@
-import axios from 'axios';
+import {ApiMap} from '../../api';
 
-const baseUrl = 'https://prayer.herokuapp.com/';
+const {Authentication} = ApiMap;
 
 type LoginData = {
   email: string;
@@ -14,9 +14,9 @@ type RegistrationData = {
 };
 
 export const signInQuery = (UserData: LoginData) => {
-  return axios.post(baseUrl + 'auth/sign-in', UserData);
+  return Authentication.authControllerSignIn({authSignInDto: UserData});
 };
 
 export const signUpQuery = (UserData: RegistrationData) => {
-  return axios.post(baseUrl + 'auth/sign-up', UserData);
+  return Authentication.authControllerSignUp({authSignUpDto: UserData});
 };

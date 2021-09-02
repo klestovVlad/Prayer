@@ -35,5 +35,3 @@ export const SubscribiedCounter: React.FC<SubscribiedCounterProps> = ({
     </SubscribiedContainer>
   ) : null;
 };
-
-

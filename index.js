@@ -11,6 +11,7 @@ import { name as appName } from './app.json';
 import state from './src/store/root-reducer';
 import { theme } from './src/style/theme';
 import 'react-native-gesture-handler';
+import 'react-native-url-polyfill/auto';
 
 const Main = () => (
   <ThemeProvider theme={theme}>

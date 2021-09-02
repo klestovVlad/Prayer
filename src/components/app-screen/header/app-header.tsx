@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Tubs} from '../../../ui/tubs';
 import {AppButton} from '../../../ui/app-button';
-import {Header, HeaderText, AddTaskButton} from './styles';
+import {Tubs} from '../../../ui/tubs';
+import {AddTaskButton, Header, HeaderText} from './styles';
 
 interface AppHeaderProps {
   headerText: string;

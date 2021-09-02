@@ -1,10 +1,11 @@
 import React from 'react';
-import {AppButton} from '../../../../ui/app-button';
-import {Container, Button} from './styles';
 import {Field, Form, FormProps} from 'react-final-form';
-import {NewColumnInput} from './new-column-input/new-column-input';
 import {useDispatch} from 'react-redux';
+
 import {columnAction} from '../../../../store/columns/slice';
+import {AppButton} from '../../../../ui/app-button';
+import {NewColumnInput} from './new-column-input/new-column-input';
+import {Button, Container} from './styles';
 interface InputNewTaskProps {
   showInput: boolean;
   setshowInput(arg0: boolean): void;

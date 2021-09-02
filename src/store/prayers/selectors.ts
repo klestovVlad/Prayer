@@ -1,4 +1,5 @@
 import {createSelector} from 'reselect';
+
 import {RootState} from '../root-reducer';
 import {Prayer} from './state';
 
@@ -10,9 +11,9 @@ export const selectPrayerData = createSelector(selectData, data =>
 
 export const getPrayersByColumnId = (columnId: number) =>
   createSelector(selectData, data => {
-    let prayers: Record<string, Prayer> = {};
+    const prayers: Record<string, Prayer> = {};
 
-    for (let key in data) {
+    for (const key in data) {
       if (data[key].columnId === columnId) {
         prayers[key] = data[key];
       }

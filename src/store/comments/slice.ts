@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {initialState, Comment} from './state';
+
 import {AddNewComment, addNewCommentRequest} from './action-types';
+import {Comment, initialState} from './state';
 
 const stateSlice = createSlice({
   name: 'commentsSlice',

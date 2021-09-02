@@ -1,8 +1,9 @@
-import {columnsQuery, deleteColumnPost, addNewColumnPost} from './axios';
-import {put, call, takeLatest} from 'redux-saga/effects';
-import {columnAction} from './slice';
 import {PayloadAction} from '@reduxjs/toolkit';
+import {call, put, takeLatest} from 'redux-saga/effects';
+
 import {AddNewColumn} from './action-types';
+import {addNewColumnPost, columnsQuery, deleteColumnPost} from './axios';
+import {columnAction} from './slice';
 
 export function* getColumns() {
   const {data} = yield call(() => columnsQuery());

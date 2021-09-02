@@ -1,5 +1,6 @@
+import {call, put, takeLatest} from 'redux-saga/effects';
+
 import {signInQuery, signUpQuery} from './axios';
-import {put, takeLatest, call} from 'redux-saga/effects';
 import {UserAction} from './slice';
 
 function* signIn(action: any) {

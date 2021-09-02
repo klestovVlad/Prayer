@@ -1,12 +1,13 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+
+import {columnAction} from '../../../../../store/columns/slice';
 import {
   ButtonContainer,
-  DeleteButton,
-  CancelButton,
   ButtonText,
+  CancelButton,
+  DeleteButton,
 } from './styled';
-import {columnAction} from '../../../../../store/columns/slice';
-import {useDispatch} from 'react-redux';
 
 interface TaskRowButtonsProps {
   visible: boolean;

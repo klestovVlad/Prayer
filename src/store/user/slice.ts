@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Alert} from 'react-native';
-import {initialState, SignIn, SignError, SignInRequest} from './state';
+
+import {initialState, SignError, SignIn, SignInRequest} from './state';
 
 const UserSlice = createSlice({
   name: 'UserSlice',

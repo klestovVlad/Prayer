@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+
 import {AddNewColumn} from './action-types';
-import {initialState, Columns} from './state';
+import {Columns, initialState} from './state';
 
 const stateSlice = createSlice({
   name: 'columnSlice',

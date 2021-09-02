@@ -1,14 +1,14 @@
-import {
-  prayersQuery,
-  prayerPost,
-  newPrayerPost,
-  deletePrayerPost,
-} from './axios';
-
-import {put, call, takeLatest} from 'redux-saga/effects';
-import {prayerAction} from './slice';
 import {PayloadAction} from '@reduxjs/toolkit';
+import {call, put, takeLatest} from 'redux-saga/effects';
+
 import {AddNewPrayerRequest} from './action-types';
+import {
+  deletePrayerPost,
+  newPrayerPost,
+  prayerPost,
+  prayersQuery,
+} from './axios';
+import {prayerAction} from './slice';
 import {Prayer} from './state';
 
 function* getPrayers() {

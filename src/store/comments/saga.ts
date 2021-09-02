@@ -1,8 +1,9 @@
-import {commentsQuery, newCommentPost, deleteCommentPost} from './axios';
-import {put, takeLatest, call} from 'redux-saga/effects';
-import {commentsAction} from './slice';
-import {addNewCommentRequest} from './action-types';
 import {PayloadAction} from '@reduxjs/toolkit';
+import {call, put, takeLatest} from 'redux-saga/effects';
+
+import {addNewCommentRequest} from './action-types';
+import {commentsQuery, deleteCommentPost, newCommentPost} from './axios';
+import {commentsAction} from './slice';
 
 function* getComments() {
   const {data} = yield call(() => commentsQuery());

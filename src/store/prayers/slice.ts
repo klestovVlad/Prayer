@@ -1,9 +1,10 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+
 import {
+  AddNewPrayer,
+  AddNewPrayerRequest,
   ChangePraуerRequest,
   GetSinglePrayer,
-  AddNewPrayerRequest,
-  AddNewPrayer,
 } from './action-types';
 import {initialState, Prayer} from './state';
 
