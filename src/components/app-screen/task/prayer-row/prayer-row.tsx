@@ -2,7 +2,7 @@ import React,{useContext} from 'react';
 
 import {CheckBox} from '../../../../ui/check-box';
 import {UserIcon} from '../../../../ui/Icons/UserIcon';
-import {HandsIcon} from '../../../../ui/Icons/hands-Icon';
+import {HandsIcon} from '../../../../ui/Icons/hands-icon';
 import {Container, VerticalLine, Text, IconsContainer, Number} from './styles';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {Animated} from 'react-native';

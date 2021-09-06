@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import {BackIcon} from '../../../../ui/Icons/back-Icon';
-import {HandsIcon} from '../../../../ui/Icons/hands-Icon';
+import {BackIcon} from '../../../../ui/Icons/back-icon';
+import {HandsIcon} from '../../../../ui/icons/hands-icon';
 import {Container, IconRow, BackButton, Text} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {ThemeContext} from 'styled-components';

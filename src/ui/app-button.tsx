@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import {SettingIcon} from './Icons/setting-Icon';
+import {SettingIcon} from './icons/setting-icon';
 
 const Button = styled.TouchableOpacity``;
 

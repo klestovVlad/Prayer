@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {ThemeContext} from 'styled-components';
 
-import {AddIcon} from '../../../../ui/Icons/add-Icon';
+import {AddIcon} from '../../../../ui/Icons/add-icon';
 import {
   Container,
   Header,

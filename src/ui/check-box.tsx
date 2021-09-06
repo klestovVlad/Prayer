@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {CheckedIcon} from './Icons/checked-Icon';
+import {CheckedIcon} from './Icons/checked-icon';
 
 const CheckContainer = styled.TouchableOpacity`
   width: 22px;

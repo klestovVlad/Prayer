@@ -1,6 +1,6 @@
 import React, {useContext}  from 'react';
 
-import {AddIcon} from '../../../../ui/Icons/add-Icon';
+import {AddIcon} from '../../../../ui/Icons/add-icon';
 import {Container, IconContainer} from './styles';
 import {FormApi} from 'final-form';
 import {Field, Form, FormProps} from 'react-final-form';
