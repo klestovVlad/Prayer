@@ -39,6 +39,12 @@ module.exports = {
     "global-require": "off",
     "simple-import-sort/imports": "error",
     "import/first": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      },
+    ],
   },
   settings: {
     'import/resolver': {

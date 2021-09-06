@@ -12,7 +12,6 @@ const Input = styled.TextInput<InputProps>`
   margin: 0 15px 0 15px;
 `;
 
-
 interface NewColumnInputProps extends FieldRenderProps<string> {
   placeholder: string;
 }
