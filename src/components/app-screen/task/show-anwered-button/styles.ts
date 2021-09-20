@@ -8,16 +8,14 @@ const Container = styled.View`
   flex-direction: row;
 `;
 
-const Button = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
   padding: 8px 23px;
   background-color: #bfb393;
   border-radius: 15px;
   margin: 0 auto;
 `;
 
-const Text = styled.Text`
+export const Text = styled.Text`
   text-transform: uppercase;
   color: white;
 `;
-
-export {Container, Button, Text};

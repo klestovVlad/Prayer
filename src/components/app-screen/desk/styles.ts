@@ -1,11 +1,9 @@
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+export const Container = styled.View`
   height: 100%;
   background-color: ${({theme: {colors}}) => colors.white};
 `;
-const ScrollView = styled.ScrollView`
+export const ScrollView = styled.ScrollView`
   padding-bottom: 15px;
 `;
-
-export {Container, ScrollView};

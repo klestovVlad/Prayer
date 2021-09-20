@@ -7,11 +7,11 @@ import {commentsAction} from '../../../store/comments/slice';
 import {prayerAction} from '../../../store/prayers/slice';
 import {selectUserData} from '../../../store/user/selectors';
 import {AppHeader} from '../header/app-header';
-import {InputNewTask} from './input-new-task/inputNewTask';
+import {InputNewTask} from './input-new-task/input-new-task';
 import {Container, ScrollView} from './styles';
 import {TaskRow} from './task-row/task-row';
 
-export const Desk: React.FC<any> = () => {
+export const Desk: React.FC = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUserData);
   useEffect(() => {
@@ -23,7 +23,6 @@ export const Desk: React.FC<any> = () => {
   const data = useSelector(selectColumnData);
 
   const [showInput, setshowInput] = useState(false);
-  console.log(data);
 
   return (
     <Container>

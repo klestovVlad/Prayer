@@ -29,7 +29,6 @@ export const CommentRow: React.FC<CommentRowProps> = ({
   createdTime,
   commmentId,
 }) => {
-  console.log('CommentRow', text, createdTime, commmentId);
   const dispatch = useDispatch();
 
   const renderRightActions = (

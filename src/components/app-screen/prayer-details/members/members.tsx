@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 
-import {ThemeContext} from 'styled-components';
+import { ThemeContext } from 'styled-components';
 
-import {AddIcon} from '../../../../ui/Icons/add-icon';
+import { AddIcon } from '../../../../ui/icons/add-icon';
 import {
   Container,
   Header,

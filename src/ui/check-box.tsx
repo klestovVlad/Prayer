@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {CheckedIcon} from './Icons/checked-icon';
+import { CheckedIcon } from './icons/checked-icon';
 
 const CheckContainer = styled.TouchableOpacity`
   width: 22px;
@@ -16,10 +16,11 @@ interface CheckBoxProps {
   ChangeState(arg0: boolean): void;
 }
 
-export const CheckBox: React.FC<CheckBoxProps> = ({checked, ChangeState}: CheckBoxProps) => {
-  const toggleState = () => {
-    checked ? ChangeState(false) : ChangeState(true);
-  };
+export const CheckBox: React.FC<CheckBoxProps> = ({
+  checked,
+  ChangeState,
+}: CheckBoxProps) => {
+  const toggleState = () => ChangeState(!checked);
   return checked ? (
     <CheckContainer onPress={toggleState}>
       <CheckedIcon />
@@ -28,5 +29,3 @@ export const CheckBox: React.FC<CheckBoxProps> = ({checked, ChangeState}: CheckB
     <CheckContainer onPress={toggleState} />
   );
 };
-
-

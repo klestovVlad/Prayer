@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+export const Container = styled.View`
   display: flex;
   flex-direction: row;
   padding: 0 15px;
@@ -8,5 +8,3 @@ const Container = styled.View`
   border-top-width: 1px;
   border-color: ${props => props.theme.colors.grey};
 `;
-
-export {Container};

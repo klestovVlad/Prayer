@@ -31,7 +31,6 @@ function* addNewPrayer(action: PayloadAction<AddNewPrayerRequest>) {
 function* deletePrayer(action: PayloadAction<number>) {
   const prayerId = action.payload;
   const {data} = yield call(() => deletePrayerPost(prayerId));
-  console.log(data);
   yield put(prayerAction.deletePrayer(prayerId));
 }
 

@@ -18,18 +18,17 @@ interface InputProps {
   validateError: boolean;
 }
 
-
 type SignInValues = {
   email: string;
   name: string;
   password: string;
 };
 
-export const RegistrateForm: React.FC = () => {
+export const RegistrationForm: React.FC = () => {
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: SignInValues) => {
-    dispatch(UserAction.singUpRequest(values));
+    dispatch(UserAction.signUpRequest(values));
   };
 
   return (
@@ -62,7 +61,7 @@ export const RegistrateForm: React.FC = () => {
                 validate={validateInput}
                 component={InputField}
               />
-              <SignButton text="sing up" onPress={handleSubmit} />
+              <SignButton text="sign up" onPress={handleSubmit} />
             </View>
           );
         }}
@@ -70,4 +69,3 @@ export const RegistrateForm: React.FC = () => {
     </Container>
   );
 };
-

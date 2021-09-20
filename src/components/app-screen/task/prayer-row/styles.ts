@@ -4,7 +4,7 @@ interface ContainerProps {
   answered: boolean;
 }
 
-const Container = styled.TouchableOpacity<ContainerProps>`
+export const Container = styled.TouchableOpacity<ContainerProps>`
   position: relative;
   margin: 0 15px;
   padding: 25px 0;
@@ -16,7 +16,7 @@ const Container = styled.TouchableOpacity<ContainerProps>`
   flex-direction: row;
 `;
 
-const VerticalLine = styled.View`
+export const VerticalLine = styled.View`
   margin-right: 15px;
   width: 3px;
   height: 22px;
@@ -24,11 +24,11 @@ const VerticalLine = styled.View`
   border-radius: 3px;
 `;
 
-interface TextProps {
+export interface TextProps {
   answered: boolean;
 }
 
-const Text = styled.Text<TextProps>`
+export const Text = styled.Text<TextProps>`
   font-size: 17px;
   color: ${props => props.theme.colors.dark};
   padding: 0;
@@ -37,7 +37,7 @@ const Text = styled.Text<TextProps>`
   text-decoration: ${props => (props.answered ? 'line-through' : 'none')};
 `;
 
-const IconsContainer = styled.View`
+export const IconsContainer = styled.View`
   position: absolute;
   right: 15px;
   display: flex;
@@ -47,11 +47,9 @@ const IconsContainer = styled.View`
   align-self: center;
 `;
 
-const Number = styled.Text`
+export const Number = styled.Text`
   font-size: 12px;
   color: ${props => props.theme.colors.dark};
   margin: 0 5px;
   min-width: 15px;
 `;
-
-export {Container, VerticalLine, Text, IconsContainer, Number};

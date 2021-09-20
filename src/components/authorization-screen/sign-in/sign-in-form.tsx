@@ -1,14 +1,14 @@
 import React from 'react';
-import {Field, Form, FormProps} from 'react-final-form';
-import {View} from 'react-native';
-import {useDispatch} from 'react-redux';
+import { Field, Form, FormProps } from 'react-final-form';
+import { View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components/native';
 
-import {SignButton} from '../../../ui/sign-button';
-import {UserAction} from '../../../store/user/slice';
-import {InputField} from '../../../ui/form/input-field';
+import { SignButton } from '../../../ui/sign-button';
+import { UserAction } from '../../../store/user/slice';
+import { InputField } from '../../../ui/form/input-field';
 
-import {validateInput, validateEmail} from '../../../ui/functions/validation';
+import { validateInput, validateEmail } from '../../../ui/functions/validation';
 
 const Container = styled.View`
   background-color: ${props => props.theme.colors.white};
@@ -39,7 +39,7 @@ export const LoginForm: React.FC = () => {
     <Container>
       <Form
         onSubmit={onSubmitForm}
-        render={({values, handleSubmit}) => {
+        render={({ values, handleSubmit }) => {
           return (
             <View>
               <Field
@@ -57,7 +57,7 @@ export const LoginForm: React.FC = () => {
                 validate={validateInput}
                 component={InputField}
               />
-              <SignButton text="sing in" onPress={handleSubmit} />
+              <SignButton text="sign in" onPress={handleSubmit} />
             </View>
           );
         }}
@@ -65,5 +65,3 @@ export const LoginForm: React.FC = () => {
     </Container>
   );
 };
-
-

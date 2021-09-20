@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+export const Container = styled.View`
   border-top-width: 1px;
   border-color: ${props => props.theme.colors.grey};
   padding: 17px 0;
@@ -8,7 +8,7 @@ const Container = styled.View`
   flex-direction: row;
 `;
 
-const UserPhoto = styled.View`
+export const UserPhoto = styled.View`
   height: 46px;
   width: 46px;
   background-color: ${props => props.theme.colors.blue};
@@ -19,47 +19,36 @@ const UserPhoto = styled.View`
   align-content: center;
 `;
 
-const UserInitials = styled.Text`
+export const UserInitials = styled.Text`
   text-align: center;
   font-size: 17px;
   color: ${props => props.theme.colors.white};
 `;
 
-const TextContainer = styled.View``;
+export const TextContainer = styled.View``;
 
-const TextRow = styled.View`
+export const TextRow = styled.View`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 `;
 
-const Name = styled.Text`
+export const Name = styled.Text`
   font-size: 17px;
   line-height: 20px;
   color: ${props => props.theme.colors.dark};
 `;
 
-const Date = styled.Text`
+export const Date = styled.Text`
   font-size: 13px;
   line-height: 16px;
   margin-left: 6px;
   color: ${props => props.theme.colors.darkGrey};
 `;
 
-const Comment = styled.Text`
+export const Comment = styled.Text`
   font-size: 17px;
   line-height: 20px;
   color: ${props => props.theme.colors.dark};
   margin-top: 2px;
 `;
-
-export {
-  Container,
-  UserPhoto,
-  UserInitials,
-  TextContainer,
-  TextRow,
-  Name,
-  Date,
-  Comment,
-};

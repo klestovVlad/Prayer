@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-const Input = styled.TextInput`
+export const Input = styled.TextInput`
   padding: 20px 15px 20px 35px;
   margin: 15px 15px 0 15px;
   border: 1px solid #e5e5e5;
@@ -10,7 +10,7 @@ const Input = styled.TextInput`
   color: #514d47;
 `;
 
-const Button = styled.View`
+export const Button = styled.View`
   position: absolute;
   top: 50%;
   left: 30px;
@@ -18,8 +18,6 @@ const Button = styled.View`
   transform: translateY(-7px);
 `;
 
-const Container = styled.View`
+export const Container = styled.View`
   position: relative;
 `;
-
-export {Input, Button, Container};

@@ -8,7 +8,6 @@ interface CommetsProp {
 }
 
 export const Comments: React.FC<CommetsProp> = ({comments}) => {
-  console.log('all cooment: ', comments);
   return (
     <Container>
       <Header>COMMENTS</Header>

@@ -26,8 +26,6 @@ export const TaskRow: React.FC<TaskRowProps> = ({
   name,
   columnId,
 }: TaskRowProps) => {
-  console.log('hi!');
-
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   const [wrappedUp, setwrappedUp] = useState(false);
   return (

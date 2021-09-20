@@ -1,22 +1,22 @@
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+export const Container = styled.View`
   padding: 15px 15px;
 `;
 
-const Header = styled.Text`
+export const Header = styled.Text`
   font-size: 13px;
   line-height: 15px;
   color: ${props => props.theme.colors.blue};
 `;
 
-const MembersRow = styled.View`
+export const MembersRow = styled.View`
   display: flex;
   flex-direction: row;
   padding: 15px 15px 15px 0px;
 `;
 
-const MemberPhoto = styled.View`
+export const MemberPhoto = styled.View`
   height: 32px;
   width: 32px;
   background-color: ${props => props.theme.colors.blue};
@@ -27,7 +27,7 @@ const MemberPhoto = styled.View`
   align-content: center;
 `;
 
-const AddMemberButton = styled.TouchableOpacity`
+export const AddMemberButton = styled.TouchableOpacity`
   height: 32px;
   width: 32px;
   background-color: ${props => props.theme.colors.brown};
@@ -38,10 +38,8 @@ const AddMemberButton = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const Text = styled.Text`
+export const Text = styled.Text`
   text-align: center;
   font-size: 17px;
   color: ${props => props.theme.colors.white};
 `;
-
-export {Container, Header, MembersRow, MemberPhoto, AddMemberButton, Text};

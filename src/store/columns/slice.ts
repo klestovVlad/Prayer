@@ -7,9 +7,8 @@ const stateSlice = createSlice({
   name: 'columnSlice',
   initialState,
   reducers: {
-    columnRequest(state, {payload}: PayloadAction<string>) {
-      console.log('columnRequest', payload);
-    },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    columnRequest(state, {payload}: PayloadAction<string>) {},
     setColumns(state, action: PayloadAction<Columns[]>) {
       return action.payload.reduce((accum: Record<string, Columns>, column) => {
         accum[column.id] = column;
@@ -18,18 +17,16 @@ const stateSlice = createSlice({
       }, {});
     },
 
-    addNewColumnRequest(state, {payload}: PayloadAction<AddNewColumn>) {
-      console.log('addNewColumnRequest', payload);
-    },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    addNewColumnRequest(state, {payload}: PayloadAction<AddNewColumn>) {},
     addNewColumn(state, action: PayloadAction<Columns>) {
       const column = action.payload;
       state[column.id] = column;
       state[column.id].prayers = [];
     },
 
-    deleteColumnRequest(state, {payload}: PayloadAction<number>) {
-      console.log('deleteColumnRequest', payload);
-    },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    deleteColumnRequest(state, {payload}: PayloadAction<number>) {},
     deleteColumn(state, {payload}) {
       delete state[payload];
     },

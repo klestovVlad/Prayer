@@ -8,7 +8,6 @@ const UserSlice = createSlice({
   initialState,
   reducers: {
     signInRequest(state, {payload}: PayloadAction<SignInRequest>) {
-      console.log(payload);
       state.loading = true;
       return state;
     },
@@ -16,7 +15,7 @@ const UserSlice = createSlice({
       return {...payload, loading: false};
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    singUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
+    signUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
       state.loading = true;
     },
     signUp(state, {payload}: PayloadAction<SignIn>) {

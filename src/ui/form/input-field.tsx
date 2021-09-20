@@ -17,7 +17,6 @@ interface NewColumnInputProps extends FieldRenderProps<string> {
 }
 
 export const InputField: React.FC<NewColumnInputProps> = props => {
-  console.log(props.meta.error);
   return (
     <Input
       {...props}

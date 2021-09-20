@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-const Header = styled.View`
+export const Header = styled.View`
   background-color: #ffffff;
   border-style: solid;
   border-bottom-width: 1px;
@@ -11,7 +11,7 @@ const Header = styled.View`
   flex-direction: column;
 `;
 
-const HeaderText = styled.Text`
+export const HeaderText = styled.Text`
   color: #514d47;
   font-size: 17px;
   height: 64px;
@@ -19,7 +19,7 @@ const HeaderText = styled.Text`
   line-height: 64px;
 `;
 
-const AddTaskButton = styled.View`
+export const AddTaskButton = styled.View`
   position: absolute;
   right: 15px;
   height: 64px;
@@ -27,5 +27,3 @@ const AddTaskButton = styled.View`
   display: flex;
   justify-content: center;
 `;
-
-export {Header, HeaderText, AddTaskButton};

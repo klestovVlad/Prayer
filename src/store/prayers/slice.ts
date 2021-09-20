@@ -12,9 +12,8 @@ const stateSlice = createSlice({
   name: 'prayerSlice',
   initialState,
   reducers: {
-    prayersRequest(state, {payload}: PayloadAction<string>) {
-      console.log(payload);
-    },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    prayersRequest(state, {payload}: PayloadAction<string>) {},
     setPrayers(state, {payload}: PayloadAction<Prayer[]>) {
       return payload.reduce((accum: Record<string, Prayer>, prayer) => {
         accum[prayer.id] = prayer;
@@ -23,17 +22,17 @@ const stateSlice = createSlice({
       }, {});
     },
 
-    changePraуerRequest(state, payload: PayloadAction<ChangePraуerRequest>) {
-      console.log('changePraуerRequest', payload);
-    },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    changePraуerRequest(state, payload: PayloadAction<ChangePraуerRequest>) {},
     getSinglePrayer(state, {payload}: PayloadAction<GetSinglePrayer>) {
       const {data} = payload;
       state[data.id] = data;
     },
 
-    addNewPrayerRequest(state, {payload}: PayloadAction<AddNewPrayerRequest>) {
-      console.log('addNewPrayerRequest', payload);
-    },
+    addNewPrayerRequest(
+      state,
+      {payload}: PayloadAction<AddNewPrayerRequest>, // eslint-disable-next-line @typescript-eslint/no-empty-function
+    ) {},
     addNewPrayer(state, {payload}: PayloadAction<AddNewPrayer>) {
       const {data} = payload;
       const prayer: Prayer = {
@@ -47,9 +46,8 @@ const stateSlice = createSlice({
       state[prayer.id] = prayer;
     },
 
-    deletePrayerRequest(state, {payload}: PayloadAction<number>) {
-      console.log('deletePrayerRequest', payload);
-    },
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    deletePrayerRequest(state, {payload}: PayloadAction<number>) {},
     deletePrayer(state, {payload}: PayloadAction<number>) {
       delete state[payload];
     },

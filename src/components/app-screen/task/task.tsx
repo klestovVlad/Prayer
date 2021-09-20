@@ -19,7 +19,6 @@ type TaskProps = {
 
 export const Task: React.FC<TaskProps> = ({route}: TaskProps) => {
   const prayers = useSelector(getPrayersByColumnId(route.params.columnId));
-  console.log('prayers', prayers, route.params.columnId);
 
   const [NumOfView, setNumOfView] = useState(0);
   const [stateLogoutPopup, setstateLogoutPopup] = useState(false);
