@@ -1,9 +1,10 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Desk} from './desk/index';
-import {Task} from './task/task';
-import {PrayerDetails} from './prayer-details/prayer-details';
+
+import { Desk } from './desk/index';
+import { PrayerDetails } from './prayer-details/prayer-details';
+import { Task } from './task/task';
 
 const Stack = createNativeStackNavigator();
 

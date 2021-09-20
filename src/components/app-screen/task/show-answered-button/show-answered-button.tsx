@@ -1,5 +1,6 @@
 import React from 'react';
-import {Container, Button, Text} from './styles';
+
+import { Button, Container, Text } from './styles';
 
 interface ShowAnsweredButtonProps {
   setshowAnswered(state: boolean): void;

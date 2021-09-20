@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-interface subscribedCounterProps {
+interface SubscribedCounterProps {
   subscribedNum: number;
   visible: boolean;
 }
 
-const subscribedContainer = styled.View`
+const SubscribedContainer = styled.View`
   width: 16px;
   height: 16px;
   background-color: ${props => props.theme.colors.red};
@@ -17,21 +17,21 @@ const subscribedContainer = styled.View`
   top: 5px;
   right: 30px;
 `;
-const NumOfsubscribed = styled.Text`
+const NumOfSubscribed = styled.Text`
   color: ${props => props.theme.colors.white};
   text-align: center;
   font-size: 10px;
   line-height: 10px;
 `;
 
-export const subscribedCounter: React.FC<subscribedCounterProps> = ({
+export const SubscribedCounter: React.FC<SubscribedCounterProps> = ({
   subscribedNum,
   visible,
-}: subscribedCounterProps) => {
+}: SubscribedCounterProps) => {
   const count = Math.min(subscribedNum, 99);
   return visible ? (
-    <subscribedContainer>
-      <NumOfsubscribed>{count}</NumOfsubscribed>
-    </subscribedContainer>
+    <SubscribedContainer>
+      <NumOfSubscribed>{count}</NumOfSubscribed>
+    </SubscribedContainer>
   ) : null;
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import {subscribedCounter} from './subscribed-counter';
+import {SubscribedCounter} from './subscribed-counter';
 
 interface TubsProps {
   listOfTubs: Array<string>;
@@ -60,7 +60,7 @@ export const Tubs: React.FC<TubsProps> = ({
           isActive={index === NumOfView}
           key={index}>
           <TubsText isActive={index === NumOfView}>{item}</TubsText>
-          <subscribedCounter
+          <SubscribedCounter
             visible={item === 'subscribed'}
             subscribedNum={subscribedNum}
           />

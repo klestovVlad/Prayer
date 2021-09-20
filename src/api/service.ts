@@ -1,5 +1,5 @@
-import axios, {AxiosInstance} from 'axios';
-export const baseUrl = 'https://prayer.herokuapp.com/';
+import axios, { AxiosInstance } from 'axios';
+export const baseUrl = 'https://prayer.herokuapp.com';
 import store from '../store/root-reducer';
 
 class Api {

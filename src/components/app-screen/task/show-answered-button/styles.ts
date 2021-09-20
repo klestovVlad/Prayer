@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+export const Container = styled.View`
   position: relative;
   margin: 0 15px;
   padding: 25px 0;

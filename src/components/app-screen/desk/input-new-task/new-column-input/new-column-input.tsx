@@ -1,7 +1,7 @@
 import React from 'react';
-import {FieldRenderProps} from 'react-final-form';
+import { FieldRenderProps } from 'react-final-form';
 
-import {Input} from './styles';
+import { Input } from './styles';
 
 interface NewColumnInputProps extends FieldRenderProps<string> {
   placeholder: string;

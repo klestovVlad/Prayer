@@ -1,17 +1,16 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
+import { UserAction } from '../../../../store/user/slice';
 import {
-  Content,
-  Header,
+  ButtonCancel,
   ButtonContainer,
   ButtonLogout,
-  ButtonCancel,
   ButtonText,
   Container,
+  Content,
+  Header,
 } from './style';
-
-import {UserAction} from '../../../../store/user/slice';
 interface LogoutPopupProps {
   isShown: boolean;
   setstateLogoutPopup(arg0: boolean): void;
