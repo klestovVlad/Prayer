@@ -14,7 +14,11 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
+<<<<<<< HEAD
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+=======
+    'plugin:react/jsx-runtime',
+>>>>>>> e57c8b47d689bd39026fb733bbb4270f2a9441e5
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

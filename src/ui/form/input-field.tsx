@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { FieldRenderProps } from 'react-final-form';
 import styled from 'styled-components/native';
 
@@ -15,7 +15,7 @@ interface NewColumnInputProps extends FieldRenderProps<string> {
   placeholder: string;
 }
 
-export const InputField: React.FC<NewColumnInputProps> = props => {
+export const InputField: FC<NewColumnInputProps> = props => {
   return (
     <Input
       {...props}

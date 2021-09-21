@@ -1,6 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { RootState } from '../../store/root-reducer';
@@ -11,7 +11,7 @@ import { Block, Container, Header } from './styles';
 
 const Tab = createMaterialTopTabNavigator();
 
-export const AuthorizationScreen = () => {
+export const AuthorizationScreen: FC = () => {
   const { loading } = useSelector((state: RootState) => state.userReducer);
   return loading ? (
     <Container>

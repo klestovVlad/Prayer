@@ -1,5 +1,6 @@
 import { FormApi } from 'final-form';
-import React, { useContext } from 'react';
+import React, { useContext, FC } from 'react';
+
 import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components';
@@ -13,7 +14,7 @@ interface InputNewPrayerProps {
   columnId: number;
 }
 
-export const InputNewPrayer: React.FC<InputNewPrayerProps> = ({
+export const InputNewPrayer: FC<InputNewPrayerProps> = ({
   columnId,
 }: InputNewPrayerProps) => {
   const dispatch = useDispatch();

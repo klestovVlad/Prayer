@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components/native';
 
 import { SubscribedCounter } from './subscribed-counter';
@@ -19,7 +19,7 @@ interface TubsTextProps {
   isActive: boolean;
 }
 
-export const Tubs: React.FC<TubsProps> = ({
+export const Tubs: FC<TubsProps> = ({
   listOfTubs,
   type,
   NumOfView,

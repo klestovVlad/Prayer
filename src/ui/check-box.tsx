@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components/native';
 
 import { CheckedIcon } from './icons/checked-icon';
@@ -17,7 +17,7 @@ interface CheckBoxProps {
   ChangeState(arg0: boolean): void;
 }
 
-export const CheckBox: React.FC<CheckBoxProps> = ({
+export const CheckBox: FC<CheckBoxProps> = ({
   checked,
   ChangeState,
 }: CheckBoxProps) => {

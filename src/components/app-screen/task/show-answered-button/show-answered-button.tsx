@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { Button, Container, Text } from './styles';
 
@@ -7,7 +7,7 @@ interface ShowAnsweredButtonProps {
   showAnswered: boolean;
 }
 
-export const ShowAnsweredButton: React.FC<ShowAnsweredButtonProps> = ({
+export const ShowAnsweredButton: FC<ShowAnsweredButtonProps> = ({
   setshowAnswered,
   showAnswered,
 }) => {

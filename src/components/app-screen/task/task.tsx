@@ -1,5 +1,6 @@
 import { RouteProp } from '@react-navigation/native';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getPrayersByColumnId } from '../../../store/prayers/selectors';
@@ -18,7 +19,7 @@ type TaskProps = {
   route: ProfileScreenRouteProp;
 };
 
-export const Task: React.FC<TaskProps> = ({ route }: TaskProps) => {
+export const Task: FC<TaskProps> = ({ route }: TaskProps) => {
   const prayers = useSelector(getPrayersByColumnId(route.params.columnId));
   const [NumOfView, setNumOfView] = useState(0);
   const [stateLogoutPopup, setstateLogoutPopup] = useState(false);

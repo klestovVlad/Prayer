@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components/native';
 
 import { SettingIcon } from './icons/setting-icon';
@@ -15,10 +15,7 @@ interface AppButton {
   type: number;
 }
 
-export const AppButton: React.FC<AppButton> = ({
-  onPress,
-  type,
-}: AppButton) => {
+export const AppButton: FC<AppButton> = ({ onPress, type }: AppButton) => {
   return type === 0 ? (
     <Button onPress={onPress}>
       <ButtonText>+</ButtonText>

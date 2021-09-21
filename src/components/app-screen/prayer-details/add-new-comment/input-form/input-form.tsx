@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { FieldRenderProps } from 'react-final-form';
 
 import { Input } from './styles';
@@ -7,7 +7,7 @@ interface CommentInputProps extends FieldRenderProps<string> {
   placeholder: string;
 }
 
-export const CommentInput: React.FC<CommentInputProps> = props => {
+export const CommentInput: FC<CommentInputProps> = props => {
   return (
     <Input
       {...props}

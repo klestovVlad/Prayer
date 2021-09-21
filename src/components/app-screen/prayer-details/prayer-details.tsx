@@ -1,5 +1,6 @@
 import { RouteProp } from '@react-navigation/native';
-import React from 'react';
+import React, { FC } from 'react';
+
 import { ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/native';
@@ -26,7 +27,7 @@ type PrayerDetailsProps = {
   route: ProfileScreenRouteProp;
 };
 
-export const PrayerDetails: React.FC<PrayerDetailsProps> = ({ route }) => {
+export const PrayerDetails: FC<PrayerDetailsProps> = ({ route }) => {
   const comments = useSelector(getCommentsByPrayerId(route.params.prayerId));
   return (
     <Container>

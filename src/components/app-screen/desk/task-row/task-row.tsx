@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 
 import { TaskContent, TaskText } from './styles';
 import { TaskRowButtons } from './task-row-buttons/task-row-buttons';
@@ -22,10 +22,7 @@ type TaskRowProps = {
   columnId: number;
 };
 
-export const TaskRow: React.FC<TaskRowProps> = ({
-  name,
-  columnId,
-}: TaskRowProps) => {
+export const TaskRow: FC<TaskRowProps> = ({ name, columnId }: TaskRowProps) => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
   const [wrappedUp, setwrappedUp] = useState(false);
   return (

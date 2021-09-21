@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-export const BackIcon: React.FC = () => {
+export const BackIcon: FC = () => {
   return (
     <Svg width="18" height="16" viewBox="0 0 18 16" fill="none">
       <Path

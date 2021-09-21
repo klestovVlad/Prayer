@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { FC } from 'react';
+=======
+import { FC } from 'react';
+import { FC } from 'react';
+>>>>>>> e57c8b47d689bd39026fb733bbb4270f2a9441e5
 import { Field, Form } from 'react-final-form';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -23,7 +28,7 @@ type SignInValues = {
   password: string;
 };
 
-export const RegistrationForm: React.FC = () => {
+export const RegistrationForm: FC = () => {
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: SignInValues) => {

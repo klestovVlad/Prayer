@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext } from 'react';
+import React, { useContext, FC } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import { BackIcon } from '../../../../ui/icons/back-icon';
@@ -10,7 +10,7 @@ interface HeaderProps {
   title: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ title }: HeaderProps) => {
+export const Header: FC<HeaderProps> = ({ title }: HeaderProps) => {
   const themeContext = useContext(ThemeContext);
   const navigation = useNavigation();
   return (

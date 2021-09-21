@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
+
 import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
@@ -11,7 +12,7 @@ interface InputNewTaskProps {
   setshowInput(arg0: boolean): void;
 }
 
-export const InputNewTask: React.FC<InputNewTaskProps> = ({
+export const InputNewTask: FC<InputNewTaskProps> = ({
   showInput,
   setshowInput,
 }) => {

@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { useContext } from 'react';
+import React, { useContext, FC } from 'react';
+
 import { Animated } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +14,7 @@ import { CheckBox } from '../../../../ui/check-box';
 import { trimTextIfItIsLong } from '../../../../ui/functions/trim-text-if-it-is-long';
 import { HandsIcon } from '../../../../ui/icons/hands-icon';
 import { UserIcon } from '../../../../ui/icons/user-icon';
-import { SwipeableDeliteButton } from '../../../../ui/swipeble-delete-button';
+import { SwipeableDeleteButton } from '../../../../ui/swipeble-delete-button';
 import {
   Container,
   IconsContainer,
@@ -39,9 +40,7 @@ interface PrayerRowProsp {
   prayer: Prayer;
 }
 
-export const PrayerRow: React.FC<PrayerRowProsp> = ({
-  prayer,
-}: PrayerRowProsp) => {
+export const PrayerRow: FC<PrayerRowProsp> = ({ prayer }: PrayerRowProsp) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
 
@@ -58,7 +57,7 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({
     });
     return (
       <Animated.View style={{ transform: [{ translateX: trans }] }}>
-        <SwipeableDeliteButton
+        <SwipeableDeleteButton
           onPress={() => dispatch(prayerAction.deletePrayerRequest(prayer.id))}
         />
       </Animated.View>

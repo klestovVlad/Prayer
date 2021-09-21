@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components/native';
-
 import { LoadIcon } from './icons/loading';
 
 const Content = styled.View`
@@ -17,7 +16,7 @@ interface LoadingScreenProps {
   isLoading: boolean;
 }
 
-export const LoadingScreen: React.FC<LoadingScreenProps> = ({
+export const LoadingScreen: FC<LoadingScreenProps> = ({
   isLoading,
 }: LoadingScreenProps) => {
   return isLoading ? (

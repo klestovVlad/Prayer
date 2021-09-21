@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { FieldRenderProps } from 'react-final-form';
 
 import { Input } from './styles';
@@ -7,7 +7,7 @@ interface NewPrayerInputProps extends FieldRenderProps<string> {
   placeholder: string;
 }
 
-export const NewPrayerInput: React.FC<NewPrayerInputProps> = props => {
+export const NewPrayerInput: FC<NewPrayerInputProps> = props => {
   return (
     <Input
       {...props}

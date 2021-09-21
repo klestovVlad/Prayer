@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components/native';
 
 import { LoginForm } from './sign-in-form';
 
-export const signIn: React.FC = () => {
+export const signIn: FC = () => {
   return (
     <Container>
       <LoginForm />

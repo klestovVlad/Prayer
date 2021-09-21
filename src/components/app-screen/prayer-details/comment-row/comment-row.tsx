@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Animated } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useDispatch } from 'react-redux';
@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { commentsAction } from '../../../../store/comments/slice';
 import { timeFromNow } from '../../../../ui/functions/time-from-now';
 import { twoLetterFromName } from '../../../../ui/functions/two-letter-from-name';
-import { SwipeableDeliteButton } from '../../../../ui/swipeble-delete-button';
+import { SwipebleDeliteButton } from '../../../../ui/swipeble-delete-button';
 import {
   Comment,
   Container,
@@ -23,7 +23,7 @@ interface CommentRowProps {
   commentId: number;
 }
 
-export const CommentRow: React.FC<CommentRowProps> = ({
+export const CommentRow: FC<CommentRowProps> = ({
   text,
   createdTime,
   commentId,
@@ -40,7 +40,7 @@ export const CommentRow: React.FC<CommentRowProps> = ({
     });
     return (
       <Animated.View style={{ transform: [{ translateX: trans }] }}>
-        <SwipeableDeliteButton
+        <SwipebleDeliteButton
           onPress={() =>
             dispatch(commentsAction.deleteCommentRequest(commentId))
           }

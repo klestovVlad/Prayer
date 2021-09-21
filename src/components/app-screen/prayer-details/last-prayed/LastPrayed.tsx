@@ -1,8 +1,7 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import { Container, Text, VerticalLine } from './styles';
 
-export const LastPrayed = () => {
+export const LastPrayed: FC = () => {
   return (
     <Container>
       <VerticalLine />
