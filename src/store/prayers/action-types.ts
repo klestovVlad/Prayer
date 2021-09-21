@@ -1,4 +1,4 @@
-import {Prayer} from './state';
+import { Prayer } from './state';
 
 export interface GetSinglePrayer {
   data: Prayer;

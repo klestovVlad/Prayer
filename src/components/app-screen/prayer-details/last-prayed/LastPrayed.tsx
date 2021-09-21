@@ -1,5 +1,4 @@
-import React from 'react';
-import {Container, VerticalLine, Text} from './styles';
+import { Container, Text, VerticalLine } from './styles';
 
 export const LastPrayed = () => {
   return (

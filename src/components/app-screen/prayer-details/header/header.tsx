@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { useContext } from 'react';
+import * as React from 'react';
+import { ThemeContext } from 'styled-components';
+
 import { BackIcon } from '../../../../ui/icons/back-icon';
 import { HandsIcon } from '../../../../ui/icons/hands-icon';
-import { Container, IconRow, BackButton, Text } from './styles';
-import { useNavigation } from '@react-navigation/native';
-import { ThemeContext } from 'styled-components';
+import { BackButton, Container, IconRow, Text } from './styles';
 
 interface HeaderProps {
   title: string;

@@ -1,11 +1,11 @@
-import React from 'react';
-import {Field, Form, FormProps} from 'react-final-form';
-import {useDispatch} from 'react-redux';
+import * as React from 'react';
+import { Field, Form, FormProps } from 'react-final-form';
+import { useDispatch } from 'react-redux';
 
-import {columnAction} from '../../../../store/columns/slice';
-import {AppButton} from '../../../../ui/app-button';
-import {NewColumnInput} from './new-column-input/new-column-input';
-import {Button, Container} from './styles';
+import { columnAction } from '../../../../store/columns/slice';
+import { AppButton } from '../../../../ui/app-button';
+import { NewColumnInput } from './new-column-input/new-column-input';
+import { Button, Container } from './styles';
 interface InputNewTaskProps {
   showInput: boolean;
   setshowInput(arg0: boolean): void;
@@ -18,13 +18,13 @@ export const InputNewTask: React.FC<InputNewTaskProps> = ({
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: FormProps) => {
-    dispatch(columnAction.addNewColumnRequest({title: values.title}));
+    dispatch(columnAction.addNewColumnRequest({ title: values.title }));
     setshowInput(false);
   };
   return showInput ? (
     <Form
       onSubmit={onSubmitForm}
-      render={({values, handleSubmit}) => {
+      render={({ values, handleSubmit }) => {
         return (
           <Container>
             <Button>

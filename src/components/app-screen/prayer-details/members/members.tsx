@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
-
+import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import { AddIcon } from '../../../../ui/icons/add-icon';
 import {
+  AddMemberButton,
   Container,
   Header,
-  MembersRow,
   MemberPhoto,
-  AddMemberButton,
+  MembersRow,
   Text,
 } from './styles';
 

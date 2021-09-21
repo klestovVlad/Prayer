@@ -1,9 +1,10 @@
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useState } from 'react';
+import * as React from 'react';
 
-import {TaskContent, TaskText} from './styles';
-import {TaskRowButtons} from './task-row-buttons/task-row-buttons';
+import { TaskContent, TaskText } from './styles';
+import { TaskRowButtons } from './task-row-buttons/task-row-buttons';
 
 type RootStackParamList = {
   Task: {

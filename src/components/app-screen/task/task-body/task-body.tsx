@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { MyPrayers } from '../my-prayers/my-prayers';
 import { Subscribed } from '../subscribed/subscribed';

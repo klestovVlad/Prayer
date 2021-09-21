@@ -1,6 +1,6 @@
-import {createSelector} from 'reselect';
+import { createSelector } from 'reselect';
 
-import {RootState} from '../root-reducer';
+import { RootState } from '../root-reducer';
 
 const selectData = (state: RootState) => state.columnsReducer;
 

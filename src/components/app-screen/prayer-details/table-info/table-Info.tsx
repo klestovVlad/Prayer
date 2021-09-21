@@ -1,14 +1,13 @@
-import React from 'react';
 import {
-  Container,
-  Row,
-  FirstRow,
   Cell,
   CellLineRight,
+  Container,
+  DateCaption,
+  FirstRow,
   HeaderText,
   HeaderText2,
+  Row,
   Text,
-  DateCaption,
 } from './styles';
 
 export const TableInfo = () => {

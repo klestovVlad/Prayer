@@ -1,14 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components/native';
 
-import { SignButton } from '../../../ui/sign-button';
 import { UserAction } from '../../../store/user/slice';
 import { InputField } from '../../../ui/form/input-field';
-
-import { validateInput, validateEmail } from '../../../ui/functions/validation';
+import { validateEmail, validateInput } from '../../../ui/functions/validation';
+import { SignButton } from '../../../ui/sign-button';
 
 const Container = styled.View`
   background-color: ${props => props.theme.colors.white};

@@ -1,5 +1,5 @@
-import {Prayer} from '../prayers/state';
-import {Comment} from './state';
+import { Prayer } from '../prayers/state';
+import { Comment } from './state';
 
 export interface GetComments {
   commentsData: Comment[];

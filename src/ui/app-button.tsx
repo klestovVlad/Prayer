@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components/native';
 
-import {SettingIcon} from './icons/setting-icon';
+import { SettingIcon } from './icons/setting-icon';
 
 const Button = styled.TouchableOpacity``;
 
@@ -15,7 +15,10 @@ interface AppButton {
   type: number;
 }
 
-export const AppButton: React.FC<AppButton> = ({onPress, type}: AppButton) => {
+export const AppButton: React.FC<AppButton> = ({
+  onPress,
+  type,
+}: AppButton) => {
   return type === 0 ? (
     <Button onPress={onPress}>
       <ButtonText>+</ButtonText>

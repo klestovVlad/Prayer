@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components/native';
 
-import {SubscribedCounter} from './subscribed-counter';
+import { SubscribedCounter } from './subscribed-counter';
 
 interface TubsProps {
   listOfTubs: Array<string>;

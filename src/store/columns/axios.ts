@@ -1,17 +1,17 @@
-import {ApiMap} from '../../api';
+import { ApiMap } from '../../api';
 import Api from '../../api/service';
 
-const {Columns} = ApiMap;
+const { Columns } = ApiMap;
 
 export const columnsQuery = () => {
   return Columns.columnsControllerFindColumns();
 };
 
 export const deleteColumnPost = (columnId: number) => {
-  return Columns.columnsControllerDelete({columnId});
+  return Columns.columnsControllerDelete({ columnId });
 };
 
 export const addNewColumnPost = (title: string) => {
   // return Columns.columnsControllerCreate({title, description: ''});
-  return Api.post('columns', {title, description: ''});
+  return Api.post('columns', { title, description: '' });
 };

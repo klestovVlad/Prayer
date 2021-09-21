@@ -1,8 +1,8 @@
-import {AuthenticationApi} from './generated/api/authentication-api';
-import {ColumnsApi} from './generated/api/columns-api';
-import {CommentsApi} from './generated/api/comments-api';
-import {PrayersApi} from './generated/api/prayers-api';
-import Api, {ApiAuthorization, baseUrl} from './service';
+import { AuthenticationApi } from './generated/api/authentication-api';
+import { ColumnsApi } from './generated/api/columns-api';
+import { CommentsApi } from './generated/api/comments-api';
+import { PrayersApi } from './generated/api/prayers-api';
+import Api, { ApiAuthorization, baseUrl } from './service';
 
 export const ApiMap = {
   Authentication: new AuthenticationApi(

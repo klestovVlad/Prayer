@@ -19,4 +19,3 @@ export const Text = styled.Text`
   font-size: 17px;
   line-height: 27px;
 `;
-

@@ -1,11 +1,12 @@
-import React from 'react';
-import { CommentIcon } from '../../../../ui/icons/comment-icon';
 import { FormApi } from 'final-form';
-import { Container } from './styles';
+import * as React from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
-import { CommentInput } from './input-form/input-form';
 import { useDispatch } from 'react-redux';
+
 import { commentsAction } from '../../../../store/comments/slice';
+import { CommentIcon } from '../../../../ui/icons/comment-icon';
+import { CommentInput } from './input-form/input-form';
+import { Container } from './styles';
 interface AddNewCommentProps {
   columnId: number;
   prayerId: number;

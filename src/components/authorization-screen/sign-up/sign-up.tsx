@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components/native';
 
-import {RegistrationForm} from './sign-up-form';
+import { RegistrationForm } from './sign-up-form';
 
 export const SignUp: React.FC = () => {
   return (

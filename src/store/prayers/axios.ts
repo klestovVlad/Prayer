@@ -1,7 +1,7 @@
-import {ApiMap} from '../../api';
+import { ApiMap } from '../../api';
 import Api from '../../api/service';
 
-const {Prayers, Columns} = ApiMap;
+const { Prayers, Columns } = ApiMap;
 
 export const prayersQuery = () => {
   return Prayers.cardsControllerFindColumns();
@@ -10,9 +10,9 @@ export const prayersQuery = () => {
 export const prayerPost = (id: number, title: string, checked: boolean) => {
   return Prayers.cardsControllerUpdate({
     prayerId: id,
-    cardsDto: {title, description: '', checked},
+    cardsDto: { title, description: '', checked },
   });
-  return Api.put(`prayers/${id}`, {title, description: '', checked});
+  return Api.put(`prayers/${id}`, { title, description: '', checked });
 };
 
 export const newPrayerPost = (columnId: number, title: string) => {
@@ -32,5 +32,5 @@ export const newPrayerPost = (columnId: number, title: string) => {
 };
 
 export const deletePrayerPost = (prayerId: number) => {
-  return Prayers.cardsControllerDelete({prayerId});
+  return Prayers.cardsControllerDelete({ prayerId });
 };

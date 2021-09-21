@@ -1,7 +1,7 @@
 /**
  * @format
  */
-import React from 'react';
+import { StrictMode } from 'react';
 import { AppRegistry, SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -17,11 +17,11 @@ const Main = () => (
   <ThemeProvider theme={theme}>
     <Provider store={state.store}>
       <PersistGate loading={null} persistor={state.persistor}>
-        <React.StrictMode>
+        <StrictMode>
           <SafeArea>
             <App />
           </SafeArea>
-        </React.StrictMode>
+        </StrictMode>
       </PersistGate>
     </Provider>
   </ThemeProvider>

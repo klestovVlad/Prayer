@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { AppButton } from '../../../ui/app-button';
 import { Tubs } from '../../../ui/tubs';

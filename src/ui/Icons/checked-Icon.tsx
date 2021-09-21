@@ -1,6 +1,5 @@
-import Svg, {Rect} from 'react-native-svg';
-
-import React from 'react';
+import * as React from 'react';
+import Svg, { Rect } from 'react-native-svg';
 
 export const CheckedIcon: React.FC = () => {
   return (

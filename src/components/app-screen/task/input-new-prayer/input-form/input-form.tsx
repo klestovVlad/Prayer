@@ -1,6 +1,7 @@
-import React from 'react';
-import {Input} from './styles';
-import {FieldRenderProps} from 'react-final-form';
+import * as React from 'react';
+import { FieldRenderProps } from 'react-final-form';
+
+import { Input } from './styles';
 
 interface NewPrayerInputProps extends FieldRenderProps<string> {
   placeholder: string;
