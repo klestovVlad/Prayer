@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 
 import { AppButton } from '../../../ui/app-button';
 import { Tubs } from '../../../ui/tubs';
@@ -13,7 +13,7 @@ interface AppHeaderProps {
   subscribedNum: number;
 }
 
-export const AppHeader: React.FC<AppHeaderProps> = ({
+export const AppHeader: FC<AppHeaderProps> = ({
   headerText,
   type,
   NumOfView,

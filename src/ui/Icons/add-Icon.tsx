@@ -1,11 +1,11 @@
-import * as React from 'react';
+import { FC } from 'react';
 import Svg, { Rect } from 'react-native-svg';
 
 interface AddIcon {
   color: string;
 }
 
-export const AddIcon: React.FC<AddIcon> = ({ color }) => {
+export const AddIcon: FC<AddIcon> = ({ color }) => {
   return (
     <Svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <Rect x="10" width="2" height="22" rx="1" fill={color} />

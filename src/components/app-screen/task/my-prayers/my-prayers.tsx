@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as React from 'react';
+import { FC } from 'react';
 import { ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -12,9 +12,7 @@ interface MyPrayersProps {
   columnId: number;
 }
 
-export const MyPrayers: React.FC<MyPrayersProps> = ({
-  columnId,
-}: MyPrayersProps) => {
+export const MyPrayers: FC<MyPrayersProps> = ({ columnId }: MyPrayersProps) => {
   const [showAnswered, setshowAnswered] = useState(true);
   const prayers = useSelector(getPrayersByColumnId(columnId));
   return (

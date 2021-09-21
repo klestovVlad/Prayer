@@ -1,5 +1,5 @@
 import { FormApi } from 'final-form';
-import * as React from 'react';
+import { FC } from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
@@ -12,7 +12,7 @@ interface AddNewCommentProps {
   prayerId: number;
 }
 
-export const AddNewComment: React.FC<AddNewCommentProps> = ({
+export const AddNewComment: FC<AddNewCommentProps> = ({
   columnId,
   prayerId,
 }) => {

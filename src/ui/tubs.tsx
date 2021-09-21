@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components/native';
 
 import { SubscribedCounter } from './subscribed-counter';
@@ -45,7 +45,7 @@ const TubsContainet = styled.View`
   width: 100%;
 `;
 
-export const Tubs: React.FC<TubsProps> = ({
+export const Tubs: FC<TubsProps> = ({
   listOfTubs,
   type,
   NumOfView,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components/native';
 
 interface SubscribedCounterProps {
@@ -24,7 +24,7 @@ const NumOfSubscribed = styled.Text`
   line-height: 10px;
 `;
 
-export const SubscribedCounter: React.FC<SubscribedCounterProps> = ({
+export const SubscribedCounter: FC<SubscribedCounterProps> = ({
   subscribedNum,
   visible,
 }: SubscribedCounterProps) => {

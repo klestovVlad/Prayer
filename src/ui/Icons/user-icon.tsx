@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { FC } from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-export const UserIcon: React.FC = () => {
+export const UserIcon: FC = () => {
   return (
     <Svg width="17" height="20" viewBox="0 0 17 20" fill="none">
       <Path

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 
 import { MyPrayers } from '../my-prayers/my-prayers';
 import { Subscribed } from '../subscribed/subscribed';
@@ -8,7 +8,7 @@ interface TaskBodyProps {
   columnId: number;
 }
 
-export const TaskBody: React.FC<TaskBodyProps> = ({ numOfView, columnId }) => {
+export const TaskBody: FC<TaskBodyProps> = ({ numOfView, columnId }) => {
   switch (numOfView) {
     case 0:
       return <MyPrayers columnId={columnId} />;

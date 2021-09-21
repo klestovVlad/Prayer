@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import { Animated } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useDispatch } from 'react-redux';
@@ -23,7 +23,7 @@ interface CommentRowProps {
   commmentId: number;
 }
 
-export const CommentRow: React.FC<CommentRowProps> = ({
+export const CommentRow: FC<CommentRowProps> = ({
   text,
   createdTime,
   commmentId,

@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as React from 'react';
+import { FC } from 'react';
 
 import { Desk } from './desk/index';
 import { PrayerDetails } from './prayer-details/prayer-details';
@@ -8,7 +8,7 @@ import { Task } from './task/task';
 
 const Stack = createNativeStackNavigator();
 
-export const AppScreen: React.FC = () => {
+export const AppScreen: FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">

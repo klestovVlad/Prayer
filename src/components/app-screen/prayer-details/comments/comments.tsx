@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 
 import { Comment } from '../../../../store/comments/state';
 import { CommentRow } from '../comment-row/comment-row';
@@ -8,7 +8,7 @@ interface CommetsProp {
   comments: Comment[];
 }
 
-export const Comments: React.FC<CommetsProp> = ({ comments }) => {
+export const Comments: FC<CommetsProp> = ({ comments }) => {
   return (
     <Container>
       <Header>COMMENTS</Header>

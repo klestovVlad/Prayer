@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { UserAction } from '../../../../store/user/slice';
@@ -16,7 +16,7 @@ interface LogoutPopupProps {
   setstateLogoutPopup(arg0: boolean): void;
 }
 
-export const LogoutPopup: React.FC<LogoutPopupProps> = ({
+export const LogoutPopup: FC<LogoutPopupProps> = ({
   isShown,
   setstateLogoutPopup,
 }) => {

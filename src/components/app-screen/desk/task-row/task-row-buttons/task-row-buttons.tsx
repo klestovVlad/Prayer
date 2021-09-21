@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { columnAction } from '../../../../../store/columns/slice';
@@ -15,7 +15,7 @@ interface TaskRowButtonsProps {
   columnId: number;
 }
 
-export const TaskRowButtons: React.FC<TaskRowButtonsProps> = ({
+export const TaskRowButtons: FC<TaskRowButtonsProps> = ({
   visible,
   setwrappedUp,
   columnId,

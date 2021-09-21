@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components/native';
 
 const Button = styled.TouchableOpacity`
@@ -18,7 +18,7 @@ interface SignButtonProps {
   onPress(): void;
 }
 
-export const SignButton: React.FC<SignButtonProps> = ({
+export const SignButton: FC<SignButtonProps> = ({
   text,
   onPress,
 }: SignButtonProps) => {

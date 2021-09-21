@@ -14,6 +14,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

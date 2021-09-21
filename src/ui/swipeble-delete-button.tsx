@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components/native';
 
 const Button = styled.TouchableOpacity`
@@ -18,7 +18,7 @@ interface SwipebleDeliteButtonProps {
   onPress(): void;
 }
 
-export const SwipebleDeliteButton: React.FC<SwipebleDeliteButtonProps> = ({
+export const SwipebleDeliteButton: FC<SwipebleDeliteButtonProps> = ({
   onPress,
 }) => {
   return (

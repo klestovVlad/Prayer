@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useContext } from 'react';
-import * as React from 'react';
+import { FC } from 'react';
 import { Animated } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,9 +40,7 @@ interface PrayerRowProsp {
   prayer: Prayer;
 }
 
-export const PrayerRow: React.FC<PrayerRowProsp> = ({
-  prayer,
-}: PrayerRowProsp) => {
+export const PrayerRow: FC<PrayerRowProsp> = ({ prayer }: PrayerRowProsp) => {
   const dispatch = useDispatch();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
 
