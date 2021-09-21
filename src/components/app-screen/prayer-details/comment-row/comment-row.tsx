@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { commentsAction } from '../../../../store/comments/slice';
 import { timeFromNow } from '../../../../ui/functions/time-from-now';
 import { twoLetterFromName } from '../../../../ui/functions/two-letter-from-name';
-import { SwipebleDeliteButton } from '../../../../ui/swipeble-delete-button';
+import { SwipeableDeleteButton } from '../../../../ui/swipeble-delete-button';
 import {
   Comment,
   Container,
@@ -40,7 +40,7 @@ export const CommentRow: FC<CommentRowProps> = ({
     });
     return (
       <Animated.View style={{ transform: [{ translateX: trans }] }}>
-        <SwipebleDeliteButton
+        <SwipeableDeleteButton
           onPress={() =>
             dispatch(commentsAction.deleteCommentRequest(commentId))
           }

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import { AppButton } from '../../../ui/app-button';
 import { Tubs } from '../../../ui/tubs';

@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import { Desk } from './desk/index';
 import { PrayerDetails } from './prayer-details/prayer-details';

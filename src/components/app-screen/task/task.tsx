@@ -1,6 +1,6 @@
 import { RouteProp } from '@react-navigation/native';
 import { useState } from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getPrayersByColumnId } from '../../../store/prayers/selectors';

@@ -12,6 +12,7 @@ import state from './src/store/root-reducer';
 import { theme } from './src/style/theme';
 import 'react-native-gesture-handler';
 import 'react-native-url-polyfill/auto';
+import React from 'react';
 
 const Main = () => (
   <ThemeProvider theme={theme}>

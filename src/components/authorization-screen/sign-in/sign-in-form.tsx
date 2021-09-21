@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';

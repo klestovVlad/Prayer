@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import { MyPrayers } from '../my-prayers/my-prayers';
 import { Subscribed } from '../subscribed/subscribed';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectColumnData } from '../../../store/columns/selectors';
