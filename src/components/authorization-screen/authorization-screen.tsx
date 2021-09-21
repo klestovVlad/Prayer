@@ -1,12 +1,13 @@
-import React from 'react';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { RootState } from '../../store/root-reducer';
+import { LoadIcon } from '../../ui/icons/loading';
 import { signIn } from './sign-in/sign-in';
 import { SignUp } from './sign-up/sign-up';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { LoadIcon } from '../../ui/icons/loading';
-import { useSelector } from 'react-redux';
-import { Container, Block, Header } from './styles';
-import { RootState } from '../../store/root-reducer';
+import { Block, Container, Header } from './styles';
 
 const Tab = createMaterialTopTabNavigator();
 

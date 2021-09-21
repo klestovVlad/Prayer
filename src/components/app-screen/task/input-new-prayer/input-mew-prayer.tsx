@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
-
-import { AddIcon } from '../../../../ui/icons/add-icon';
-import { Container, IconContainer } from './styles';
 import { FormApi } from 'final-form';
+import React, { useContext } from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
-import { prayerAction } from '../../../../store/prayers/slice';
-import { NewPrayerInput } from './input-form/input-form';
-
 import { ThemeContext } from 'styled-components';
+
+import { prayerAction } from '../../../../store/prayers/slice';
+import { AddIcon } from '../../../../ui/icons/add-icon';
+import { NewPrayerInput } from './input-form/input-form';
+import { Container, IconContainer } from './styles';
 
 interface InputNewPrayerProps {
   columnId: number;

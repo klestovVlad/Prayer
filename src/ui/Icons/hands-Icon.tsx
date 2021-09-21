@@ -1,11 +1,11 @@
 import React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 interface HandsIconProps {
   color: string;
 }
 
-export const HandsIcon: React.FC<HandsIconProps> = ({color}) => {
+export const HandsIcon: React.FC<HandsIconProps> = ({ color }) => {
   return (
     <Svg width="29" height="23" viewBox="0 0 29 23" fill="white">
       <Path

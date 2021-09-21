@@ -1,27 +1,26 @@
-import React, { useContext } from 'react';
-
-import { CheckBox } from '../../../../ui/check-box';
-import { UserIcon } from '../../../../ui/icons/user-icon';
-import { HandsIcon } from '../../../../ui/icons/hands-icon';
-import {
-  Container,
-  VerticalLine,
-  Text,
-  IconsContainer,
-  Number,
-} from './styles';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { SwipebleDeliteButton } from '../../../../ui/swipeble-delete-button';
-import { Prayer } from '../../../../store/prayers/state';
+import React, { useContext } from 'react';
+import { Animated } from 'react-native';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useDispatch, useSelector } from 'react-redux';
-import { prayerAction } from '../../../../store/prayers/slice';
-import { trimTextIfItIsLong } from '../../../../ui/functions/trim-text-if-it-is-long';
-import { getCommentsByPrayerId } from '../../../../store/comments/selectors';
-
 import { ThemeContext } from 'styled-components';
+
+import { getCommentsByPrayerId } from '../../../../store/comments/selectors';
+import { prayerAction } from '../../../../store/prayers/slice';
+import { Prayer } from '../../../../store/prayers/state';
+import { CheckBox } from '../../../../ui/check-box';
+import { trimTextIfItIsLong } from '../../../../ui/functions/trim-text-if-it-is-long';
+import { HandsIcon } from '../../../../ui/icons/hands-icon';
+import { UserIcon } from '../../../../ui/icons/user-icon';
+import { SwipeableDeliteButton } from '../../../../ui/swipeble-delete-button';
+import {
+  Container,
+  IconsContainer,
+  Number,
+  Text,
+  VerticalLine,
+} from './styles';
 
 type RootStackParamList = {
   'Prayer details': {
@@ -59,7 +58,7 @@ export const PrayerRow: React.FC<PrayerRowProsp> = ({
     });
     return (
       <Animated.View style={{ transform: [{ translateX: trans }] }}>
-        <SwipebleDeliteButton
+        <SwipeableDeliteButton
           onPress={() => dispatch(prayerAction.deletePrayerRequest(prayer.id))}
         />
       </Animated.View>

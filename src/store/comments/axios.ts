@@ -1,7 +1,7 @@
-import {ApiMap} from '../../api';
+import { ApiMap } from '../../api';
 import Api from '../../api/service';
 
-const {Comments} = ApiMap;
+const { Comments } = ApiMap;
 
 export const commentsQuery = () => {
   return Comments.commentsControllerFindColumns();
@@ -14,5 +14,5 @@ export const newCommentPost = (prayerId: number, title: string) => {
 };
 
 export const deleteCommentPost = (commentId: number) => {
-  return Comments.commentsControllerDelete({commentId});
+  return Comments.commentsControllerDelete({ commentId });
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
 
 export const LoadIcon = () => (
   <View style={[styles.container, styles.horizontal]}>

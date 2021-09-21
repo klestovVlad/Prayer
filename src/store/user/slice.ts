@@ -1,27 +1,27 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {Alert} from 'react-native';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Alert } from 'react-native';
 
-import {initialState, SignError, SignIn, SignInRequest} from './state';
+import { initialState, SignError, SignIn, SignInRequest } from './state';
 
 const UserSlice = createSlice({
   name: 'UserSlice',
   initialState,
   reducers: {
-    signInRequest(state, {payload}: PayloadAction<SignInRequest>) {
+    signInRequest(state, { payload }: PayloadAction<SignInRequest>) {
       state.loading = true;
       return state;
     },
-    signIn(state, {payload}: PayloadAction<SignIn>) {
-      return {...payload, loading: false};
+    signIn(state, { payload }: PayloadAction<SignIn>) {
+      return { ...payload, loading: false };
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    signUpRequest(state, {payload}: PayloadAction<SignInRequest>) {
+    signUpRequest(state, { payload }: PayloadAction<SignInRequest>) {
       state.loading = true;
     },
-    signUp(state, {payload}: PayloadAction<SignIn>) {
-      return {...payload, loading: false};
+    signUp(state, { payload }: PayloadAction<SignIn>) {
+      return { ...payload, loading: false };
     },
-    signError(state, {payload}: PayloadAction<SignError>) {
+    signError(state, { payload }: PayloadAction<SignError>) {
       state.loading = false;
       if (
         payload.toString().includes('Could not find any entity of type "Users"')

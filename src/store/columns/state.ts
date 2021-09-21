@@ -1,4 +1,4 @@
-import {Prayer} from '../prayers/state';
+import { Prayer } from '../prayers/state';
 
 export interface Columns {
   id: number;

@@ -1,6 +1,6 @@
-import {ApiMap} from '../../api';
+import { ApiMap } from '../../api';
 
-const {Authentication} = ApiMap;
+const { Authentication } = ApiMap;
 
 type LoginData = {
   email: string;
@@ -14,9 +14,9 @@ type RegistrationData = {
 };
 
 export const signInQuery = (UserData: LoginData) => {
-  return Authentication.authControllerSignIn({authSignInDto: UserData});
+  return Authentication.authControllerSignIn({ authSignInDto: UserData });
 };
 
 export const signUpQuery = (UserData: RegistrationData) => {
-  return Authentication.authControllerSignUp({authSignUpDto: UserData});
+  return Authentication.authControllerSignUp({ authSignUpDto: UserData });
 };

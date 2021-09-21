@@ -18,12 +18,13 @@ interface SignButtonProps {
   onPress(): void;
 }
 
-export const SignButton: React.FC<SignButtonProps> = ({text, onPress}: SignButtonProps) => {
+export const SignButton: React.FC<SignButtonProps> = ({
+  text,
+  onPress,
+}: SignButtonProps) => {
   return (
     <Button onPress={onPress}>
       <Text>{text}</Text>
     </Button>
   );
 };
-
-

@@ -14,11 +14,11 @@ const Text = styled.Text`
   color: ${props => props.theme.colors.white};
 `;
 
-interface SwipebleDeliteButtonProps {
+interface SwipeableDeliteButtonProps {
   onPress(): void;
 }
 
-export const SwipebleDeliteButton: React.FC<SwipebleDeliteButtonProps> = ({
+export const SwipeableDeliteButton: React.FC<SwipeableDeliteButtonProps> = ({
   onPress,
 }) => {
   return (

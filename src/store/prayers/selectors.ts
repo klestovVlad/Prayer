@@ -1,7 +1,7 @@
-import {createSelector} from 'reselect';
+import { createSelector } from 'reselect';
 
-import {RootState} from '../root-reducer';
-import {Prayer} from './state';
+import { RootState } from '../root-reducer';
+import { Prayer } from './state';
 
 const selectData = (state: RootState) => state.prayersReducer;
 

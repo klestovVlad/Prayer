@@ -1,33 +1,32 @@
 import React from 'react';
+import { Animated } from 'react-native';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { useDispatch } from 'react-redux';
 
-import {Animated} from 'react-native';
-
+import { commentsAction } from '../../../../store/comments/slice';
+import { timeFromNow } from '../../../../ui/functions/time-from-now';
+import { twoLetterFromName } from '../../../../ui/functions/two-letter-from-name';
+import { SwipeableDeliteButton } from '../../../../ui/swipeble-delete-button';
 import {
+  Comment,
   Container,
-  UserPhoto,
-  UserInitials,
+  Date,
+  Name,
   TextContainer,
   TextRow,
-  Name,
-  Date,
-  Comment,
+  UserInitials,
+  UserPhoto,
 } from './styles';
-import {timeFromNow} from '../../../../ui/functions/time-from-now';
-import {twoLetterFromName} from '../../../../ui/functions/two-letter-from-name';
-import {SwipebleDeliteButton} from '../../../../ui/swipeble-delete-button';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {useDispatch} from 'react-redux';
-import {commentsAction} from '../../../../store/comments/slice';
 interface CommentRowProps {
   text: string;
   createdTime: string;
-  commmentId: number;
+  commentId: number;
 }
 
 export const CommentRow: React.FC<CommentRowProps> = ({
   text,
   createdTime,
-  commmentId,
+  commentId,
 }) => {
   const dispatch = useDispatch();
 
@@ -40,10 +39,10 @@ export const CommentRow: React.FC<CommentRowProps> = ({
       outputRange: [-30, 50, 100, 101],
     });
     return (
-      <Animated.View style={{transform: [{translateX: trans}]}}>
-        <SwipebleDeliteButton
+      <Animated.View style={{ transform: [{ translateX: trans }] }}>
+        <SwipeableDeliteButton
           onPress={() =>
-            dispatch(commentsAction.deleteCommentRequest(commmentId))
+            dispatch(commentsAction.deleteCommentRequest(commentId))
           }
         />
       </Animated.View>

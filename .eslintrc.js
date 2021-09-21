@@ -14,6 +14,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -22,13 +23,14 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
     project: 'tsconfig.eslint.json',
   },
   plugins: ['react', '@typescript-eslint/eslint-plugin', 'simple-import-sort'],
   rules: {
     'import/prefer-default-export': 'off',
     'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-use-before-define': ['error', { variables: false }],
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -49,7 +51,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
-    'import/ignore': ['react-native'],
+    'import/ignore': ['react-native', 'babel.config.js'],
   },
   ignorePatterns: ['.eslintrc.js'],
 };
