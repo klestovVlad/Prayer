@@ -8,6 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "fix": "eslint --fix --ext .js,.jsx,.ts,.tsx",
     "openapi:download": "curl \"https://prayer.herokuapp.com/api-json\" -o ./src/api/openapi.json",
     "openapi:generate": "openapi-generator-cli generate -i ./src/api/openapi.json -g typescript-axios --skip-validate-spec --enable-post-process-file -c ./src/api/config.json -o ./src/api/generated",
     "openapi": "yarn openapi:download && yarn openapi:generate"
