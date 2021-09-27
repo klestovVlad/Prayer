@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, FC } from 'react';
+import React, { FC, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import { BackIcon } from '../../../../ui/icons/back-icon';

@@ -6,6 +6,18 @@ interface SubscribedCounterProps {
   visible: boolean;
 }
 
+export const SubscribedCounter: FC<SubscribedCounterProps> = ({
+  subscribedNum,
+  visible,
+}: SubscribedCounterProps) => {
+  const count = Math.min(subscribedNum, 99);
+  return visible ? (
+    <SubscribedContainer>
+      <NumOfSubscribed>{count}</NumOfSubscribed>
+    </SubscribedContainer>
+  ) : null;
+};
+
 const SubscribedContainer = styled.View`
   width: 16px;
   height: 16px;
@@ -23,15 +35,3 @@ const NumOfSubscribed = styled.Text`
   font-size: 10px;
   line-height: 10px;
 `;
-
-export const SubscribedCounter: FC<SubscribedCounterProps> = ({
-  subscribedNum,
-  visible,
-}: SubscribedCounterProps) => {
-  const count = Math.min(subscribedNum, 99);
-  return visible ? (
-    <SubscribedContainer>
-      <NumOfSubscribed>{count}</NumOfSubscribed>
-    </SubscribedContainer>
-  ) : null;
-};

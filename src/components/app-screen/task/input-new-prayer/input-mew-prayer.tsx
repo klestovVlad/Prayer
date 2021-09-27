@@ -1,6 +1,5 @@
 import { FormApi } from 'final-form';
-import React, { useContext, FC } from 'react';
-
+import React, { FC, useContext } from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components';

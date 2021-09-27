@@ -9,10 +9,6 @@ import { InputField } from '../../../ui/form/input-field';
 import { validateEmail, validateInput } from '../../../ui/functions/validation';
 import { SignButton } from '../../../ui/sign-button';
 
-const Container = styled.View`
-  background-color: ${props => props.theme.colors.white};
-`;
-
 interface InputProps {
   validateError: boolean;
 }
@@ -68,3 +64,7 @@ export const RegistrationForm: FC = () => {
     </Container>
   );
 };
+
+const Container = styled.View`
+  background-color: ${props => props.theme.colors.white};
+`;
