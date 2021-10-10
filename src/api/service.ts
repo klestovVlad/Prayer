@@ -13,7 +13,7 @@ class Api {
       },
     });
 
-    this.api.interceptors.request.use(config => {
+    this.api.interceptors.request.use((config) => {
       const token = store.store.getState().userReducer.token;
       if (token !== null) {
         config.headers.Authorization = `Bearer ${token}`;

@@ -16,10 +16,7 @@ interface LogoutPopupProps {
   setstateLogoutPopup(arg0: boolean): void;
 }
 
-export const LogoutPopup: FC<LogoutPopupProps> = ({
-  isShown,
-  setstateLogoutPopup,
-}) => {
+export const LogoutPopup: FC<LogoutPopupProps> = ({ isShown, setstateLogoutPopup }) => {
   const dispatch = useDispatch();
   return isShown ? (
     <Container onPress={() => setstateLogoutPopup(false)}>

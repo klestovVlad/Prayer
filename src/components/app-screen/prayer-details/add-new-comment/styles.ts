@@ -6,5 +6,5 @@ export const Container = styled.View`
   padding: 0 15px;
   align-items: center;
   border-top-width: 1px;
-  border-color: ${props => props.theme.colors.grey};
+  border-color: ${(props) => props.theme.colors.grey};
 `;

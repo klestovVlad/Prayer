@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { useState, FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import { TaskContent, TaskText } from './styles';
 import { TaskRowButtons } from './task-row-buttons/task-row-buttons';
@@ -12,10 +12,7 @@ type RootStackParamList = {
   };
 };
 
-type ProfileScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Task'
->;
+type ProfileScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Task'>;
 
 type TaskRowProps = {
   name: string;
@@ -33,7 +30,8 @@ export const TaskRow: FC<TaskRowProps> = ({ name, columnId }: TaskRowProps) => {
           columnId: columnId,
         })
       }
-      onLongPress={() => setwrappedUp(!wrappedUp)}>
+      onLongPress={() => setwrappedUp(!wrappedUp)}
+    >
       <TaskText>{name}</TaskText>
       <TaskRowButtons
         setwrappedUp={() => setwrappedUp(!wrappedUp)}

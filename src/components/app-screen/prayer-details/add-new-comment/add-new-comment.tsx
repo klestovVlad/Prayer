@@ -1,5 +1,4 @@
 import { FormApi } from 'final-form';
-
 import React, { FC } from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
@@ -13,15 +12,10 @@ interface AddNewCommentProps {
   prayerId: number;
 }
 
-export const AddNewComment: FC<AddNewCommentProps> = ({
-  columnId,
-  prayerId,
-}) => {
+export const AddNewComment: FC<AddNewCommentProps> = ({ columnId, prayerId }) => {
   const dispatch = useDispatch();
   const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {
-    dispatch(
-      commentsAction.addNewCommentRequest({ title: values.title, prayerId }),
-    );
+    dispatch(commentsAction.addNewCommentRequest({ title: values.title, prayerId }));
     form.reset();
   };
   return (

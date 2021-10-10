@@ -23,12 +23,8 @@ const UserSlice = createSlice({
     },
     signError(state, { payload }: PayloadAction<SignError>) {
       state.loading = false;
-      if (
-        payload.toString().includes('Could not find any entity of type "Users"')
-      ) {
-        Alert.alert(
-          'The username or password that you have entered is invalid.',
-        );
+      if (payload.toString().includes('Could not find any entity of type "Users"')) {
+        Alert.alert('The username or password that you have entered is invalid.');
       } else {
         Alert.alert(payload.toString());
       }

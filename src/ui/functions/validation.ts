@@ -1,5 +1,4 @@
-export const validateInput = (value: string) =>
-  value ? undefined : 'Required';
+export const validateInput = (value: string) => (value ? undefined : 'Required');
 
 const emailRegex = /\S+@\S+\.\S+/;
 

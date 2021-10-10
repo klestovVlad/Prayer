@@ -18,7 +18,7 @@ export const MyPrayers: FC<MyPrayersProps> = ({ columnId }: MyPrayersProps) => {
   return (
     <ScrollView>
       <InputNewPrayer columnId={columnId} />
-      {Object.keys(prayers).map(prayerId =>
+      {Object.keys(prayers).map((prayerId) =>
         !prayers[prayerId].checked ? (
           <PrayerRow prayer={prayers[prayerId]} key={prayers[prayerId].id} />
         ) : null,
@@ -27,7 +27,7 @@ export const MyPrayers: FC<MyPrayersProps> = ({ columnId }: MyPrayersProps) => {
         setshowAnswered={() => setshowAnswered(!showAnswered)}
         showAnswered={showAnswered}
       />
-      {Object.keys(prayers).map(prayerId =>
+      {Object.keys(prayers).map((prayerId) =>
         prayers[prayerId].checked && showAnswered ? (
           <PrayerRow prayer={prayers[prayerId]} key={prayers[prayerId].id} />
         ) : null,

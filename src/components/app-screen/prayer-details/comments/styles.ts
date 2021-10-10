@@ -7,5 +7,5 @@ export const Container = styled.View`
 export const Header = styled.Text`
   font-size: 13px;
   line-height: 15px;
-  color: ${props => props.theme.colors.blue};
+  color: ${(props) => props.theme.colors.blue};
 `;

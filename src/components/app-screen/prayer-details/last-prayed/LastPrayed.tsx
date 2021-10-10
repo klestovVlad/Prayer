@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { Container, Text, VerticalLine } from './styles';
 
 export const LastPrayed: FC = () => {

@@ -14,13 +14,7 @@ import { trimTextIfItIsLong } from '../../../../ui/functions/trim-text-if-it-is-
 import { HandsIcon } from '../../../../ui/icons/hands-icon';
 import { UserIcon } from '../../../../ui/icons/user-icon';
 import { SwipeableDeleteButton } from '../../../../ui/swipeble-delete-button';
-import {
-  Container,
-  IconsContainer,
-  Number,
-  Text,
-  VerticalLine,
-} from './styles';
+import { Container, IconsContainer, Number, Text, VerticalLine } from './styles';
 
 type RootStackParamList = {
   'Prayer details': {
@@ -72,7 +66,8 @@ export const PrayerRow: FC<PrayerRowProsp> = ({ prayer }: PrayerRowProsp) => {
             prayerId: prayer.id,
             columnId: prayer.columnId,
           })
-        }>
+        }
+      >
         <VerticalLine />
         <CheckBox
           checked={prayer.checked}
@@ -86,9 +81,7 @@ export const PrayerRow: FC<PrayerRowProsp> = ({ prayer }: PrayerRowProsp) => {
             )
           }
         />
-        <Text answered={prayer.checked}>
-          {trimTextIfItIsLong(prayer.title)}
-        </Text>
+        <Text answered={prayer.checked}>{trimTextIfItIsLong(prayer.title)}</Text>
         <IconsContainer>
           <UserIcon />
           <Number>{comments.length}</Number>

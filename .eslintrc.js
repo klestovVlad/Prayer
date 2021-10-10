@@ -1,20 +1,19 @@
 module.exports = {
-  env: {
-    node: true,
-    jest: true,
-    browser: true,
-    es2021: true,
-  },
   root: true,
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
+    'plugin:react/jsx-runtime',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
     'plugin:prettier/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+  ],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'prettier',
+    'react-hooks',
+    'simple-import-sort',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -26,7 +25,12 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: 'tsconfig.eslint.json',
   },
-  plugins: ['react', '@typescript-eslint/eslint-plugin', 'simple-import-sort'],
+  env: {
+    node: true,
+    es2021: true,
+    jasmine: true,
+    jest: true,
+  },
   rules: {
     'import/prefer-default-export': 'off',
     'no-use-before-define': 'off',
@@ -35,17 +39,16 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'prettier/prettier': 'error',
     'global-require': 'off',
     'simple-import-sort/imports': 'error',
     'import/first': 'off',
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
   },
   settings: {
+    react: {
+      pragma: 'React',
+      version: 'detect',
+    },
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],

@@ -66,5 +66,5 @@ export const RegistrationForm: FC = () => {
 };
 
 const Container = styled.View`
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
 `;

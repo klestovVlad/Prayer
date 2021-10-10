@@ -5,10 +5,7 @@ interface SignButtonProps {
   onPress(): void;
 }
 
-export const SignButton: FC<SignButtonProps> = ({
-  text,
-  onPress,
-}: SignButtonProps) => {
+export const SignButton: FC<SignButtonProps> = ({ text, onPress }: SignButtonProps) => {
   return (
     <Button onPress={onPress}>
       <Text>{text}</Text>
@@ -18,7 +15,7 @@ export const SignButton: FC<SignButtonProps> = ({
 
 const Button = styled.TouchableOpacity`
   padding: 8px 60px;
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.blue};
   align-items: center;
   border-radius: 30px;
   margin: 30px 15px 15px 15px;
@@ -26,5 +23,5 @@ const Button = styled.TouchableOpacity`
 
 const Text = styled.Text`
   font-size: 17px;
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
 `;

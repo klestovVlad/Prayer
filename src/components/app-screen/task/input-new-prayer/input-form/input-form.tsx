@@ -7,12 +7,6 @@ interface NewPrayerInputProps extends FieldRenderProps<string> {
   placeholder: string;
 }
 
-export const NewPrayerInput: FC<NewPrayerInputProps> = props => {
-  return (
-    <Input
-      {...props}
-      onChange={props.input.onChange}
-      value={props.input.value}
-    />
-  );
+export const NewPrayerInput: FC<NewPrayerInputProps> = (props) => {
+  return <Input {...props} onChange={props.input.onChange} value={props.input.value} />;
 };

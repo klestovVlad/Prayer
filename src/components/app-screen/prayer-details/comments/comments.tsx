@@ -11,7 +11,7 @@ export const Comments: FC<CommentsProp> = ({ comments }) => {
   return (
     <Container>
       <Header>COMMENTS</Header>
-      {comments.map(item => (
+      {comments.map((item) => (
         <CommentRow
           text={item.body}
           key={item.id}

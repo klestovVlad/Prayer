@@ -23,11 +23,7 @@ interface CommentRowProps {
   commentId: number;
 }
 
-export const CommentRow: FC<CommentRowProps> = ({
-  text,
-  createdTime,
-  commentId,
-}) => {
+export const CommentRow: FC<CommentRowProps> = ({ text, createdTime, commentId }) => {
   const dispatch = useDispatch();
 
   const renderRightActions = (
@@ -41,9 +37,7 @@ export const CommentRow: FC<CommentRowProps> = ({
     return (
       <Animated.View style={{ transform: [{ translateX: trans }] }}>
         <SwipeableDeleteButton
-          onPress={() =>
-            dispatch(commentsAction.deleteCommentRequest(commentId))
-          }
+          onPress={() => dispatch(commentsAction.deleteCommentRequest(commentId))}
         />
       </Animated.View>
     );

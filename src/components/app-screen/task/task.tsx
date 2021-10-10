@@ -34,10 +34,7 @@ export const Task: FC<TaskProps> = ({ route }: TaskProps) => {
         subscribedNum={Object.keys(prayers).length}
       />
       <TaskBody numOfView={NumOfView} columnId={route.params.columnId} />
-      <LogoutPopup
-        isShown={stateLogoutPopup}
-        setstateLogoutPopup={setstateLogoutPopup}
-      />
+      <LogoutPopup isShown={stateLogoutPopup} setstateLogoutPopup={setstateLogoutPopup} />
     </Container>
   );
 };

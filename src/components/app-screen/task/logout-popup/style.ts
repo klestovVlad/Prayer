@@ -11,7 +11,7 @@ export const Container = styled.TouchableOpacity`
 
 export const Content = styled.View`
   padding: 15px;
-  background-color: ${props => props.theme.colors.brown};
+  background-color: ${(props) => props.theme.colors.brown};
   z-index: 3;
   position: absolute;
   top: -10px;
@@ -20,7 +20,7 @@ export const Content = styled.View`
 `;
 
 export const Header = styled.Text`
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   font-size: 17px;
   text-align: center;
   margin-top: 25px;
@@ -34,16 +34,16 @@ export const ButtonContainer = styled.View`
 `;
 
 export const ButtonLogout = styled.TouchableOpacity`
-  background-color: ${props => props.theme.colors.red};
+  background-color: ${(props) => props.theme.colors.red};
   padding: 15px 25px;
   border-radius: 15px;
 `;
 
 export const ButtonCancel = styled(ButtonLogout)`
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.blue};
 `;
 
 export const ButtonText = styled.Text`
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   font-size: 17px;
 `;

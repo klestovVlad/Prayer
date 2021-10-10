@@ -19,9 +19,7 @@ export const InputNewPrayer: FC<InputNewPrayerProps> = ({
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {
-    dispatch(
-      prayerAction.addNewPrayerRequest({ title: values.title, columnId }),
-    );
+    dispatch(prayerAction.addNewPrayerRequest({ title: values.title, columnId }));
     form.reset();
   };
 

@@ -14,9 +14,7 @@ export const ShowAnsweredButton: FC<ShowAnsweredButtonProps> = ({
   return (
     <Container>
       <Button onPress={() => setshowAnswered(false)}>
-        <Text>
-          {showAnswered ? 'Hide Answered Prayers' : 'Show Answered Prayers'}
-        </Text>
+        <Text>{showAnswered ? 'Hide Answered Prayers' : 'Show Answered Prayers'}</Text>
       </Button>
     </Container>
   );

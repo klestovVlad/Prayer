@@ -7,7 +7,7 @@ export const Container = styled.View`
 export const Header = styled.Text`
   font-size: 13px;
   line-height: 15px;
-  color: ${props => props.theme.colors.blue};
+  color: ${(props) => props.theme.colors.blue};
 `;
 
 export const MembersRow = styled.View`
@@ -19,7 +19,7 @@ export const MembersRow = styled.View`
 export const MemberPhoto = styled.View`
   height: 32px;
   width: 32px;
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.blue};
   border-radius: 16px;
   margin-right: 8px;
   display: flex;
@@ -30,7 +30,7 @@ export const MemberPhoto = styled.View`
 export const AddMemberButton = styled.TouchableOpacity`
   height: 32px;
   width: 32px;
-  background-color: ${props => props.theme.colors.brown};
+  background-color: ${(props) => props.theme.colors.brown};
   border-radius: 16px;
   display: flex;
   flex-direction: row;
@@ -41,5 +41,5 @@ export const AddMemberButton = styled.TouchableOpacity`
 export const Text = styled.Text`
   text-align: center;
   font-size: 17px;
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
 `;

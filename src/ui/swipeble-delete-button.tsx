@@ -4,9 +4,7 @@ import styled from 'styled-components/native';
 interface SwipeableDeleteButtonProps {
   onPress(): void;
 }
-export const SwipeableDeleteButton: FC<SwipeableDeleteButtonProps> = ({
-  onPress,
-}) => {
+export const SwipeableDeleteButton: FC<SwipeableDeleteButtonProps> = ({ onPress }) => {
   return (
     <Button onPress={onPress}>
       <Text>Delete</Text>
@@ -16,7 +14,7 @@ export const SwipeableDeleteButton: FC<SwipeableDeleteButtonProps> = ({
 
 const Button = styled.TouchableOpacity`
   padding: 8px 15px;
-  background-color: ${props => props.theme.colors.red};
+  background-color: ${(props) => props.theme.colors.red};
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -24,5 +22,5 @@ const Button = styled.TouchableOpacity`
 
 const Text = styled.Text`
   font-size: 17px;
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
 `;

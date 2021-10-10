@@ -32,7 +32,8 @@ export const Tubs: FC<TubsProps> = ({
         <TubsItem
           onPress={() => setNumOfView(index)}
           isActive={index === NumOfView}
-          key={index}>
+          key={index}
+        >
           <TubsText isActive={index === NumOfView}>{item}</TubsText>
           <SubscribedCounter
             visible={item === 'subscribed'}
@@ -48,11 +49,11 @@ const TubsItem = styled.TouchableOpacity<TubsItemProps>`
   flex: 1;
   border-style: solid;
   border-bottom-width: 2px;
-  border-color: ${props => (props.isActive ? '#72a8bc' : '#72a8bc00')};
+  border-color: ${(props) => (props.isActive ? '#72a8bc' : '#72a8bc00')};
 `;
 
 const TubsText = styled.Text<TubsTextProps>`
-  color: ${props => (props.isActive ? '#72a8bc' : '#c8c8c8')};
+  color: ${(props) => (props.isActive ? '#72a8bc' : '#c8c8c8')};
   font-size: 17px;
   display: flex;
   text-align: center;

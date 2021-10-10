@@ -8,10 +8,7 @@ interface CheckBoxProps {
   ChangeState(arg0: boolean): void;
 }
 
-export const CheckBox: FC<CheckBoxProps> = ({
-  checked,
-  ChangeState,
-}: CheckBoxProps) => {
+export const CheckBox: FC<CheckBoxProps> = ({ checked, ChangeState }: CheckBoxProps) => {
   const toggleState = () => ChangeState(!checked);
   return checked ? (
     <CheckContainer onPress={toggleState}>

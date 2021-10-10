@@ -5,12 +5,10 @@ import { Prayer } from './state';
 
 const selectData = (state: RootState) => state.prayersReducer;
 
-export const selectPrayerData = createSelector(selectData, data =>
-  Object.values(data),
-);
+export const selectPrayerData = createSelector(selectData, (data) => Object.values(data));
 
 export const getPrayersByColumnId = (columnId: number) =>
-  createSelector(selectData, data => {
+  createSelector(selectData, (data) => {
     const prayers: Record<string, Prayer> = {};
 
     for (const key in data) {

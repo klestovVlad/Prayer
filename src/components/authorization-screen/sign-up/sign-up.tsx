@@ -14,5 +14,5 @@ export const SignUp: FC = () => {
 const Container = styled.View`
   margin-top: 0px;
   flex: 1;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
 `;

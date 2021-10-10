@@ -6,7 +6,7 @@ interface NewColumnInputProps extends FieldRenderProps<string> {
   placeholder: string;
 }
 
-export const InputField: FC<NewColumnInputProps> = props => {
+export const InputField: FC<NewColumnInputProps> = (props) => {
   return (
     <Input
       {...props}
@@ -23,9 +23,9 @@ interface InputProps {
 
 const Input = styled.TextInput<InputProps>`
   border-bottom-width: 3px;
-  border-color: ${props =>
+  border-color: ${(props) =>
     props.validateError ? props.theme.colors.red : props.theme.colors.grey};
   padding: 15px;
-  color: ${props => props.theme.colors.dark};
+  color: ${(props) => props.theme.colors.dark};
   margin: 0 15px 0 15px;
 `;

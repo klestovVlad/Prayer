@@ -42,12 +42,7 @@ const store = configureStore({
 const persistor = persistStore(store);
 
 function* rootWatcher() {
-  yield all([
-    userWatcher(),
-    columnsWatcher(),
-    prayersWatcher(),
-    commentsWatcher(),
-  ]);
+  yield all([userWatcher(), columnsWatcher(), prayersWatcher(), commentsWatcher()]);
 }
 
 sagaMiddleware.run(rootWatcher);

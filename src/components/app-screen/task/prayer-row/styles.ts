@@ -9,9 +9,9 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
   margin: 0 15px;
   padding: 25px 0;
   border-style: solid;
-  border-bottom-width: ${props => (props.answered ? 0 : 2)}px;
-  border-top-width: ${props => (props.answered ? 2 : 0)}px;
-  border-color: ${props => props.theme.colors.grey};
+  border-bottom-width: ${(props) => (props.answered ? 0 : 2)}px;
+  border-top-width: ${(props) => (props.answered ? 2 : 0)}px;
+  border-color: ${(props) => props.theme.colors.grey};
   display: flex;
   flex-direction: row;
 `;
@@ -20,7 +20,7 @@ export const VerticalLine = styled.View`
   margin-right: 15px;
   width: 3px;
   height: 22px;
-  background-color: ${props => props.theme.colors.red};
+  background-color: ${(props) => props.theme.colors.red};
   border-radius: 3px;
 `;
 
@@ -30,11 +30,11 @@ export interface TextProps {
 
 export const Text = styled.Text<TextProps>`
   font-size: 17px;
-  color: ${props => props.theme.colors.dark};
+  color: ${(props) => props.theme.colors.dark};
   padding: 0;
   transform: translateY(-3px);
   margin-left: 15px;
-  text-decoration: ${props => (props.answered ? 'line-through' : 'none')};
+  text-decoration: ${(props) => (props.answered ? 'line-through' : 'none')};
 `;
 
 export const IconsContainer = styled.View`
@@ -49,7 +49,7 @@ export const IconsContainer = styled.View`
 
 export const Number = styled.Text`
   font-size: 12px;
-  color: ${props => props.theme.colors.dark};
+  color: ${(props) => props.theme.colors.dark};
   margin: 0 5px;
   min-width: 15px;
 `;

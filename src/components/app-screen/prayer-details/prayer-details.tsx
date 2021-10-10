@@ -37,10 +37,7 @@ export const PrayerDetails: FC<PrayerDetailsProps> = ({ route }) => {
         <Members />
         <Comments comments={comments} />
       </ScrollView>
-      <AddNewComment
-        columnId={route.params.columnId}
-        prayerId={route.params.prayerId}
-      />
+      <AddNewComment columnId={route.params.columnId} prayerId={route.params.prayerId} />
     </Container>
   );
 };
