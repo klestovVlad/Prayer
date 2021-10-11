@@ -3,7 +3,9 @@ export interface UserData {
   id: number;
   name: string;
   token: string;
-  loading: boolean;
+  isLoading: boolean;
+  isError: boolean;
+  errors: string[];
 }
 
 export const initialState: UserData = {
@@ -11,16 +13,10 @@ export const initialState: UserData = {
   id: 0,
   name: '',
   token: '',
-  loading: false,
+  isError: false,
+  isLoading: false,
+  errors: [],
 };
-
-export interface SignIn {
-  email: string;
-  id: number;
-  name: string;
-  token: string;
-  loading: boolean;
-}
 
 export interface SignError {
   message: string;

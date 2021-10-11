@@ -3,7 +3,7 @@ import { Animated } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { useDispatch } from 'react-redux';
 
-import { commentsAction } from '../../../../store/comments/slice';
+import { deleteCommentAction } from '../../../../store/comments';
 import { timeFromNow } from '../../../../ui/functions/time-from-now';
 import { twoLetterFromName } from '../../../../ui/functions/two-letter-from-name';
 import { SwipeableDeleteButton } from '../../../../ui/swipeble-delete-button';
@@ -36,9 +36,7 @@ export const CommentRow: FC<CommentRowProps> = ({ text, createdTime, commentId }
     });
     return (
       <Animated.View style={{ transform: [{ translateX: trans }] }}>
-        <SwipeableDeleteButton
-          onPress={() => dispatch(commentsAction.deleteCommentRequest(commentId))}
-        />
+        <SwipeableDeleteButton onPress={() => dispatch(deleteCommentAction(commentId))} />
       </Animated.View>
     );
   };

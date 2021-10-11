@@ -1,28 +1,40 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
+import { UserActionTypes } from './action-types';
 import { signInQuery, signUpQuery } from './axios';
 import { UserAction } from './slice';
 import { SignInRequest, SignUpRequest } from './state';
 
 function* signIn(action: PayloadAction<SignInRequest>) {
-  const { data } = yield call(() => signInQuery(action.payload));
-  if (Object.prototype.hasOwnProperty.call(data, 'message')) {
-    yield put(UserAction.signError(data.message));
-  } else {
+  try {
+    yield put(UserAction.setUserLoading(true));
+    const { data } = yield call(() => signInQuery(action.payload));
     yield put(UserAction.signIn(data));
+  } catch (e) {
+    if (e instanceof Error) {
+      yield put(UserAction.setUserError(e.message));
+    }
+  } finally {
+    yield put(UserAction.setUserLoading(false));
   }
 }
 
 function* signUp(action: PayloadAction<SignUpRequest>) {
-  const { data } = yield call(() => signUpQuery(action.payload));
-  if (Object.prototype.hasOwnProperty.call(data, 'message')) {
-    yield put(UserAction.signError(data.message));
+  try {
+    yield put(UserAction.setUserLoading(true));
+    const { data } = yield call(() => signUpQuery(action.payload));
+    yield put(UserAction.signUp(data));
+  } catch (e) {
+    if (e instanceof Error) {
+      yield put(UserAction.setUserError(e.message));
+    }
+  } finally {
+    yield put(UserAction.setUserLoading(false));
   }
-  yield put(UserAction.signUp(data));
 }
 
 export function* userWatcher() {
-  yield takeLatest(UserAction.signInRequest.type, signIn);
-  yield takeLatest(UserAction.signUpRequest.type, signUp);
+  yield takeLatest(UserActionTypes.SIGN_IN, signIn);
+  yield takeLatest(UserActionTypes.SIGN_UP, signUp);
 }

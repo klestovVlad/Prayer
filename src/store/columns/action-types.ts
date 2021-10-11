@@ -1,3 +1,6 @@
-export interface AddNewColumn {
-  title: string;
+export enum ColumnsActionTypes {
+  GET_INITIAL_STATE = 'COLUMNS/GET_INITIAL_STATE',
+  GET_COLUMNS = 'COLUMNS/GET_COLUMNS',
+  ADD_NEW_COLUMN = 'COLUMNS/ADD_NEW_COLUMN',
+  DELETE_COLUMN = 'COLUMNS/DELETE_COLUMN',
 }

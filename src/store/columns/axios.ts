@@ -12,6 +12,5 @@ export const deleteColumnPost = (columnId: number) => {
 };
 
 export const addNewColumnPost = (title: string) => {
-  // return Columns.columnsControllerCreate({title, description: ''});
   return Api.post('columns', { title, description: '' });
 };

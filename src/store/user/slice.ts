@@ -1,33 +1,29 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Alert } from 'react-native';
 
-import { initialState, SignError, SignIn, SignInRequest } from './state';
+import { initialState, UserData } from './state';
 
 const UserSlice = createSlice({
   name: 'UserSlice',
   initialState,
   reducers: {
-    signInRequest(state, { payload }: PayloadAction<SignInRequest>) {
-      state.loading = true;
-      return state;
+    setUserLoading(state, { payload }: PayloadAction<boolean>) {
+      state.isLoading = payload;
     },
-    signIn(state, { payload }: PayloadAction<SignIn>) {
+    signIn(state, { payload }: PayloadAction<UserData>) {
       return { ...payload, loading: false };
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    signUpRequest(state, { payload }: PayloadAction<SignInRequest>) {
-      state.loading = true;
-    },
-    signUp(state, { payload }: PayloadAction<SignIn>) {
+    signUp(state, { payload }: PayloadAction<UserData>) {
       return { ...payload, loading: false };
     },
-    signError(state, { payload }: PayloadAction<SignError>) {
-      state.loading = false;
-      if (payload.toString().includes('Could not find any entity of type "Users"')) {
+    setUserError(state, { payload }: PayloadAction<string>) {
+      if (payload.includes('Could not find any entity of type "Users"')) {
         Alert.alert('The username or password that you have entered is invalid.');
       } else {
         Alert.alert(payload.toString());
       }
+      state.errors.push(payload);
+      state.isError = true;
     },
     logout(state) {
       state.token = '';

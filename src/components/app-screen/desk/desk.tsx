@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { getInitialStateAction } from '../../../store/columns';
 import { selectColumnData } from '../../../store/columns/selectors';
-import { columnAction } from '../../../store/columns/slice';
 import { AppHeader } from '../header/app-header';
 import { InputNewTask } from './input-new-task/input-new-task';
 import { Container, ScrollView } from './styles';
@@ -12,7 +12,7 @@ import { TaskRow } from './task-row/task-row';
 export const Desk: FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(columnAction.initialStateRequest());
+    dispatch(getInitialStateAction());
   }, [dispatch]);
 
   const data = useSelector(selectColumnData);

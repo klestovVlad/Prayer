@@ -4,7 +4,7 @@ import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 
-import { prayerAction } from '../../../../store/prayers/slice';
+import { addNewPrayerAction } from '../../../../store/prayers/actions';
 import { AddIcon } from '../../../../ui/icons/add-icon';
 import { NewPrayerInput } from './input-form/input-form';
 import { Container, IconContainer } from './styles';
@@ -19,7 +19,7 @@ export const InputNewPrayer: FC<InputNewPrayerProps> = ({
   const dispatch = useDispatch();
 
   const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {
-    dispatch(prayerAction.addNewPrayerRequest({ title: values.title, columnId }));
+    dispatch(addNewPrayerAction({ title: values.title, columnId }));
     form.reset();
   };
 

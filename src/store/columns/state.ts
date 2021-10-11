@@ -8,4 +8,20 @@ export interface Columns {
   prayers: Record<string, Prayer>[];
 }
 
-export const initialState: Record<string, Columns> = {};
+export interface ColumnsData {
+  data: Record<string, Columns>;
+  errors: string[];
+  isError: boolean;
+  isLoading: boolean;
+}
+
+export const initialState: ColumnsData = {
+  data: {},
+  errors: [],
+  isError: false,
+  isLoading: false,
+};
+
+export interface AddNewColumn {
+  title: string;
+}

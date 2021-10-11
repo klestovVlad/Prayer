@@ -1,30 +1,61 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { addNewCommentRequest } from './action-types';
+import { CommentsActionTypes } from './action-types';
 import { commentsQuery, deleteCommentPost, newCommentPost } from './axios';
 import { commentsAction } from './slice';
+import { addNewCommentRequest } from './state';
 
 function* getComments() {
-  const { data } = yield call(() => commentsQuery());
-  yield put(commentsAction.setComments(data));
+  try {
+    yield put(commentsAction.setCommentsLoading(true));
+
+    const { data } = yield call(() => commentsQuery());
+    yield put(commentsAction.setComments(data));
+  } catch (e) {
+    if (e instanceof Error) {
+      yield put(commentsAction.setCommentsError(e.message));
+    }
+  } finally {
+    yield put(commentsAction.setCommentsLoading(false));
+  }
 }
 
 function* addNewComment(action: PayloadAction<addNewCommentRequest>) {
-  const { title, prayerId } = action.payload;
-  const { data } = yield call(() => newCommentPost(prayerId, title));
-  data.prayerId = prayerId;
-  yield put(commentsAction.addNewComment(data));
+  try {
+    yield put(commentsAction.setCommentsLoading(true));
+
+    const { title, prayerId } = action.payload;
+    const { data } = yield call(() => newCommentPost(prayerId, title));
+    data.prayerId = prayerId;
+    yield put(commentsAction.addNewComment(data));
+  } catch (e) {
+    if (e instanceof Error) {
+      yield put(commentsAction.setCommentsError(e.message));
+    }
+  } finally {
+    yield put(commentsAction.setCommentsLoading(false));
+  }
 }
 
 function* deleteComment(action: PayloadAction<number>) {
-  const commentId = action.payload;
-  yield call(() => deleteCommentPost(commentId));
-  yield put(commentsAction.deleteComment(commentId));
+  try {
+    yield put(commentsAction.setCommentsLoading(true));
+
+    const commentId = action.payload;
+    yield call(() => deleteCommentPost(commentId));
+    yield put(commentsAction.deleteComment(commentId));
+  } catch (e) {
+    if (e instanceof Error) {
+      yield put(commentsAction.setCommentsError(e.message));
+    }
+  } finally {
+    yield put(commentsAction.setCommentsLoading(false));
+  }
 }
 
 export function* commentsWatcher() {
-  yield takeLatest(commentsAction.commentRequest.type, getComments);
-  yield takeLatest(commentsAction.addNewCommentRequest.type, addNewComment);
-  yield takeLatest(commentsAction.deleteCommentRequest.type, deleteComment);
+  yield takeLatest(CommentsActionTypes.GET_COMMENTS, getComments);
+  yield takeLatest(CommentsActionTypes.ADD_NEW_COMMENT, addNewComment);
+  yield takeLatest(CommentsActionTypes.DELETE_COMMENTS, deleteComment);
 }

@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Field, Form, FormProps } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
-import { commentsAction } from '../../../../store/comments/slice';
+import { addNewCommentAction } from '../../../../store/comments/';
 import { CommentIcon } from '../../../../ui/icons/comment-icon';
 import { CommentInput } from './input-form/input-form';
 import { Container } from './styles';
@@ -12,10 +12,10 @@ interface AddNewCommentProps {
   prayerId: number;
 }
 
-export const AddNewComment: FC<AddNewCommentProps> = ({ columnId, prayerId }) => {
+export const AddNewComment: FC<AddNewCommentProps> = ({ prayerId }) => {
   const dispatch = useDispatch();
   const onSubmitForm = (values: FormProps, form: FormApi<FormProps>) => {
-    dispatch(commentsAction.addNewCommentRequest({ title: values.title, prayerId }));
+    dispatch(addNewCommentAction({ title: values.title, prayerId }));
     form.reset();
   };
   return (

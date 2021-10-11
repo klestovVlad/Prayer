@@ -1,38 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import {
-  AddNewPrayer,
-  AddNewPrayerRequest,
-  ChangePraуerRequest,
-  GetSinglePrayer,
-} from './action-types';
+import { AddNewPrayer, GetSinglePrayer } from './state';
 import { initialState, Prayer } from './state';
 
 const stateSlice = createSlice({
   name: 'prayerSlice',
   initialState,
   reducers: {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    prayersRequest(state) {},
+    setPrayersLoading(state, { payload }: PayloadAction<boolean>) {
+      state.isLoading = payload;
+    },
     setPrayers(state, { payload }: PayloadAction<Prayer[]>) {
-      return payload.reduce((accum: Record<string, Prayer>, prayer) => {
+      state.data = payload.reduce((accum: Record<string, Prayer>, prayer) => {
         accum[prayer.id] = prayer;
         accum[prayer.id].comments = [];
         return accum;
       }, {});
+      state.isError = false;
+      state.errors = [];
     },
-
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    changePraуerRequest(state, payload: PayloadAction<ChangePraуerRequest>) {},
     getSinglePrayer(state, { payload }: PayloadAction<GetSinglePrayer>) {
       const { data } = payload;
-      state[data.id] = data;
+      state.data[data.id] = data;
     },
-
-    addNewPrayerRequest(
-      state,
-      { payload }: PayloadAction<AddNewPrayerRequest>, // eslint-disable-next-line @typescript-eslint/no-empty-function
-    ) {},
     addNewPrayer(state, { payload }: PayloadAction<AddNewPrayer>) {
       const { data } = payload;
       const prayer: Prayer = {
@@ -43,13 +33,14 @@ const stateSlice = createSlice({
         columnId: data.columnId,
         comments: [],
       };
-      state[prayer.id] = prayer;
+      state.data[prayer.id] = prayer;
     },
-
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    deletePrayerRequest(state, { payload }: PayloadAction<number>) {},
     deletePrayer(state, { payload }: PayloadAction<number>) {
-      delete state[payload];
+      delete state.data[payload];
+    },
+    setPrayersError(state, { payload }: PayloadAction<string>) {
+      state.errors.push(payload);
+      state.isError = true;
     },
   },
 });

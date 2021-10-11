@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components/native';
 
-import { UserAction } from '../../../store/user/slice';
+import { signInAction } from '../../../store/user/';
 import { InputField } from '../../../ui/form/input-field';
 import { validateEmail, validateInput } from '../../../ui/functions/validation';
 import { SignButton } from '../../../ui/sign-button';
@@ -23,7 +23,7 @@ export const LoginForm: FC = () => {
 
   const onSubmitForm = (values: FormProps) => {
     dispatch(
-      UserAction.signInRequest({
+      signInAction({
         email: values.email,
         password: values.password,
       }),

@@ -1,24 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { AddNewComment, addNewCommentRequest } from './action-types';
+import { AddNewComment } from './state';
 import { Comment, initialState } from './state';
 
 const stateSlice = createSlice({
   name: 'commentsSlice',
   initialState,
   reducers: {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    commentRequest(state) {},
+    setCommentsLoading(state, { payload }: PayloadAction<boolean>) {
+      state.isLoading = payload;
+    },
     setComments(state, { payload }: PayloadAction<Comment[]>) {
-      return payload.reduce((accum: Record<string, Comment>, prayer) => {
+      state.data = payload.reduce((accum: Record<string, Comment>, prayer) => {
         accum[prayer.id] = prayer;
         return accum;
       }, {});
+      state.isError = false;
+      state.errors = [];
     },
-    addNewCommentRequest(
-      state,
-      { payload }: PayloadAction<addNewCommentRequest>, // eslint-disable-next-line @typescript-eslint/no-empty-function
-    ) {},
     addNewComment(state, { payload }: PayloadAction<AddNewComment>) {
       const newComment = {
         body: payload.body,
@@ -28,13 +27,14 @@ const stateSlice = createSlice({
         userId: payload.user.id,
       };
 
-      state[payload.id] = newComment;
-    },
-    deleteCommentRequest(state, { payload }: PayloadAction<number>) {
-      console.log(payload);
+      state.data[payload.id] = newComment;
     },
     deleteComment(state, { payload }: PayloadAction<number>) {
-      delete state[payload];
+      delete state.data[payload];
+    },
+    setCommentsError(state, { payload }: PayloadAction<string>) {
+      state.errors.push(payload);
+      state.isError = true;
     },
   },
 });

@@ -7,7 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 
 import { getCommentsByPrayerId } from '../../../../store/comments/selectors';
-import { prayerAction } from '../../../../store/prayers/slice';
+import {
+  changePrayerAction,
+  deletePrayerAction,
+} from '../../../../store/prayers/actions';
 import { Prayer } from '../../../../store/prayers/state';
 import { CheckBox } from '../../../../ui/check-box';
 import { trimTextIfItIsLong } from '../../../../ui/functions/trim-text-if-it-is-long';
@@ -50,9 +53,7 @@ export const PrayerRow: FC<PrayerRowProsp> = ({ prayer }: PrayerRowProsp) => {
     });
     return (
       <Animated.View style={{ transform: [{ translateX: trans }] }}>
-        <SwipeableDeleteButton
-          onPress={() => dispatch(prayerAction.deletePrayerRequest(prayer.id))}
-        />
+        <SwipeableDeleteButton onPress={() => dispatch(deletePrayerAction(prayer.id))} />
       </Animated.View>
     );
   };
@@ -73,7 +74,7 @@ export const PrayerRow: FC<PrayerRowProsp> = ({ prayer }: PrayerRowProsp) => {
           checked={prayer.checked}
           ChangeState={() =>
             dispatch(
-              prayerAction.changePraуerRequest({
+              changePrayerAction({
                 id: prayer.id,
                 title: prayer.title,
                 checked: !prayer.checked,
